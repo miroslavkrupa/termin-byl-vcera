@@ -10,9 +10,16 @@
 2. **Vždy v příběhu.** Nikdy „teď si zahrajeme hru o WBS“, vždy „slon blokuje bránu hangáru“.
 3. **Výsledek není jen výhra/prohra.** Kvalita výsledku se propisuje do stavových proměnných
    a do příběhu.
-4. **Přeskočitelná.** Kdo minihru přeskočí, pokračuje s horším výsledkem v příběhu, nikdy neuvízne.
+4. **Vždy přeskočitelná, ale hrát se vyplatí.** Kdo minihru přeskočí, pokračuje s horším
+   výsledkem v příběhu, nikdy neuvízne. Kdo ji hraje, dostane navíc: lepší výsledek, vtipy a scény,
+   které jinde nejsou, repliky do souboje argumenty, předměty usnadňující pozdější puzzly a úspěchy
+   (achievementy).
 5. **Bez textových lekcí.** Pojem se odemkne v Deníku až po dohrání.
 6. **Papírový prototyp první.** Kartičky a kostky na stole, 3–5 testerů, teprve potom kód.
+7. **Zábavná i bez znalosti PM.** Pravidla se musí dát pochopit ze scény. V rozhraní minihry
+   nejsou odborné pojmy (ne „WBS“, ale „porcování slona“). Testovat i na hráčích, kteří o PM nic neví.
+8. **Bez jazykových hříček v pravidlech.** Minihra musí fungovat stejně v angličtině i češtině.
+9. **Hratelná myší i prstem.** Žádné ovládání závislé na najetí myší, dost velké prvky na dotyk.
 
 ## Přehled
 

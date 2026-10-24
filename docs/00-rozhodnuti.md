@@ -1,0 +1,28 @@
+# Záznam rozhodnutí
+
+> Co bylo rozhodnuto, kdy a co z toho plyne. Nové rozhodnutí se přidává na konec, staré se nemaže:
+> když se změní, přidá se nový řádek, který ho nahrazuje.
+
+| # | Datum | Rozhodnutí | Důsledky | Kde se projevuje |
+|---|---|---|---|---|
+| D01 | 2026-10-25 | Samostatný projekt, nezávislý na Projektové alchymii | vlastní repozitář `termin-byl-vcera` | – |
+| D02 | 2026-10-25 | Cílová skupina: co nejširší publikum milovníků adventur | výuka musí být nenásilná, žádné odborné pojmy nevyžádaně, humor ve dvou vrstvách | [vize](01-vize.md), [matice](02-vyukova-matice.md), [minihry](04-minihry.md) |
+| D03 | 2026-10-25 | Angličtina a čeština vždy zároveň | transkreace vtipů, jména v obou jazycích, puzzly bez jazykových hříček, texty v tabulkách | [vize](01-vize.md), [produkce](05-produkce.md) |
+| D04 | 2026-10-25 | Platformy: PC, Mac, mobily (Android, iOS) | ovládání myší i dotykem, nic nesmí záviset na najetí myší (hover) | [produkce](05-produkce.md) |
+| D05 | 2026-10-25 | Hra zdarma s možností dobrovolného příspěvku | ověřit pravidla příspěvků na jednotlivých platformách | [produkce](05-produkce.md) |
+| D06 | 2026-10-25 | Grafika přes AI, připravená na pozdější výměnu | stylová bible, pevná pravidla pro soubory, logika scén oddělená od obrázků | [produkce](05-produkce.md) |
+| D07 | 2026-10-25 | Dabing zatím ne, připravit na pozdější přidání | každá replika má stabilní ID a údaj o mluvčím a emoci, titulky vždy | [produkce](05-produkce.md) |
+| D08 | 2026-10-25 | Autor sám, bez rozpočtu, pro radost a potenciálně pro výuku | rozsah ověřit vertical slice, vydávat po kapitolách | [produkce](05-produkce.md) |
+| D09 | 2026-10-25 | Texty první verze píše autor spolu s Claudem v obou jazycích | – | [vize](01-vize.md) |
+| D10 | 2026-10-25 | Fér obtížnost puzzlů a vypínatelná nápověda | nápověda Prof. Pemboka ve stupních | [vize](01-vize.md) |
+| D11 | 2026-10-25 | PEGI 12; tvrdší vtip jen se skvělou pointou | – | [vize](01-vize.md), [bible](03-pribehova-bible.md) |
+| D12 | 2026-10-25 | Minihry jdou vždy přeskočit, ale hrát je se musí vyplatit | odměny za dohrání navíc k horšímu výsledku při přeskočení | [minihry](04-minihry.md) |
+| D13 | 2026-10-25 | Romantická linka Ruda–Bára: ano | linka spjatá s Rudovým vývojem a Bářinou důvěrou | [bible](03-pribehova-bible.md) |
+| D14 | 2026-10-25 | Hratelné úseky za Báru: ano | víc obsahu; Bára řeší puzzly jinak než Ruda | [bible](03-pribehova-bible.md) |
+| D15 | 2026-10-25 | Jména postav, míst i název hry v obou jazycích | návrhy anglických jmen v tabulce bible | [bible](03-pribehova-bible.md) |
+| D16 | 2026-10-25 | Dokumentace v češtině | – | – |
+| D17 | 2026-10-25 | Učitelský režim zatím odložen | matice zůstává interním nástrojem autorů | [matice](02-vyukova-matice.md) |
+
+## Čeká na rozhodnutí
+
+- Předseda Věčný: jasný záporák od začátku, nebo zvrat ve 4. kapitole? Doladit podle podrobností příběhu.

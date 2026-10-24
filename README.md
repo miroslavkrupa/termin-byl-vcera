@@ -5,8 +5,12 @@
 Sebestředný projektový manažer **Ruda Gantt** musí dokončit Archu dřív, než na město Nedostavěnice,
 kde nebylo nikdy nic dokončeno, dopadne kometa **Deadline**. Hra je ve stylu *Deponie*: sarkastický
 antihrdina, absurdní svět, fér puzzly a rozhodnutí, která se vracejí o kapitoly později.
-Mimochodem učí projektové řízení – iniciaci, plánování, Scrum, řízení rizik a změn, komunikaci
-se stakeholdery – a to mechanikami a minihrami, ne přednáškami.
+Mimochodem a nenásilně učí projektové řízení – iniciaci, plánování, Scrum, řízení rizik a změn,
+komunikaci se stakeholdery – a to mechanikami a minihrami, ne přednáškami.
+
+Hra je pro **co nejširší publikum** milovníků adventur a vzniká **v angličtině i češtině zároveň**
+(anglicky pracovně *Deadline Was Yesterday*). Bude **zdarma** s možností dobrovolného příspěvku,
+pro **PC, Mac a mobily**.
 
 > Stav: **návrh** (pracovní název, žádný kód zatím neexistuje)
 
@@ -14,10 +18,12 @@ se stakeholdery – a to mechanikami a minihrami, ne přednáškami.
 
 | Dokument | Obsah |
 |---|---|
+| [Záznam rozhodnutí](docs/00-rozhodnuti.md) | co bylo rozhodnuto, kdy a co z toho plyne |
 | [Vize](docs/01-vize.md) | návrh na jednu stránku: pilíře, cílová skupina, co si hráč odnese, co hra není |
 | [Výuková matice](docs/02-vyukova-matice.md) | PM témata → kapitola → mechanika → důkaz pochopení; pokrytí domén PMBOK |
 | [Příběhová bible](docs/03-pribehova-bible.md) | svět, postavy, dějový oblouk, osnova kapitol, stavové proměnné, následky, konce |
 | [Minihry](docs/04-minihry.md) | 12 miniher inspirovaných PM metodami, zásady, specifikace, šablona |
+| [Produkce](docs/05-produkce.md) | rozsah pro jednoho autora, platformy a ovládání, příspěvky, AI grafika, příprava na dabing, jazyky |
 
 ## Postup návrhu
 
@@ -33,4 +39,5 @@ se stakeholdery – a to mechanikami a minihrami, ne přednáškami.
 ## Technologie (návrh)
 
 Godot 4 + Popochiu (framework pro point & click adventury), dialogy v Ink nebo Dialogue Manageru,
-texty oddělené od kódu kvůli překladu. ❓ Rozhodnout po ujasnění platformy.
+texty v tabulkách řetězců. Godot exportuje na Windows, macOS, Android, iOS i do prohlížeče.
+❓ Ověřit dotykové ovládání v Popochiu.

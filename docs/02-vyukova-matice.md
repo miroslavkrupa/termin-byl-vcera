@@ -66,8 +66,14 @@
 - Jedno téma by mělo mít aspoň jeden **opožděný následek** (R), aby se lekce prožila dvakrát.
 - Kapitola má nejvýš 2–3 minihry. Zbytek učí puzzly, dialogy a rozhodnutí.
 - Pojem v deníku se odemkne až **po** zážitku, nikdy předem.
+- **Hra je pro široké publikum, výuka musí být nenásilná.** Odborné pojmy a názvy rámců se ve hře
+  samotné neobjevují. Matice je interní nástroj autorů, hráč ji nikdy nevidí.
+- **Deník projektového manažera je volitelný a nenápadný.** Nikdy se sám neotevírá a neupozorňuje
+  na sebe. Kdo o něj nestojí, nemusí o něm vůbec vědět.
+- Každé téma musí být nejdřív **zábavné jako hra** pro někoho, kdo o PM nic neví. Výukový efekt je
+  bonus, ne důvod, proč tam téma je.
 
 ## Otevřené otázky
 
-- [ ] Má učitelský režim ukládat a exportovat důkazy pochopení?
-- [ ] Které rámce pojmenovávat přímo a které jen nepřímo (např. PRINCE2)?
+- [x] Učitelský režim: zatím odložen (D17)
+- [ ] Mají se pojmy v Deníku jmenovat odborně (WBS, Scrum), nebo hravě s odborným názvem v závorce?

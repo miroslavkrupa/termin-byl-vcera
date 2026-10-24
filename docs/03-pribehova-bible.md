@@ -8,8 +8,11 @@
 
 - **Sarkasmus a antihrdina** po vzoru *Deponie*: Ruda je nesnesitelný, ale máme ho rádi, protože
   ho svět trestá víc než my.
-- **Humor z antivzorců:** každý gag stojí na něčem, co se v projektech opravdu děje. Kdo pracoval
-  na projektu, má se smát dvakrát.
+- **Humor z antivzorců ve dvou vrstvách:** každý gag stojí na něčem, co se v projektech opravdu
+  děje, ale musí fungovat i pro hráče, který na projektu nikdy nepracoval. Kdo projekty zažil,
+  má se smát dvakrát. Žádný vtip nesmí stát jen na znalosti odborného pojmu.
+- **Oba jazyky zároveň:** dialogy se píšou anglicky i česky souběžně a vtipy se pro každý jazyk
+  píšou zvlášť (transkreace). Jména postav s vtipem mají verzi pro každý jazyk (viz níže).
 - **Nikdy nekázat.** Svět se nesměje metodikám, ale lidem, kteří je používají bez rozumu.
 - Absurdní svět, ale vnitřně konzistentní: jeho pravidla platí pro puzzly i pro vtipy.
 
@@ -54,8 +57,12 @@ na rampě za městem od dob, kdy si na ni naposledy někdo vzpomněl.
 
 - Tichá inženýrka, která jediná ví, k čemu má Archa sloužit a co je hodnota. Nikdo se jí neptá.
 - Ruda ji zpočátku přehlíží. To, jak se k ní chová, je nejdůležitější skrytá proměnná hry.
-- Je hlasem rozumu a partnerkou ve dvojici (obdoba Goal v *Deponii*, ale bez romantické
-  povinnosti). ❓ Rozhodnout, zda romantická linka ano, nebo ne.
+- Je hlasem rozumu a partnerkou ve dvojici (obdoba Goal v *Deponii*).
+- **Romantická linka:** ano. Roste s Rudovým vývojem a Bářinou důvěrou. Bára se nezamiluje
+  do sebevědomého „hrdiny“, ale do člověka, který se naučí poslouchat. Linka může skončit
+  i nenaplněná, podle hráčových voleb.
+- **Hratelné úseky:** v některých kapitolách se hraje za Báru. Řeší puzzly jinak než Ruda:
+  ptá se, měří, ověřuje a nespoléhá na blafování. Je to nenápadný kontrast dvou stylů řízení.
 
 ### Předseda Věčný (antagonista)
 
@@ -63,6 +70,7 @@ na rampě za městem od dob, kdy si na ni naposledy někdo vzpomněl.
 - Nechce, aby Archa vzlétla, ale nikdy to neřekne nahlas. Sabotuje procesem: formuláři,
   schůzemi, změnovými požadavky a „ještě jednou analýzou“.
 - Vrchol: odhalení, že kometu Deadline zná léta a projekt držel ve „fázi 2“ úmyslně.
+- ❓ Nerozhodnuto: jasný záporák od začátku, nebo zvrat ve 4. kapitole. Doladit podle podrobností příběhu.
 
 ### Vedlejší postavy
 
@@ -184,9 +192,28 @@ na rampě za městem od dob, kdy si na ni naposledy někdo vzpomněl.
 - Radniční výtah vede vždy jen do půlky patra.
 - Rudův slovník manažerských frází, kterým nikdo nerozumí, včetně něj.
 
+## Jména v obou jazycích (pracovní)
+
+Jména postav, míst i název hry mají vlastní verzi v každém jazyce. Anglické návrhy jsou pracovní.
+
+| Čeština | Angličtina | Poznámka |
+|---|---|---|
+| Termín byl včera | Deadline Was Yesterday | název hry |
+| Nedostavěnice | ❓ (např. Unfinishedton, Phase Two) | město |
+| Ruda Gantt | ❓ Rudy Gantt | |
+| Bára Backlogová | ❓ Barbara Backlog | |
+| Předseda Věčný | ❓ Chairman Forever | |
+| Pan Změna | ❓ Mr. Change | |
+| Pepa „Dva dny“ | ❓ Joe „Two Days“ | |
+| Babička Pozemková | ❓ Granny Landsworth | |
+| Prof. Pembok | ❓ Prof. Pembok | |
+| Kočka Riziková | ❓ Risky the Cat | |
+| Hospoda U Odhadu | ❓ The Rough Estimate | hospoda |
+
 ## Otevřené otázky
 
-- [ ] Romantická linka Ruda–Bára: ano, nebo ne?
+- [ ] Jména v angličtině (tabulka výše)
 - [ ] Jak moc otevřeně je Předseda záporák od začátku?
 - [ ] Přesné prahy stavových proměnných pro konce (vyladit při playtestech)
-- [ ] Hratelné úseky za Báru?
+- [ ] Ve kterých kapitolách a scénách se hraje za Báru?
+- [ ] Jak se romantická linka promítne do konců?

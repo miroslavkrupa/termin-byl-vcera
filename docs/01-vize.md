@@ -15,21 +15,29 @@ jménem Deadline – a hráč se mimochodem naučí řídit projekty.
 |---|---|
 | **Žánr** | 2D point & click adventura, komedie, s minihrami |
 | **Délka** | 8–12 hodin, prolog + 5 kapitol (cíl ověřit na vertical slice) |
-| **Jazyk** | čeština, texty oddělené od kódu kvůli pozdějšímu překladu (angličtina) |
-| **Platforma** | ❓ desktop / prohlížeč – rozhodnout |
-| **Cílová skupina** | ❓ studenti PM / profesionálové / běžní hráči adventur – rozhodnout |
+| **Jazyk** | ✅ angličtina a čeština, vždy oba jazyky zároveň (viz Jazyky) |
+| **Platforma** | ✅ PC (Windows), Mac a mobily (Android, iOS); ovládání myší i dotykem |
+| **Model** | ✅ zdarma, s možností dobrovolného příspěvku (donate) |
+| **Cílová skupina** | ✅ co nejširší publikum: všichni, kdo mají rádi adventury, bez ohledu na znalost PM |
+| **Hodnocení** | ✅ PEGI 12 |
+| **Grafika** | ✅ AI, připravená na pozdější výměnu za ručně kreslenou |
+| **Dabing** | ✅ zatím ne, hra připravená na jeho pozdější přidání |
+| **Tým** | ✅ autor sám (+ Claude jako spoluautor textů), bez rozpočtu, pro radost a potenciálně pro výuku |
 | **Engine** | doporučení: Godot 4 + Popochiu, dialogy v Ink nebo Dialogue Manageru |
+
+Podrobnosti k platformám, grafice, dabingu a jazykům jsou v [produkčních zásadách](05-produkce.md).
 
 ## Pilíře
 
 1. **Nejdřív hra, potom výuka.** Hraje se kvůli příběhu, postavám a humoru. Když minihra nebo
    puzzle nebaví, vyhodí se, i kdyby učily sebelépe.
-2. **Učí mechanika, ne text.** Žádné kvízy, přednášky ani vysvětlující okna uprostřed hry.
-   Lekci nese to, co hráč dělá, a to, co se mu pak stane.
+2. **Učí mechanika, ne text – nenásilně.** Žádné kvízy, přednášky ani vysvětlující okna uprostřed hry.
+   Lekci nese to, co hráč dělá, a to, co se mu pak stane. Hráč, který o projektovém řízení nikdy
+   neslyšel, si nesmí všimnout, že se něco učí. Odborné pojmy se ve hře neobjevují nevyžádaně.
 3. **Rozhodnutí mají váhu.** Volby se vracejí o kapitoly později. Hráč pozná, že to, co zanedbal
    v iniciaci, ho dohnalo v krizi.
 4. **Absurdní, ale fér.** Svět je praštěný, logika puzzlů musí jít zpětně obhájit. Rádce
-   s nápovědou hlídá, aby hráč nikdy neuvízl natrvalo.
+   s nápovědou (dá se vypnout) hlídá, aby hráč nikdy neuvízl natrvalo.
 
 ## Co si hráč odnese
 
@@ -42,6 +50,22 @@ jménem Deadline – a hráč se mimochodem naučí řídit projekty.
 ## Zážitek, o který usilujeme
 
 Po dohrání by hráč měl říct: *„Ruda je idiot – a já jsem v práci dělal přesně to samé.“*
+
+Humor má **dvě vrstvy**: první funguje pro každého (situace, postavy, absurdita), druhá je navíc
+pro ty, kdo projekty zažili. Žádný vtip nesmí stát jen na znalosti odborného pojmu.
+
+Míra humoru odpovídá **PEGI 12**: sarkasmus ano, vulgarity a krutost ne. Tvrdší vtip projde jen
+tehdy, když má skvělou pointu.
+
+## Jazyky
+
+- Každý text (dialogy, popisky, UI, názvy) vzniká **v angličtině i češtině zároveň**. Žádný jazyk
+  není překlad toho druhého a nic se nedodává jen v jednom jazyce.
+- **Vtipy se nepřekládají, ale píšou** pro každý jazyk zvlášť (transkreace). Slovní hříčka, která
+  v jednom jazyce nefunguje, se nahradí jinou se stejnou funkcí ve scéně.
+- Jména postav, míst a název hry mají vlastní verzi v každém jazyce, pokud nesou vtip.
+- Puzzly nesmějí stát na slovní hříčce jednoho jazyka; řešení musí fungovat v obou.
+- Technicky: všechny texty v tabulkách řetězců, nic natvrdo v kódu ani v obrázcích.
 
 ## Co hra není
 
@@ -57,8 +81,8 @@ puzzlů), *Papers, Please* (mechanika jako sdělení).
 
 ## Otevřené otázky
 
-- [ ] Cílová skupina a podle ní poměr humoru a výuky
-- [ ] Platforma: je běh v prohlížeči nutný kvůli výuce?
-- [ ] Kdo vyrobí grafiku a v jakém stylu
-- [ ] Dabing, nebo jen texty
-- [ ] Konečný název
+Rozhodnuté otázky jsou v [záznamu rozhodnutí](00-rozhodnuti.md).
+
+- [ ] Konečný název v obou jazycích (pracovně *Termín byl včera* / *Deadline Was Yesterday*)
+- [ ] Výtvarný styl (podklad pro AI: stylová bible a referenční listy postav)
+- [ ] Kanály distribuce a příspěvků (viz [produkční zásady](05-produkce.md))
