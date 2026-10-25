@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bsixr0413ff42"
+
+[deps]
+
+files=["res://texty/texty.cs.translation", "res://texty/texty.en.translation"]
+
+source_file="res://texty/texty.csv"
+dest_files=["res://texty/texty.cs.translation", "res://texty/texty.en.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

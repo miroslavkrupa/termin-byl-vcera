@@ -1,0 +1,14 @@
+keys,cs,en,_mluvci,_emoce,_poznamka
+postava_ruda,Ruda Gantt,Rudy Gantt,,,jméno v angličtině je pracovní (D15)
+ch1_hs_kasna,Kašna,Fountain,,,popisek aktivního místa
+ch1_hs_budka,Telefonní budka,Phone booth,,,popisek aktivního místa
+ch1_hs_dvere,Dveře radnice,Town hall door,,,popisek aktivního místa
+ch1_kasna_prohlednout,Kašna bez vody. Projekt „Voda v kašně“ je ve fázi 2 od roku 1994.,A fountain with no water. The 'Water in the Fountain' project has been in phase two since 1994.,Ruda,suše,
+ch1_kasna_pouzit_1,Hodím tam minci a přeju si hotový projekt.,I'll toss in a coin and wish for a finished project.,Ruda,slavnostně,
+ch1_kasna_pouzit_2,Mince cinkla o suché dno. Přání zamítnuto pro nedostatek vody.,The coin clinks on the dry bottom. Wish rejected due to insufficient water.,Ruda,zklamaně,
+ch1_budka_prohlednout,Telefonní budka. Jediná věc ve městě s jasně daným rozsahem: jeden hovor.,A phone booth. The only thing in town with a clearly defined scope: one call.,Ruda,uznale,
+ch1_budka_pouzit_1,Zavolám na linku pomoci.,I'll call the helpline.,Ruda,sebevědomě,
+ch1_budka_pouzit_2,„Vaše žádost je pro nás důležitá. Jste v pořadí číslo… čtyři tisíce osm set dvanáct.“,"""Your call is important to us. You are caller number... four thousand eight hundred and twelve.""",Ruda,cituje automat,4812 = počet obyvatel (běžecký vtip z kap. 1)
+ch1_budka_pouzit_3,"Celé město visí na lince. Aspoň vím, kde všichni jsou.",The whole town is on hold. At least I know where everyone is.,Ruda,pobaveně,
+ch1_dvere_prohlednout,"Vchod do radnice. Lešení je tu tak dlouho, že je nejspíš nosné.",The town hall entrance. The scaffolding's been up so long it's probably load-bearing.,Ruda,suše,
+ch1_dvere_zamceno,Zamčeno. Na cedulce stojí: „Úřední hodiny: příští fáze.“,"Locked. A little sign says: ""Office hours: next phase.""",Ruda,otráveně,v K5 se dveře otevřou do archivu

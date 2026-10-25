@@ -61,7 +61,8 @@ popochiu-skip={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://game/rooms/namesti/room_namesti.gd", "res://game/rooms/namesti/props/background/prop_background.gd", "res://game/characters/ruda/character_ruda.gd")
+locale/translations=PackedStringArray("res://texty/texty.cs.translation", "res://texty/texty.en.translation")
+locale/translations_pot_files=PackedStringArray("res://game/rooms/namesti/room_namesti.gd", "res://game/rooms/namesti/props/background/prop_background.gd", "res://game/characters/ruda/character_ruda.gd", "res://game/rooms/namesti/hotspots/kasna/hotspot_kasna.gd", "res://game/rooms/namesti/hotspots/budka/hotspot_budka.gd", "res://game/rooms/namesti/hotspots/dvere_radnice/hotspot_dvere_radnice.gd")
 
 [rendering]
 

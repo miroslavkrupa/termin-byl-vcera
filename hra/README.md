@@ -25,14 +25,17 @@ Všechny se spouštějí z kořene repozitáře.
 Založení objektu Popochiu bez editoru (příkazy a souřadnice jsou v hlavičce skriptu):
 
 ```bash
-godot --headless --path hra --script res://nastroje/vytvor.gd -- mistnost Archiv
+godot --headless --path hra -- vytvor mistnost Archiv
 ```
 
-Spuštění hry se snímkem obrazovky (pro ověřování; `dojdi` pošle hráčovu postavu na místo):
+Spuštění hry se snímkem obrazovky (pro ověřování; `dojdi` pošle hráčovu postavu na místo,
+`akce` klepne na aktivní místo, `jazyk` přepne jazyk):
 
 ```bash
-godot --path hra -- snimek=/tmp/snimek.png cekej=3 dojdi=1100,750 po=6
+godot --path hra -- snimek=/tmp/snimek.png jazyk=en cekej=3 akce=Budka:pouzit po=6
 ```
+
+Texty jsou v `texty/texty.csv`; každý řádek musí mít češtinu i angličtinu.
 
 Vyříznutí postavy z referenčního listu (odstraní bílé pozadí):
 

@@ -55,7 +55,7 @@ Každý krok končí něčím, co jde spustit a vyzkoušet. Ke každému se zap�
 |---|---|---|---|
 | **K0** | Instalace Godotu, stažení Popochiu, založení projektu, zapnutí pluginu a průvodce nastavením | autor instaluje a kliká v editoru, Claude připraví soubory a navede | prázdný projekt s Popochiu se spustí ✅ hotovo |
 | **K1** | Místnost Náměstí: pozadí, pochozí plocha, Ruda chodí kliknutím/klepnutím, zmenšuje se do hloubky, má stín | Claude kód a scény, autor doladí polygon pochozí plochy v editoru | Ruda dojde kamkoli na dlažbu a nevyjde mimo | ✅ hotovo (viz Průběh) |
-| **K2** | Aktivní místa: kašna (prohlédnout), telefonní budka (použít), dveře radnice (zatím zamčené) | Claude | popisky a reakce v obou jazycích |
+| **K2** | Aktivní místa: kašna (prohlédnout), telefonní budka (použít), dveře radnice (zatím zamčené) | Claude | popisky a reakce v obou jazycích | ✅ hotovo |
 | **K3** | Dialog se stánkem Pana Změny (hlas zpoza stánku), dvě volby, jedna z nich dá propisku | Claude | dialog proběhne v CZ i EN |
 | **K4** | Inventář: hrnek kávy + propiska → **kávové pero** | Claude, zástupné ikony | kombinování funguje a pero jde použít na Pana Změnu |
 | **K5** | Přechod do Archivu dveřmi radnice a zpět, v archivu jedno aktivní místo (kartotéka) | Claude, autor doladí pochozí plochu | přechod oběma směry, Ruda se objeví u dveří |
@@ -94,6 +94,29 @@ Godot 4.7.2 a Popochiu 2.2.1, šablona Simple Click ve vysokém rozlišení, 153
    test klikání proto nejde; ověřuje se přes `dojdi` a ručně (autor v editoru, F5), na telefonu v K8.
 3. **Statický obrázek při chůzi „klouže“.** Čeká se na K9 (animace).
 4. Bílý lem u konečků vlasů po vyříznutí je ve hře téměř neviditelný.
+
+### K2 – aktivní místa (hotovo)
+
+- Kašna, telefonní budka a dveře radnice: popisek při najetí, klepnutí = použít, pravé tlačítko
+  = prohlédnout. Ruda dojde na místo, otočí se a promluví.
+- **Tabulka řetězců `hra/texty/texty.csv`** (sloupce `keys`, `cs`, `en`, `_mluvci`, `_emoce`,
+  `_poznamka`; sloupce s podtržítkem Godot při importu vynechá). Popochiu texty replik i popisků
+  překládá samo, ve skriptech jsou jen ID řetězců. Tím je hotová i část kroku K6.
+- Nástroj na zakládání objektů teď běží uvnitř spuštěné hry (`godot --headless --path hra --
+  vytvor …`), protože skripty místností používají globální objekty Popochiu (C, E, R…).
+- Ladicí pomocník umí `akce=<AktivniMisto>:pouzit|prohlednout` a `jazyk=en`.
+
+**Poznatky:**
+1. **Písmo šablony bylo na mobil malé** (Open Sans 20 při rozlišení 1536 × 1024). Zvětšeno na 36
+   a replikám přidán tmavě hnědý obrys; na světlém pozadí jsou teď čitelné.
+2. **Písmo zatím není ve stylu hry.** Open Sans je neutrální; stylová bible typografii zatím
+   neřeší. Potřeba vybrat komiksové písmo s úplnou češtinou (licence OFL) a dát Rudovi vlastní
+   barvu textu. Ověřit na telefonu v K8.
+3. Šablona přidala pixelové písmo „Monkey Island 1991“, které nepoužíváme.
+4. **Popisek objektu byl useknutý** (zjistil autor při zkoušce v editoru): rámeček u spodního
+   okraje měl jen 35 px a po zvětšení písma se spodek ořízl. Rámeček je teď 80 px vysoký a 30 px
+   nad okrajem obrazovky. Popisek ale překrývá postavu, když stojí vpředu; zvážit popisek u kurzoru
+   nebo nahoře (rozhodnout po zkoušce na telefonu v K8).
 
 ## Rizika prototypu
 

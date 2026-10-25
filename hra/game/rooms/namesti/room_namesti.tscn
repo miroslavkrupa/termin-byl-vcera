@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" path="res://game/rooms/namesti/walkable_areas/dlazba/walkable_area_dlazba.tscn" id="2_m3dto"]
 [ext_resource type="Texture2D" path="res://grafika/mistnosti/namesti_den.png" id="3_pp1hi"]
 [ext_resource type="PackedScene" path="res://game/rooms/namesti/regions/hloubka/region_hloubka.tscn" id="4_pp1hi"]
+[ext_resource type="PackedScene" path="res://game/rooms/namesti/hotspots/kasna/hotspot_kasna.tscn" id="5_eluva"]
+[ext_resource type="PackedScene" path="res://game/rooms/namesti/hotspots/budka/hotspot_budka.tscn" id="6_oahb7"]
+[ext_resource type="PackedScene" path="res://game/rooms/namesti/hotspots/dvere_radnice/hotspot_dvere_radnice.tscn" id="7_tc4kd"]
 
 [node name="RoomNamesti" type="Node2D" unique_id=1362046152]
 script = ExtResource("1_xhamq")
@@ -23,6 +26,15 @@ position = Vector2(768, 512)
 texture = ExtResource("3_pp1hi")
 
 [node name="Hotspots" type="Node2D" parent="." unique_id=1536900053]
+
+[node name="Kasna" parent="Hotspots" unique_id=245226830 instance=ExtResource("5_eluva")]
+walk_to_point = Vector2(600, 845)
+
+[node name="Budka" parent="Hotspots" unique_id=1323111521 instance=ExtResource("6_oahb7")]
+walk_to_point = Vector2(1235, 790)
+
+[node name="DvereRadnice" parent="Hotspots" unique_id=1826390217 instance=ExtResource("7_tc4kd")]
+walk_to_point = Vector2(950, 748)
 
 [node name="Regions" type="Node2D" parent="." unique_id=1128713920]
 

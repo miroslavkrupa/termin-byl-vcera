@@ -97,7 +97,7 @@ bg_color = Color(0, 0, 0, 0.705882)
 
 [resource]
 default_font = ExtResource("6_d35rj")
-default_font_size = 20
+default_font_size = 36
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_disabled_color = Color(0.482353, 0.482353, 0.482353, 1)
 Button/colors/font_focus_color = Color(0.305882, 0.305882, 0.862745, 1)

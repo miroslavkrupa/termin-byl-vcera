@@ -1,5 +1,7 @@
 # Zakládá objekty Popochiu bez editoru, stejnými továrnami jako panel Popochiu v editoru.
-# Spuštění: godot --headless --path hra --script res://nastroje/vytvor.gd -- <příkaz> <argumenty>
+# Spuštění: godot --headless --path hra -- vytvor <příkaz> <argumenty>
+# Běží uvnitř hry (spouští ho nastroje/ladeni.gd), protože skripty hry používají globální
+# objekty Popochiu (C, E, R, I…), které existují jen ve spuštěné hře.
 #
 # Příkazy:
 #   mistnost <Nazev> [hlavni]                        místnost; „hlavni“ = spouští se jako první
@@ -11,17 +13,17 @@
 #   oblast <Mistnost> <Nazev> "<x,y x,y …>" [nahore dole]  oblast; s měřítky zmenšuje postavy do hloubky
 #
 # Po založení objektu je dobré otevřít projekt v editoru, aby se obnovil panel Popochiu.
-extends SceneTree
+extends RefCounted
 
 # Továrny Popochiu vracejí při úspěchu ResultCodes.SUCCESS (1), ne OK (0)
 const USPECH := ResultCodes.SUCCESS
 
 
-func _init() -> void:
-	var a := OS.get_cmdline_user_args()
+## Provede příkaz; vrací true při úspěchu.
+func spust(a: PackedStringArray) -> bool:
 	if a.size() < 2:
-		_konec("Chybí příkaz. Viz hlavička skriptu.")
-		return
+		push_error("Chybí příkaz. Viz hlavička skriptu.")
+		return false
 	var vysledek := USPECH
 	match a[0]:
 		"mistnost":
@@ -39,13 +41,13 @@ func _init() -> void:
 		"kulisa":
 			vysledek = _kulisa(a[1], a[2], a[3], _bod(a[4]) if a.size() > 4 else Vector2(-1, -1))
 		_:
-			_konec("Neznámý příkaz: %s" % a[0])
-			return
+			push_error("Neznámý příkaz: %s" % a[0])
+			return false
 	if vysledek != USPECH:
-		_konec("Nepodařilo se (kód %d)." % vysledek)
-		return
+		push_error("Nepodařilo se (kód %d)." % vysledek)
+		return false
 	print("Hotovo: %s %s" % [a[0], a[1]])
-	quit()
+	return true
 
 
 func _mistnost(nazev: String, hlavni: bool) -> int:
@@ -285,7 +287,3 @@ func _bod(text: String) -> Vector2:
 	var c := text.split(",")
 	return Vector2(float(c[0]), float(c[1]))
 
-
-func _konec(zprava: String) -> void:
-	push_error(zprava)
-	quit(1)

@@ -8,7 +8,7 @@
 script = ExtResource("1_7mwa3")
 scale = Vector2(0.44, 0.44)
 script_name = "Ruda"
-description = "Ruda"
+description = "postava_ruda"
 cursor = 8
 interaction_polygon = PackedVector2Array(-150, -990, 150, -990, 150, 0, -150, 0)
 dialog_pos = Vector2(0, -1060)

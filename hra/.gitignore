@@ -2,3 +2,6 @@
 .godot/
 # Exporty
 export/
+
+# Překlady vygenerované importem z texty/texty.csv
+*.translation
