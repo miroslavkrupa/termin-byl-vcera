@@ -104,6 +104,7 @@ na rampě za městem od dob, kdy si na ni naposledy někdo vzpomněl.
 - **Konec:** Ruda se dozví o kometě. Odpočet 30 dní začíná.
 
 ### Kapitola 1: Iniciace
+- **Podrobný návrh:** [kapitoly/01-iniciace.md](kapitoly/01-iniciace.md)
 - **Cíl:** zjistit, proč Archa existuje, kdo o ní rozhoduje, a sepsat charter.
 - **Puzzly:** dostat se ke sponzorovi přes Komisi; v archivu najít původní zadání (V02, V22).
 - **Minihry:** *Charter z trosek*, *Kdo tu vlastně velí*, první *Souboj argumenty*.

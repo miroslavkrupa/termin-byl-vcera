@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stylové ukázky</title>
+<style>
+  :root {
+    --bg: #f6f1e7; --card: #fffdf8; --text: #2b2118; --muted: #6f6152; --border: #e2d8c6;
+    --pick: #e8b827; --pick-text: #2b2118; --link: #8e4a2e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1c1814; --card: #26211b; --text: #efe6d8; --muted: #b3a593; --border: #3a3229; --link: #e8b827;
+    }
+  }
+  :root[data-theme="dark"] { --bg: #1c1814; --card: #26211b; --text: #efe6d8; --muted: #b3a593; --border: #3a3229; --link: #e8b827; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 1180px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 2rem; margin: 0 0 .25rem; }
+  h2 { font-size: 1.4rem; margin: 2.5rem 0 .75rem; }
+  h3 { margin: 0 0 .25rem; font-size: 1.25rem; }
+  p { margin: .5rem 0; }
+  .lead { color: var(--muted); max-width: 70ch; }
+  .note { background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--pick);
+    padding: 12px 16px; border-radius: 8px; max-width: 80ch; }
+  .variant { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 20px;
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px; margin: 20px 0; }
+  .variant.rec { outline: 3px solid var(--pick); }
+  .scene svg, .chars svg { width: 100%; height: auto; display: block; border-radius: 10px; }
+  .badge { display: inline-block; background: var(--pick); color: var(--pick-text); font-weight: 600;
+    font-size: .8rem; padding: 2px 10px; border-radius: 99px; margin-left: 6px; vertical-align: middle; }
+  .mood { color: var(--muted); margin: 0 0 .5rem; }
+  .swatches { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+  .sw { width: 64px; font-size: .7rem; color: var(--muted); text-align: center; }
+  .sw i { display: block; height: 34px; border-radius: 6px; border: 1px solid rgba(0,0,0,.15); margin-bottom: 2px; }
+  ul { margin: .25rem 0 .5rem; padding-left: 1.2rem; }
+  details { margin-top: 8px; }
+  summary { cursor: pointer; font-weight: 600; }
+  pre { white-space: pre-wrap; font-size: .78rem; background: var(--bg); border: 1px solid var(--border);
+    padding: 10px; border-radius: 8px; margin: 8px 0; }
+  button { font: inherit; font-size: .85rem; padding: 6px 12px; border-radius: 8px; border: 1px solid var(--border);
+    background: var(--card); color: var(--text); cursor: pointer; }
+  button:hover { border-color: var(--pick); }
+  .chars { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px; }
+  .chars .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .chars figcaption { color: var(--muted); font-size: .9rem; margin-top: 6px; }
+  .sil * { fill: #2b2118 !important; stroke: #2b2118 !important; }
+  #chars-sil { background: #efe6d8; border-radius: 10px; }
+  a { color: var(--link); }
+  ol li { margin: .3rem 0; }
+  @media (max-width: 800px) {
+    .variant, .chars .row { grid-template-columns: 1fr; }
+    h1 { font-size: 1.6rem; }
+  }
+  /* SVG kresba */
+  .o { stroke: var(--line); stroke-width: var(--lw); stroke-linejoin: round; stroke-linecap: round; }
+  .t { stroke: var(--line); stroke-width: calc(var(--lw) * .55); stroke-linejoin: round; stroke-linecap: round; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="wobble">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+</svg>
+
+<main>
+  <h1>Termín byl včera – stylové ukázky</h1>
+  <p class="note"><strong>Schváleno:</strong> varianta A jako hlavní styl, C pro večerní a krizové scény.</p>
+  <p class="lead">Tři varianty výtvarného stylu. Všechny vycházejí ze
+    <a href="../06-stylova-bible.md">stylové bible</a>: ručně malovaná komiksová 2D adventura,
+    hnědá proměnlivá linka, nic není rovné, motiv nedokončenosti a kometa Deadline na obloze.</p>
+  <p class="note"><strong>Jak číst ukázky:</strong> obrázky jsou schematické náčrty kreslené kódem, ne finální
+    grafika. Ukazují <strong>paletu, sílu linky, kontrast a náladu</strong>, ne kvalitu kresby. Skutečné vzorky
+    se vygenerují přes AI podle zadání u každé varianty a uloží do <code>docs/styl/vzorky/</code>.</p>
+
+  <h2>Varianty</h2>
+  <div id="variants"></div>
+
+  <h2>Postavy: proporce a siluety</h2>
+  <p class="lead">Hlavní postavy musí být rozpoznatelné i jako černý stín. Ruda je dlouhý a hubený s velkou
+    hlavou, Bára menší a pevná, Předseda široký a hranatý.</p>
+  <div class="chars">
+    <div class="row">
+      <figure style="margin:0"><div id="chars-color"></div>
+        <figcaption>Ruda Gantt, Bára Backlogová, Předseda Věčný (varianta A)</figcaption></figure>
+      <figure style="margin:0"><div id="chars-sil"></div>
+        <figcaption>Test siluet: postavy musí jít rozlišit i bez barev</figcaption></figure>
+    </div>
+  </div>
+
+  <h2>Další postup</h2>
+  <ol>
+    <li>Schváleno: <strong>A jako hlavní styl, C pro večerní a krizové scény</strong>.</li>
+    <li>Podle zadání nech vygenerovat 2–3 pozadí ve variantě A, jedno večerní ve variantě C a referenční list Rudy.</li>
+    <li>Ulož je do <code>docs/styl/vzorky/</code> a společně je porovnáme s kontrolním seznamem ve stylové bibli.</li>
+  </ol>
+</main>
+
+<script>
+const BG_PROMPT = palette => `2D hand-painted cartoon background for a point-and-click adventure game,
+absurd ramshackle town where every building is unfinished: scaffolding, cranes,
+half-built bridge, tarps, traffic cones, warning tape,
+crooked exaggerated perspective, nothing is straight,
+${palette},
+thick dark-brown ink outlines with varying line weight, soft painterly shading,
+rich cluttered detail, atmospheric haze in the distance,
+a comet with a long glowing tail in the sky,
+no text, no letters, no people, 16:9`;
+
+const CHAR_PROMPT = palette => `full-body character turnaround sheet, front view, side view and back view,
+lanky overconfident project manager in his forties, oversized head,
+long pointy nose, messy spiky dark hair, smug grin, loose striped tie,
+wrinkled shirt with rolled-up sleeves, too-short trousers, clipboard and coffee mug,
+exaggerated cartoon proportions, head about one third of body height, long thin limbs,
+thick dark-brown ink outlines with varying line weight, flat colors with soft cel shading,
+${palette},
+neutral standing pose, plain white background, no text`;
+
+const VARIANTS = [
+  {
+    id: 'a', name: 'A: Rezavá Nedostavěnice', rec: true,
+    mood: 'Nejblíž Deponii: zaprášená, teplá, trochu zchátralá. Schválený hlavní styl.',
+    pros: ['výrazný a osobitý', 'teplé barvy dobře nesou humor', 'žlutá výstražná barva krásně vystupuje'],
+    cons: ['při špatném zpracování může působit špinavě'],
+    palette: 'warm muted palette of ochre, rust and faded teal with yellow construction accents',
+    vars: { sky1: '#93b0a4', sky2: '#ecd39c', far: '#b7ae92', mid: '#8a7656', wall: '#c38d55', roof: '#8e4a2e',
+      win: '#5d6e6a', ground: '#7d6643', fg: '#3b2b1e', plank: '#a87e4c', accent: '#e8b827', accent2: '#b5452c',
+      skin: '#f0c89a', hair: '#3a2a1f', suit: '#4f5a5e', shirt: '#ebe3cf', bara: '#3f8a86', bhair: '#a8452a',
+      psuit: '#6b6460', line: '#2e1f14', comet: '#fff2c4', lw: '3px' },
+  },
+  {
+    id: 'b', name: 'B: Slunné lešení',
+    mood: 'Veselejší, světlejší a rodinná. Bezpečná volba pro mobil.',
+    pros: ['čitelná i na malém displeji', 'přívětivá pro nejširší publikum'],
+    cons: ['méně osobitá, blíž běžným mobilním hrám', 'humor může působit dětštěji'],
+    palette: 'bright cheerful palette, saturated blue sky, terracotta, fresh green, sunny light',
+    vars: { sky1: '#4fa9e0', sky2: '#c4e8f6', far: '#a6c8d4', mid: '#c46e48', wall: '#eaa86c', roof: '#c4553a',
+      win: '#9fd3e8', ground: '#8db359', fg: '#4a3a2a', plank: '#c9925a', accent: '#ffcf2e', accent2: '#e04f3a',
+      skin: '#ffd3a8', hair: '#4a2e1e', suit: '#3c5f8f', shirt: '#ffffff', bara: '#2f9e8f', bhair: '#d0532c',
+      psuit: '#7d7a82', line: '#3a2a1e', comet: '#ffffff', lw: '2.5px' },
+  },
+  {
+    id: 'c', name: 'C: Soumrak termínu',
+    mood: 'Dramatická a večerní, kometa svítí. Schváleno pro večerní a krizové scény (kapitola 4).',
+    pros: ['silná atmosféra', 'kometa jako zdroj světla stupňuje napětí'],
+    cons: ['tmavé scény se hůř čtou na mobilu', 'jako hlavní styl by byla na komedii příliš temná'],
+    palette: 'dramatic dusk palette, purple and deep blue sky, orange glow from the comet, strong contrast',
+    vars: { sky1: '#2a2350', sky2: '#e0784a', far: '#4a3d6b', mid: '#5b4466', wall: '#8a5a6a', roof: '#4a2a4a',
+      win: '#ffcf6e', ground: '#3a2f45', fg: '#140f1c', plank: '#6e4a4a', accent: '#ffb52e', accent2: '#e05a3a',
+      skin: '#e8a88a', hair: '#1e1420', suit: '#2e3550', shirt: '#c9b8c8', bara: '#2f6f73', bhair: '#c0482c',
+      psuit: '#4e4858', line: '#120c16', comet: '#fff0d0', lw: '3.5px' },
+  },
+];
+
+// Postavy kreslené kolem bodu mezi chodidly (0, 0)
+const ruda = () => `
+  <path class="o" fill="var(--suit)" d="M-14 -90 L-16 -6 L-2 -6 L0 -90 Z M4 -90 L10 -6 L24 -6 L16 -90 Z"/>
+  <path class="t" fill="var(--accent)" d="M-16 -18 L-16 -6 L-2 -6 L-2 -18 Z M10 -18 L10 -6 L24 -6 L23 -18 Z"/>
+  <ellipse class="t" fill="var(--line)" cx="-11" cy="-3" rx="12" ry="5"/><ellipse class="t" fill="var(--line)" cx="21" cy="-3" rx="12" ry="5"/>
+  <path class="o" fill="var(--shirt)" d="M-16 -150 L-26 -145 L-38 -92 L-28 -90 Z"/>
+  <rect class="t" fill="#f2efe6" x="-46" y="-94" width="14" height="16" rx="2"/>
+  <path class="t" fill="none" d="M-46 -90 q-7 4 0 9"/>
+  <circle class="t" fill="var(--skin)" cx="-33" cy="-89" r="6"/>
+  <path class="o" fill="var(--shirt)" d="M-20 -85 Q-24 -128 -16 -154 L18 -154 Q28 -128 22 -85 Z"/>
+  <path class="t" fill="var(--accent2)" d="M-1 -152 L5 -152 L10 -100 L2 -90 L-5 -100 Z"/>
+  <path class="t" fill="none" d="M0 -140 L7 -136 M1 -124 L8 -120 M2 -108 L8 -104"/>
+  <rect class="t" fill="var(--skin)" x="-5" y="-168" width="10" height="16"/>
+  <ellipse class="o" fill="var(--skin)" cx="-33" cy="-195" rx="7" ry="10"/>
+  <ellipse class="o" fill="var(--skin)" cx="0" cy="-200" rx="34" ry="38"/>
+  <path class="o" fill="var(--skin)" d="M10 -204 Q44 -200 54 -186 Q38 -182 10 -186 Z"/>
+  <ellipse class="t" fill="#fff" cx="-6" cy="-210" rx="7" ry="9"/><ellipse class="t" fill="#fff" cx="11" cy="-212" rx="7" ry="9"/>
+  <circle fill="var(--line)" cx="-3" cy="-209" r="3"/><circle fill="var(--line)" cx="14" cy="-211" r="3"/>
+  <path class="o" fill="none" d="M-15 -224 L-1 -219 M5 -224 L19 -228"/>
+  <path class="o" fill="none" d="M-10 -176 Q6 -166 22 -180"/>
+  <path class="o" fill="var(--hair)" d="M-34 -208 L-38 -230 L-26 -224 L-24 -244 L-12 -230 L-4 -252 L4 -232 L16 -248 L18 -228 L32 -238 L30 -214 Q0 -230 -34 -208 Z"/>
+  <path class="o" fill="var(--shirt)" d="M18 -150 L28 -146 L38 -110 L30 -106 Z"/>
+  <g transform="rotate(12 40 -110)">
+    <rect class="o" fill="var(--plank)" x="26" y="-130" width="26" height="34" rx="2"/>
+    <rect class="t" fill="#f6f1e4" x="30" y="-124" width="18" height="24"/>
+    <rect class="t" fill="var(--accent)" x="34" y="-133" width="10" height="5"/>
+  </g>
+  <circle class="t" fill="var(--skin)" cx="34" cy="-108" r="6"/>`;
+
+const bara = () => `
+  <path class="o" fill="var(--bara)" d="M-16 -60 L-16 -8 L-2 -8 L-2 -60 Z M4 -60 L4 -8 L18 -8 L18 -60 Z"/>
+  <rect class="t" fill="var(--line)" x="-20" y="-11" width="20" height="11" rx="3"/><rect class="t" fill="var(--line)" x="2" y="-11" width="20" height="11" rx="3"/>
+  <path class="o" fill="var(--accent2)" d="M-18 -114 L-28 -110 L-30 -70 L-21 -70 Z"/>
+  <circle class="t" fill="var(--skin)" cx="-25" cy="-67" r="6"/>
+  <path class="o" fill="var(--accent2)" d="M-24 -58 Q-27 -100 -18 -118 L20 -118 Q29 -100 26 -58 Z"/>
+  <path class="o" fill="var(--bara)" d="M-14 -58 L-14 -100 L16 -100 L16 -58 Z"/>
+  <path class="t" fill="none" d="M-12 -100 L-16 -118 M14 -100 L18 -118"/>
+  <circle class="t" fill="var(--accent)" cx="6" cy="-82" r="6"/>
+  <rect class="t" fill="var(--skin)" x="-5" y="-128" width="10" height="12"/>
+  <ellipse class="o" fill="var(--skin)" cx="0" cy="-148" rx="26" ry="27"/>
+  <path class="o" fill="var(--bhair)" d="M-30 -138 Q-34 -180 0 -180 Q34 -180 30 -138 L24 -132 Q25 -160 0 -163 Q-25 -160 -24 -132 Z"/>
+  <circle class="t" fill="#fff" cx="-9" cy="-148" r="7"/><circle class="t" fill="#fff" cx="11" cy="-148" r="7"/>
+  <path class="t" fill="none" d="M-2 -149 L4 -149"/>
+  <circle fill="var(--line)" cx="-8" cy="-148" r="2.5"/><circle fill="var(--line)" cx="12" cy="-148" r="2.5"/>
+  <path class="t" fill="none" d="M2 -144 Q7 -138 2 -136 M-6 -131 Q2 -127 8 -132"/>
+  <path class="o" fill="var(--accent2)" d="M18 -114 L28 -110 L32 -80 L24 -78 Z"/>
+  <rect class="o" fill="#2b3a40" x="22" y="-98" width="22" height="28" rx="3"/>
+  <rect fill="var(--win)" x="25" y="-95" width="16" height="20"/>
+  <circle class="t" fill="var(--skin)" cx="27" cy="-80" r="6"/>`;
+
+const predseda = () => `
+  <path class="o" fill="var(--psuit)" d="M-26 -50 L-24 -8 L-6 -8 L-6 -50 Z M6 -50 L6 -8 L24 -8 L26 -50 Z"/>
+  <ellipse class="t" fill="var(--line)" cx="-16" cy="-4" rx="13" ry="5"/><ellipse class="t" fill="var(--line)" cx="16" cy="-4" rx="13" ry="5"/>
+  <path class="o" fill="var(--psuit)" d="M-46 -132 L-58 -126 L-56 -80 L-44 -80 Z"/>
+  <circle class="t" fill="var(--skin)" cx="-50" cy="-76" r="8"/>
+  <path class="o" fill="var(--psuit)" d="M-46 -48 L-50 -120 Q-48 -140 -30 -146 L30 -146 Q48 -140 50 -120 L46 -48 Z"/>
+  <path class="t" fill="var(--shirt)" d="M-12 -146 L0 -118 L12 -146 Z"/>
+  <path class="t" fill="var(--accent2)" d="M-3 -142 L3 -142 L2 -124 L-2 -124 Z"/>
+  <path fill="none" stroke="var(--accent)" stroke-width="5" d="M-30 -144 Q0 -96 30 -144"/>
+  <circle class="t" fill="var(--accent)" cx="0" cy="-104" r="9"/>
+  <ellipse class="o" fill="var(--skin)" cx="0" cy="-166" rx="22" ry="24"/>
+  <path class="t" fill="none" d="M-14 -150 Q0 -141 14 -150"/>
+  <path class="o" fill="var(--hair)" d="M-22 -168 Q-12 -198 22 -178 Q4 -188 -20 -162 Z"/>
+  <path class="o" fill="none" d="M-14 -176 L-4 -173 M4 -173 L14 -176"/>
+  <path class="t" fill="none" d="M-12 -170 L-5 -169 M5 -169 L12 -170"/>
+  <circle class="t" fill="var(--skin)" cx="0" cy="-163" r="5"/>
+  <path class="t" fill="var(--hair)" d="M-15 -157 Q0 -166 15 -157 Q8 -150 0 -154 Q-8 -150 -15 -157 Z"/>
+  <path class="o" fill="var(--psuit)" d="M46 -132 L58 -126 L62 -98 L50 -94 Z"/>
+  <rect class="t" fill="#5a3a2a" x="54" y="-104" width="12" height="14" rx="3"/>
+  <rect class="o" fill="var(--accent2)" x="48" y="-90" width="24" height="8" rx="1"/>
+  <circle class="t" fill="var(--skin)" cx="56" cy="-98" r="7"/>`;
+
+const scene = v => `
+<svg viewBox="0 0 800 450" role="img" aria-label="Ukázková scéna varianty ${v.name}">
+  <defs>
+    <linearGradient id="sky-${v.id}" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" style="stop-color:var(--sky1)"/><stop offset="1" style="stop-color:var(--sky2)"/>
+    </linearGradient>
+    <linearGradient id="tail-${v.id}" x1="1" y1="1" x2="0" y2="0">
+      <stop offset="0" style="stop-color:var(--comet);stop-opacity:.95"/><stop offset="1" style="stop-color:var(--comet);stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#sky-${v.id})"/>
+  <g filter="url(#wobble)">
+    <path d="M722 64 Q640 30 520 4 Q626 48 716 76 Z" fill="url(#tail-${v.id})"/>
+    <circle cx="722" cy="70" r="24" fill="var(--comet)" opacity=".3"/>
+    <circle cx="722" cy="70" r="11" fill="var(--comet)"/>
+
+    <g fill="var(--far)" opacity=".85">
+      <path d="M60 385 L66 200 L96 196 L102 385 Z"/><path d="M120 385 L118 240 L150 236 L156 385 Z"/>
+      <path d="M330 385 L336 172 L370 178 L366 385 Z"/><path d="M716 385 L712 210 L758 204 L770 385 Z"/>
+    </g>
+    <path fill="none" stroke="var(--mid)" stroke-width="2" opacity=".5"
+      d="M330 230 L370 230 M332 280 L368 280 M334 330 L366 330 M330 230 L368 280 M332 280 L366 330 M372 178 L372 120 M372 124 L300 128"/>
+    <path fill="none" stroke="var(--mid)" stroke-width="3" opacity=".6"
+      d="M560 385 L560 40 M470 50 L710 50 M560 40 L470 50 M560 40 L710 50 M650 50 L650 120"/>
+    <path fill="none" stroke="var(--mid)" stroke-width="2" opacity=".6" d="M552 60 L568 80 M568 60 L552 80 M552 100 L568 120 M568 100 L552 120"/>
+    <rect x="644" y="118" width="12" height="10" fill="var(--mid)" opacity=".6"/>
+
+    <path class="o" fill="var(--mid)" d="M0 302 L150 296 L150 312 Q75 318 0 342 Z"/>
+    <rect class="o" fill="var(--mid)" x="38" y="318" width="18" height="70"/>
+    <path class="t" fill="none" d="M150 298 L166 290 M150 304 L170 302 M150 310 L162 316"/>
+
+    <path class="o" fill="var(--roof)" d="M444 156 L526 74 L612 146 Z"/>
+    <path class="t" fill="url(#sky-${v.id})" d="M548 100 L592 136 L560 138 Z"/>
+    <path class="t" fill="none" d="M560 108 L562 138 M574 120 L576 138"/>
+    <path class="o" fill="var(--roof)" d="M478 124 L478 92 L484 88 L488 94 L492 86 L498 92 L498 110 Z"/>
+    <path class="o" fill="var(--wall)" d="M440 395 L452 152 L604 142 L622 395 Z"/>
+    <g class="t" fill="var(--win)">
+      <path d="M470 186 L508 183 L510 226 L472 229 Z"/><path d="M540 182 L578 180 L580 222 L542 225 Z"/>
+      <path d="M468 250 L506 248 L508 290 L470 292 Z"/><path d="M542 246 L580 244 L582 286 L544 289 Z"/>
+    </g>
+    <path class="o" fill="var(--roof)" d="M500 395 L502 340 L542 338 L544 395 Z"/>
+    <circle fill="var(--accent)" cx="534" cy="368" r="3"/>
+
+    <g class="t" fill="none">
+      <path d="M630 395 L626 120 M690 395 L688 120"/>
+      <path d="M630 330 L690 260 M628 260 L690 190 M628 190 L689 140"/>
+    </g>
+    <g class="t" fill="var(--plank)">
+      <rect x="612" y="186" width="92" height="7"/><rect x="612" y="256" width="92" height="7"/><rect x="612" y="326" width="92" height="7"/>
+    </g>
+    <path class="t" fill="var(--accent2)" opacity=".9" d="M688 120 Q724 160 706 232 L688 230 Z"/>
+    <g transform="rotate(4 664 220)">
+      <rect class="o" fill="var(--accent)" x="636" y="203" width="56" height="32" rx="2"/>
+      <path stroke="var(--line)" stroke-width="2" opacity=".35" d="M646 214 L682 214 M646 223 L672 223"/>
+    </g>
+
+    <path class="o" fill="var(--ground)" d="M-5 382 Q200 368 400 386 T805 378 L805 455 L-5 455 Z"/>
+    <g fill="var(--mid)"><ellipse cx="140" cy="420" rx="10" ry="4"/><ellipse cx="470" cy="430" rx="14" ry="5"/><ellipse cx="610" cy="412" rx="8" ry="3"/></g>
+
+    <rect class="t" fill="var(--line)" x="328" y="330" width="5" height="62"/><rect class="t" fill="var(--line)" x="428" y="334" width="5" height="60"/>
+    <path fill="none" stroke="var(--accent)" stroke-width="8" d="M333 342 Q380 356 428 346"/>
+    <path fill="none" stroke="var(--line)" stroke-width="8" stroke-dasharray="6 9" opacity=".75" d="M333 342 Q380 356 428 346"/>
+    <g>
+      <path class="t" fill="var(--accent2)" d="M352 396 L362 362 L372 396 Z"/><path fill="#fff" opacity=".9" d="M357 380 L367 380 L369 386 L355 386 Z"/>
+      <rect class="t" fill="var(--accent2)" x="347" y="394" width="30" height="5"/>
+      <path class="t" fill="var(--accent2)" d="M392 400 L402 366 L412 400 Z"/><path fill="#fff" opacity=".9" d="M397 384 L407 384 L409 390 L395 390 Z"/>
+      <rect class="t" fill="var(--accent2)" x="387" y="398" width="30" height="5"/>
+    </g>
+
+    <g transform="translate(250 392)">${ruda()}</g>
+
+    <rect fill="var(--fg)" x="6" y="170" width="18" height="290"/>
+    <rect fill="var(--fg)" x="0" y="236" width="36" height="10"/>
+    <path fill="var(--fg)" d="M716 455 L722 408 L770 408 L776 455 Z"/>
+    <path fill="none" stroke="var(--fg)" stroke-width="4" d="M724 410 Q746 380 768 410"/>
+  </g>
+  <rect width="800" height="450" filter="url(#grain)" opacity=".14" style="mix-blend-mode:multiply"/>
+</svg>`;
+
+const chars = (id, extraClass) => `
+<svg viewBox="0 0 420 290" role="img" aria-label="Postavy: Ruda, Bára a Předseda" class="${extraClass}">
+  ${extraClass ? '' : '<rect width="420" height="290" rx="10" fill="var(--sky2)" opacity=".45"/>'}
+  <g filter="url(#wobble)">
+    <g transform="translate(80 275)">${ruda()}</g>
+    <g transform="translate(205 275)">${bara()}</g>
+    <g transform="translate(330 275)">${predseda()}</g>
+  </g>
+</svg>`;
+
+const applyVars = (el, vars) => Object.entries(vars).forEach(([k, val]) => el.style.setProperty('--' + k, val));
+const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+
+const list = document.getElementById('variants');
+VARIANTS.forEach(v => {
+  const sec = document.createElement('section');
+  sec.className = 'variant' + (v.rec ? ' rec' : '');
+  applyVars(sec, v.vars);
+  const keys = [['sky1', 'obloha'], ['sky2', 'opar'], ['wall', 'zdi'], ['roof', 'střechy'], ['ground', 'zem'],
+    ['accent', 'výstraha'], ['accent2', 'akcent'], ['line', 'linka']];
+  const bgPrompt = BG_PROMPT(v.palette), chPrompt = CHAR_PROMPT(v.palette);
+  sec.innerHTML = `
+    <div class="scene">${scene(v)}</div>
+    <div>
+      <h3>${v.name}${v.rec ? '<span class="badge">schváleno</span>' : ''}</h3>
+      <p class="mood">${v.mood}</p>
+      <div class="swatches">${keys.map(([k, label]) =>
+        `<div class="sw"><i style="background:${v.vars[k]}"></i>${label}<br>${v.vars[k]}</div>`).join('')}</div>
+      <strong>Silné stránky</strong><ul>${v.pros.map(p => `<li>${p}</li>`).join('')}</ul>
+      <strong>Rizika</strong><ul>${v.cons.map(p => `<li>${p}</li>`).join('')}</ul>
+      <details><summary>Zadání pro AI: pozadí</summary><pre>${esc(bgPrompt)}</pre>
+        <button data-copy="${encodeURIComponent(bgPrompt)}">Kopírovat zadání</button></details>
+      <details><summary>Zadání pro AI: referenční list Rudy</summary><pre>${esc(chPrompt)}</pre>
+        <button data-copy="${encodeURIComponent(chPrompt)}">Kopírovat zadání</button></details>
+    </div>`;
+  list.appendChild(sec);
+});
+
+const colorBox = document.getElementById('chars-color');
+const silBox = document.getElementById('chars-sil');
+applyVars(colorBox, VARIANTS[0].vars);
+applyVars(silBox, VARIANTS[0].vars);
+colorBox.innerHTML = chars('c', '');
+silBox.innerHTML = chars('s', 'sil');
+
+document.addEventListener('click', e => {
+  const b = e.target.closest('button[data-copy]');
+  if (!b) return;
+  const text = decodeURIComponent(b.dataset.copy);
+  const done = () => { b.textContent = 'Zkopírováno ✓'; setTimeout(() => b.textContent = 'Kopírovat zadání', 1500); };
+  if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, () => {});
+  else done();
+});
+</script>
+</body>
+</html>

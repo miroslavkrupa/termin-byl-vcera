@@ -23,8 +23,8 @@
 | iOS | ano | vyžaduje Mac, Xcode a placený účet Apple Developer (roční poplatek) |
 | Prohlížeč | ano | levná cesta, jak hru dostat i na mobily bez obchodů; ověřit výkon v mobilním Safari |
 
-❓ Ověřit aktuální poplatky a podmínky obchodů. Bez rozpočtu doporučuji začít PC, Macem, Androidem
-a webovou verzí a iOS přidat, až bude důvod platit roční poplatek.
+✅ Rozhodnuto (D18): začínáme PC, Macem, Androidem a webovou verzí, iOS se přidá později.
+❓ Před vydáním ověřit aktuální poplatky a podmínky obchodů.
 
 **Ovládání musí fungovat myší i dotykem:**
 - Nic nesmí záviset na najetí myší (hover). Na mobilu se popisky objektů ukazují klepnutím,
@@ -34,6 +34,8 @@ a webovou verzí a iOS přidat, až bude důvod platit roční poplatek.
 - ❓ Ověřit, jak Popochiu podporuje dotykové ovládání; případně doplnit vlastní vrstvu.
 
 ## Příspěvky (donate)
+
+⏸️ Zatím se neřeší (D19). Přehled níže je podklad pro rozhodnutí před prvním vydáním.
 
 | Kanál | Možnost příspěvku | Poznámka |
 |---|---|---|
@@ -48,8 +50,8 @@ a webovou verzí a iOS přidat, až bude důvod platit roční poplatek.
 
 Cíl: kdykoli vyměnit obrázky za ručně kreslené bez zásahu do logiky hry.
 
-- **Stylová bible:** paleta, tloušťka linek, osvětlení, proporce postav, ukázkové obrázky.
-  Je to zadání pro AI dnes i pro ilustrátora později.
+- **[Stylová bible](06-stylova-bible.md):** paleta, tloušťka linek, osvětlení, proporce postav,
+  ukázkové obrázky. Je to zadání pro AI dnes i pro ilustrátora později.
 - **Referenční listy postav:** každá postava zepředu, z boku a zezadu, s výrazy tváře. Hlavní
   problém AI grafiky je nekonzistence postav, listy ji drží.
 - **Logika scén oddělená od obrázků:** aktivní místa, pochozí plochy, vrstvy popředí a pozadí

@@ -84,5 +84,6 @@ puzzlů), *Papers, Please* (mechanika jako sdělení).
 Rozhodnuté otázky jsou v [záznamu rozhodnutí](00-rozhodnuti.md).
 
 - [ ] Konečný název v obou jazycích (pracovně *Termín byl včera* / *Deadline Was Yesterday*)
-- [ ] Výtvarný styl (podklad pro AI: stylová bible a referenční listy postav)
+- [x] Výtvarný styl: varianta A, večerní a krizové scény C (D21)
+- [ ] Referenční listy postav a první vzorky přes AI
 - [ ] Kanály distribuce a příspěvků (viz [produkční zásady](05-produkce.md))

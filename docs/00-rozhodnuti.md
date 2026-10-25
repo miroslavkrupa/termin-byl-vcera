@@ -22,6 +22,10 @@
 | D15 | 2026-10-25 | Jména postav, míst i název hry v obou jazycích | návrhy anglických jmen v tabulce bible | [bible](03-pribehova-bible.md) |
 | D16 | 2026-10-25 | Dokumentace v češtině | – | – |
 | D17 | 2026-10-25 | Učitelský režim zatím odložen | matice zůstává interním nástrojem autorů | [matice](02-vyukova-matice.md) |
+| D18 | 2026-10-25 | Nejdřív PC, Mac, Android a prohlížeč; iOS později | žádný roční poplatek Apple na začátku; ovládání dotykem se navrhuje od začátku | [produkce](05-produkce.md) |
+| D19 | 2026-10-25 | Příspěvky (donate) zatím neřešíme | kanály příspěvků se vyberou před prvním vydáním | [produkce](05-produkce.md) |
+| D20 | 2026-10-25 | Výtvarný styl podobný Deponii | stylová bible a varianty ke schválení; v zadáních pro AI se nejmenuje cizí hra ani autoři | [stylová bible](06-stylova-bible.md) |
+| D21 | 2026-10-25 | Schválena varianta A (Rezavá Nedostavěnice) jako hlavní styl a C (Soumrak termínu) pro večerní a krizové scény | zadání pro AI vycházejí z palety A, večerní a krizové scény (hlavně kap. 4) z palety C; další krok jsou vzorky přes AI | [stylová bible](06-stylova-bible.md) |
 
 ## Čeká na rozhodnutí
 
