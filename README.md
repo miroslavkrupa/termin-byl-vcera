@@ -14,7 +14,7 @@ Hra je pro **co nejširší publikum** milovníků adventur a vzniká **v angli�
 (anglicky pracovně *Deadline Was Yesterday*). Bude **zdarma** s možností dobrovolného příspěvku,
 pro **PC, Mac a mobily**.
 
-> Stav: **návrh** (pracovní název, žádný kód zatím neexistuje)
+> Stav: **návrh a technický prototyp** (pracovní název; hratelný prototyp ve složce `hra/`)
 
 ## Návrhová dokumentace
 
@@ -30,6 +30,7 @@ pro **PC, Mac a mobily**.
 | [Stylová bible](docs/06-stylova-bible.md) | výtvarný styl podobný Deponii, pravidla, schválená varianta A (večer a krize C), zadání pro AI a automatické generování vzorků |
 | [Stylové ukázky](docs/styl/ukazky.html) | vizuální porovnání variant (otevřít v prohlížeči) |
 | [Prototyp Náměstí](docs/08-prototyp-namesti.md) | technický prototyp v Godot 4.7 + Popochiu: otázky, rozsah, kroky K0–K10, rizika |
+| [Vyhodnocení prototypu](docs/09-vyhodnoceni-prototypu.md) | odpovědi O1–O8, změřené časy, odhad rozsahu hry, doporučení |
 | [Kapitola 1: Iniciace](docs/kapitoly/01-iniciace.md) | vertical slice: scény, puzzly, graf závislostí, rozhodnutí, minihry, ukázkové dialogy CS/EN |
 
 ## Postup návrhu

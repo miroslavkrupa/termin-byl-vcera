@@ -2,7 +2,7 @@
 
 > Funkční základ hry z grafiky, kterou už máme. Ověří techniku dřív, než vyrobíme další grafiku
 > a obsah kapitoly 1 (D35).
-> Stav: **plán**, verze 0.1
+> Stav: **dokončeno** (K0–K10), výsledky v [vyhodnocení](09-vyhodnoceni-prototypu.md)
 
 ## Proč
 
@@ -61,9 +61,9 @@ Každý krok končí něčím, co jde spustit a vyzkoušet. Ke každému se zap�
 | **K5** | Přechod do Archivu dveřmi radnice a zpět, v archivu jedno aktivní místo (kartotéka) | Claude, autor doladí pochozí plochu | přechod oběma směry, Ruda se objeví u dveří | ✅ hotovo |
 | **K6** | Jazyky: přepínač CZ/EN za běhu, kontrolní skript na chybějící překlady | Claude | přepnutí bez restartu, skript hlásí chyby | ✅ hotovo |
 | **K7** | Večer: přepínač den/večer, tónování Rudy barvou světla scény, stín | Claude | Ruda večer nepůsobí vystřiženě (porovnat s testem z kola 3) | ✅ hotovo |
-| **K8** | Export do prohlížeče a zkouška na telefonu | Claude export, autor zkouší na telefonu | odpovědi na O5, O6, O7 |
-| **K9** | Zkouška animace Rudy: a) kostrová animace z rozřezaného listu, b) záložní „loutka“ (pohupování a posun) | Claude, případně nové AI obrázky částí těla | vybraná metoda chůze (O3) |
-| **K10** | Vyhodnocení: odpovědi na O1–O8, úpravy produkčních zásad a stylové bible, odhad rozsahu hry | Claude a autor | zapsáno, rozhodnuto o dalším postupu |
+| **K8** | Export do prohlížeče a zkouška na telefonu | Claude export, autor zkouší na telefonu | odpovědi na O5, O6, O7 | ✅ hotovo |
+| **K9** | Zkouška animace Rudy: a) kostrová animace z rozřezaného listu, b) záložní „loutka“ (pohupování a posun) | Claude, případně nové AI obrázky částí těla | vybraná metoda chůze (O3) | ✅ hotovo |
+| **K10** | Vyhodnocení: odpovědi na O1–O8, úpravy produkčních zásad a stylové bible, odhad rozsahu hry | Claude a autor | zapsáno, rozhodnuto o dalším postupu | ✅ [vyhodnocení](09-vyhodnoceni-prototypu.md) |
 
 Souběžně s K1–K8 může autor udělat **papírový prototyp miniher M13 a M14** (kartičky připraví
 Claude).
@@ -227,7 +227,7 @@ Godot 4.7.2 a Popochiu 2.2.1, šablona Simple Click ve vysokém rozlišení, 153
    dvou snímků. Některé starší nesrovnalosti (K5) měly tuhle příčinu.
 3. Popochiu hlásí, že `I.items` je zastaralé; pomocník už používá `C.player.inventory`.
 
-### K8 – prohlížeč a telefon (rozpracováno)
+### K8 – prohlížeč a telefon (hotovo)
 
 - **Exportní šablony Godot 4.7.2** staženy z oficiálního vydání (1,28 GB, ověřeno SHA-512)
   a nainstalovány. Předvolba exportu „Web“ (`hra/export_presets.cfg`) bez vícevláknového režimu,

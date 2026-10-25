@@ -7,8 +7,12 @@
 ## Rozsah pro jednoho autora
 
 - Hru dělá jeden autor bez rozpočtu. Cíl 8–12 hodin je horní mez, ne slib.
+- ✅ **Nejdřív kapitola 1 jako samostatná ukázka** (D38); rozsah celé hry se rozhodne po ní.
 - **Nejdřív vertical slice** (kapitola 1, 30–45 min). Teprve podle skutečné rychlosti výroby
   se rozhodne o rozsahu dalších kapitol.
+- **Prototyp změřil rychlost výroby** ([vyhodnocení](09-vyhodnoceni-prototypu.md)): kapitola 1
+  vychází na 70–115 h, celá hra v plánovaném rozsahu na 450–900 h. Nejdražší jsou texty ve dvou
+  jazycích, grafika a minihry, ne kód.
 - **Vydávat po kapitolách.** Každá kapitola je samostatné vydání zdarma. Hráči dávají zpětnou
   vazbu průběžně a projekt nevisí na jednom velkém dokončení.
 - Když se nestíhá, škrtá se šíře (vedlejší linky, počet miniher), ne kvalita hlavní linky a humoru.
@@ -21,7 +25,7 @@
 | macOS | ano | podpis a notarizace aplikace vyžadují účet Apple Developer |
 | Android | ano | Google Play: jednorázový registrační poplatek |
 | iOS | ano | vyžaduje Mac, Xcode a placený účet Apple Developer (roční poplatek) |
-| Prohlížeč | ano | levná cesta, jak hru dostat i na mobily bez obchodů; ověřit výkon v mobilním Safari |
+| Prohlížeč | ano | ověřeno v prototypu (K8): běží i na telefonu; vyžaduje HTTPS, asi 48 MB (hosting musí komprimovat) |
 
 ✅ Rozhodnuto (D18): začínáme PC, Macem, Androidem a webovou verzí, iOS se přidá později.
 ❓ Před vydáním ověřit aktuální poplatky a podmínky obchodů.
@@ -31,7 +35,15 @@
   případně tlačítkem „ukaž aktivní místa“, které je užitečné i na PC.
 - Aktivní místa a ovládací prvky dost velké na prst, minihry hratelné jedním prstem.
 - Rozhraní čitelné na malém displeji: velikost písma titulků nastavitelná.
-- ❓ Ověřit, jak Popochiu podporuje dotykové ovládání; případně doplnit vlastní vrstvu.
+- ✅ Dotyk v Popochiu funguje (Godot převádí dotyk na myš). Na dotykových zařízeních je horní
+  lišta s inventářem a nastavením trvale viditelná a ukazatel myši skrytý.
+- ❓ Prohlédnutí bez pravého tlačítka: navrhnout (dlouhé podržení, nebo komentář jako součást klepnutí).
+
+**Poměr stran:** pozadí 3:2 (1536 × 1024) dávají na širokém telefonu tmavé pruhy po stranách.
+Doporučení pro finální grafiku: širší pozadí (19,5:9) s důležitým obsahem v prostředním pásu 3:2.
+
+**Webová verze:** export bez vícevláknového režimu (běží i v Safari), HTTPS je podmínkou
+(lokální zkouška na telefonu: `hra/nastroje/server_https.py`).
 
 ## Příspěvky (donate)
 
@@ -64,6 +76,24 @@ Cíl: kdykoli vyměnit obrázky za ručně kreslené bez zásahu do logiky hry.
   jinak by se musely kreslit dvakrát (EN + CS).
 - U každého obrázku zaznamenat, jak vznikl (nástroj, zadání). Steam vyžaduje uvést použití AI
   na stránce hry.
+
+## Godot a Popochiu v praxi
+
+Zkušenosti z prototypu (D35, [vyhodnocení](09-vyhodnoceni-prototypu.md)):
+- **Objekty Popochiu zakládá nástroj** `hra/nastroje/vytvor.gd` z příkazové řádky (místnosti,
+  postavy, předměty, dialogy, aktivní místa, pochozí plochy, oblasti), editor slouží k doladění
+  a zkoušení. Ověřování: `hra/nastroje/ladeni.gd` (snímky ze hry, simulace akcí).
+- **Šablona GUI počítá s malým písmem.** Po zvětšení písma na 36 bylo nutné opravit rámečky
+  popisků, nabídku voleb a jejich barvy. Každý nový prvek GUI kontrolovat ve velikosti i v obou jazycích.
+- Do webové verze se přibalují skripty editoru Popochiu (chyby v konzoli bez vlivu na hru).
+  Nahlásit autorům, případně vyřadit z exportu.
+
+## Animace postav
+
+- **Prototyp: loutka** (D36): obrázek se při chůzi pohupuje a kolébá, fáze kroku podle ušlé
+  vzdálenosti. Pro vertical slice stačí.
+- **Finální hra:** postavy po částech (stehno, lýtko, chodidlo, paže, hlava) přes AI a kostra
+  v Godotu, nebo kreslené fáze chůze (6–8 na směr). Rozhodnout po zkoušce na Rudovi.
 
 ## Postavy ve scéně (engine)
 

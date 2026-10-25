@@ -75,6 +75,13 @@ Archa](07-dva-svety.md). Výjimka z pravidla „nic není rovné“ platí jen p
 ### Prostředí
 - Rozlišení scén 1920 × 1080, scény mohou být širší kvůli posouvání.
 - Vrstvy: pozadí, střední plán, pochozí plocha, popředí (pro parallax a překrývání postav).
+  ❓ Prototyp zatím nevyzkoušel, jak postava zajde za předmět. Před výrobou pozadí kapitoly 1
+  rozhodnout, jestli se popředí generuje zvlášť, nebo vyřezává z pozadí.
+- **Věrohodná perspektiva:** AI pozadí mívají přehnanou a nekonzistentní perspektivu, takže
+  zmenšování postav do hloubky nesedí (prototyp, K1). Horizont a velikost dveří mají odpovídat
+  postavě v popředí.
+- ❓ **Poměr stran:** doporučeno širší pozadí (19,5:9) s důležitým obsahem v prostředním pásu 3:2
+  ([vyhodnocení prototypu](09-vyhodnoceni-prototypu.md)).
 - Žádný text v obrázcích. Cedule mají prázdné plochy, nápisy dodá engine v obou jazycích.
 - Na mobilu musí být důležité objekty čitelné: nic důležitého menšího než zhruba 48 px v plném rozlišení.
 - **Výjimka:** startovací rampa je rovná (D34), viz Archa výše.
@@ -138,6 +145,7 @@ bold thick dark-brown outlines around every object,
 flat colors with simple soft shading and subtle hand-painted texture, moderate amount of detail,
 clear open walkable floor in the lower third of the image, main objects large and easy to read,
 flat even ground plane, no fisheye lens distortion, only the objects are crooked,
+consistent believable perspective with a single horizon line, doors sized for a human figure,
 not realistic, no gothic architecture, no medieval castles,
 no text, no letters, no logos, no people
 ```
