@@ -23,7 +23,7 @@ jménem Deadline – a hráč se mimochodem naučí řídit projekty.
 | **Grafika** | ✅ AI, připravená na pozdější výměnu za ručně kreslenou |
 | **Dabing** | ✅ zatím ne, hra připravená na jeho pozdější přidání |
 | **Tým** | ✅ autor sám (+ Claude jako spoluautor textů), bez rozpočtu, pro radost a potenciálně pro výuku |
-| **Engine** | doporučení: Godot 4 + Popochiu, dialogy v Ink nebo Dialogue Manageru |
+| **Engine** | ✅ Godot 4.7 + Popochiu 2.2 (D35), ověřuje se [prototypem](08-prototyp-namesti.md) |
 
 Podrobnosti k platformám, grafice, dabingu a jazykům jsou v [produkčních zásadách](05-produkce.md).
 

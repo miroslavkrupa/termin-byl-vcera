@@ -41,6 +41,7 @@
 | D32 | 2026-10-25 | Archiv v02 schválen jako vzor interiérů, náměstí A a C v02 jako směr pro exteriéry | další pozadí se porovnávají s nimi; v kole 3 úprava křivosti náměstí a nová rampa | [hodnocení kola 2](styl/vzorky/hodnoceni-kolo-2.md) |
 | D33 | 2026-10-25 | Náměstí v03 (den i večer) schválena jako reference exteriérů místo v02 | do zadání pozadí pokyn proti efektu rybího oka; postavy se v enginu tónují podle světla scény a mají měkký stín | [stylová bible](06-stylova-bible.md), [produkce](05-produkce.md), [hodnocení kola 3](styl/vzorky/hodnoceni-kolo-3.md) |
 | D34 | 2026-10-25 | Rampa v03 schválena jako reference staveniště a ustálený vzhled Archy; rampa je schválně jediná rovná stavba ve městě | rampa je symbol světa plánu (přesná, podle výkresů), všechno kolem se kroutí | [stylová bible](06-stylova-bible.md), [koncepce](07-dva-svety.md), [hodnocení kola 3](styl/vzorky/hodnoceni-kolo-3.md) |
+| D35 | 2026-10-25 | Než vznikne další grafika, postaví se technický prototyp „Náměstí“ v **Godot 4.7 + Popochiu 2.2** | ověří engine, animaci, jazyky, dotyk, web a rychlost výroby; záložní varianta je čistě webová hra | [plán prototypu](08-prototyp-namesti.md) |
 
 ## Čeká na rozhodnutí
 

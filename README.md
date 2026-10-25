@@ -29,6 +29,7 @@ pro **PC, Mac a mobily**.
 | [Produkce](docs/05-produkce.md) | rozsah pro jednoho autora, platformy a ovládání, příspěvky, AI grafika, příprava na dabing, jazyky |
 | [Stylová bible](docs/06-stylova-bible.md) | výtvarný styl podobný Deponii, pravidla, schválená varianta A (večer a krize C), zadání pro AI a automatické generování vzorků |
 | [Stylové ukázky](docs/styl/ukazky.html) | vizuální porovnání variant (otevřít v prohlížeči) |
+| [Prototyp Náměstí](docs/08-prototyp-namesti.md) | technický prototyp v Godot 4.7 + Popochiu: otázky, rozsah, kroky K0–K10, rizika |
 | [Kapitola 1: Iniciace](docs/kapitoly/01-iniciace.md) | vertical slice: scény, puzzly, graf závislostí, rozhodnutí, minihry, ukázkové dialogy CS/EN |
 
 ## Postup návrhu
@@ -42,8 +43,8 @@ pro **PC, Mac a mobily**.
 7. **Vertical slice** – kapitola 1 hratelná naplno (30–45 min)
 8. **Výroba po kapitolách** – každá kapitola jako release s playtestem a retrospektivou
 
-## Technologie (návrh)
+## Technologie
 
-Godot 4 + Popochiu (framework pro point & click adventury), dialogy v Ink nebo Dialogue Manageru,
-texty v tabulkách řetězců. Godot exportuje na Windows, macOS, Android, iOS i do prohlížeče.
-❓ Ověřit dotykové ovládání v Popochiu.
+Godot 4.7 + Popochiu 2.2 (framework pro point & click adventury), texty v tabulkách řetězců (D35).
+Godot exportuje na Windows, macOS, Android, iOS i do prohlížeče. Volbu ověřuje
+[technický prototyp Náměstí](docs/08-prototyp-namesti.md).
