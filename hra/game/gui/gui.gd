@@ -2,6 +2,16 @@
 extends "res://addons/popochiu/engine/objects/gui/templates/simple_click_high_res/simple_click_high_res_gui.gd"
 
 
+#region Godot ######################################################################################
+func _ready() -> void:
+	super()
+	# Na dotykovém zařízení je ukazatel myši schovaný pod prstem a jen překáží (krok K8)
+	if DisplayServer.is_touchscreen_available():
+		Cursor.visible = false
+
+
+#endregion
+
 #region Virtual ####################################################################################
 # Called when the GUI is blocked and should not handle input events.
 func _on_blocked(props := { blocking = true }) -> void:

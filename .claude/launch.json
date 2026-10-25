@@ -6,6 +6,12 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8771"],
       "port": 8771
+    },
+    {
+      "name": "hra-web",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8790", "--bind", "0.0.0.0", "--directory", "hra/export/web"],
+      "port": 8790
     }
   ]
 }

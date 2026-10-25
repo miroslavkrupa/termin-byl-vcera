@@ -227,6 +227,34 @@ Godot 4.7.2 a Popochiu 2.2.1, šablona Simple Click ve vysokém rozlišení, 153
    dvou snímků. Některé starší nesrovnalosti (K5) měly tuhle příčinu.
 3. Popochiu hlásí, že `I.items` je zastaralé; pomocník už používá `C.player.inventory`.
 
+### K8 – prohlížeč a telefon (rozpracováno)
+
+- **Exportní šablony Godot 4.7.2** staženy z oficiálního vydání (1,28 GB, ověřeno SHA-512)
+  a nainstalovány. Předvolba exportu „Web“ (`hra/export_presets.cfg`) bez vícevláknového režimu,
+  aby hra běžela i v Safari na iPhonu bez zvláštního nastavení serveru.
+- **Export:** balík hry 8,8 MB + WebAssembly Godotu 39,5 MB, celkem asi 48 MB. Na Wi-Fi v pořádku,
+  na mobilních datech je to hodně (server s kompresí gzip/brotli by stáhl zhruba čtvrtinu).
+- **V prohlížeči na Macu hra funguje:** chůze, aktivní místa, repliky, lišta s inventářem.
+- Konzole hlásí chyby překladu editorových skriptů Popochiu (`EditorInterface`), které se do
+  exportu přibalí. Hru neomezují. Exportní plugin Popochiu v Godotu 4.7 navíc hlásí chybějící
+  `_get_name`. Nahlásit autorům Popochiu, případně editorové skripty z exportu vyřadit.
+- **Lišta s inventářem a nastavením je na dotykových zařízeních trvale viditelná** (bez najetí
+  myší by se nikdy neukázala).
+- **Godot na webu vyžaduje HTTPS** (zabezpečený kontext). Na Macu stačí `localhost`, ale telefon
+  přes adresu Macu ve Wi-Fi a HTTP dostal chybu „Secure Context – use HTTPS“. Proto
+  `hra/nastroje/server_https.py`: HTTPS s vlastnoručně podepsaným certifikátem (platí 30 dní,
+  uložen v `hra/export/certifikat/`, mimo git). Telefon napoprvé ukáže varování, které je potřeba
+  potvrdit. Pro zveřejnění bude potřeba skutečné HTTPS (itch.io, GitHub Pages a jiné hostingy ho mají).
+
+**Zkouška na telefonu (autor, přes HTTPS):** hra běží, ovládání prstem funguje.
+1. **Horní lišta je trvale vidět**, jak bylo zamýšleno.
+2. **Po stranách byla šedá plocha:** obrázky mají poměr 3:2, telefon na šířku je širší. Pruhy jsou
+   teď téměř černé (barva pozadí okna). Odpověď na O7: pro prototyp ponechat 3:2 s tmavými pruhy;
+   pro finální hru zvážit širší pozadí (např. 19,5:9 s důležitým obsahem uprostřed ve 3:2).
+3. **Po klepnutí se objevil ukazatel myši** v místě dotyku, schovaný pod prstem. Na dotykových
+   zařízeních je teď ukazatel skrytý.
+4. ❓ Zbývá ověřit: prohlédnutí bez pravého tlačítka, čitelnost textu, rychlost načtení.
+
 ## Rizika prototypu
 
 | Riziko | Dopad | Co s tím |
