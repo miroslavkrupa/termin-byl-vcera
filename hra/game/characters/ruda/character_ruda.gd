@@ -8,10 +8,21 @@ const Data := preload('character_ruda_state.gd')
 
 var state: Data = load("res://game/characters/ruda/character_ruda.tres")
 
-# Prototyp: zatím bez animací, jen pohled zepředu (stojí, mluví) a z boku (chodí).
-# Chůzi řeší krok K9 plánu prototypu.
+# Prototyp: pohled zepředu (stojí, mluví) a z boku (chodí). Chůze se zkouší dvěma způsoby (krok K9):
+# - "loutka": celý obrázek se při chůzi pohupuje a kolébá,
+# - "rozrez": boční pohled je rozřezaný na trup a nohy (nastroje/rozrez_rudu.gd) a nohy se kývají v kyčli.
+# Chůze dopředu a dozadu používá vždy loutku s pohledem zepředu.
 const ZEPREDU := preload("res://grafika/postavy/ruda_zepredu.png")
 const ZBOKU := preload("res://grafika/postavy/ruda_zboku.png")
+
+@export_enum("loutka", "rozrez") var metoda_chuze := "loutka"
+## Délka kroku v pixelech obrázku: za tuto vzdálenost proběhne jeden celý cyklus (dva kroky)
+@export var delka_cyklu := 520.0
+
+var _chodi := false
+var _bokem := false
+var _faze := 0.0
+var _posledni_pozice := Vector2.ZERO
 
 
 #region Virtual ####################################################################################
@@ -67,6 +78,7 @@ func _on_item_used(_item: PopochiuInventoryItem) -> void:
 # Override this to alter the idle animation or hook custom logic to it. 
 # By default, it plays the "idle" animation from the character's Sprite.
 func _play_idle() -> void:
+	_chodi = false
 	_pohled(ZEPREDU, false)
 
 
@@ -74,7 +86,12 @@ func _play_idle() -> void:
 # `target_pos` can be used to determine the movement direction.
 # By default, it plays the "walk" animation from the character's Sprite.
 func _play_walk(target_pos: Vector2) -> void:
-	_pohled(ZBOKU, target_pos.x < position.x)
+	_chodi = true
+	_posledni_pozice = position
+	var smer := target_pos - position
+	# Bokem, když jde spíš do strany; jinak zepředu (dopředu i dozadu)
+	_bokem = absf(smer.x) > absf(smer.y) * 0.6
+	_pohled(ZBOKU if _bokem else ZEPREDU, smer.x < 0)
 
 
 # Override this to alter the talk animation or hook custom logic to it.
@@ -136,6 +153,36 @@ func _on_blocked_by_region(_region: PopochiuRegion) -> void:
 func _pohled(obrazek: Texture2D, doleva: bool) -> void:
 	$Sprite2D.texture = obrazek
 	$Sprite2D.flip_h = doleva
+	var rozrez := _chodi and _bokem and metoda_chuze == "rozrez"
+	$Chuze.visible = rozrez
+	$Chuze.scale.x = -1.0 if doleva else 1.0
+	$Sprite2D.visible = not rozrez
+	if not _chodi:
+		_faze = 0.0
+		_animuj(0.0)
+
+
+# Fáze se posouvá podle ušlé vzdálenosti, takže nohy neklouzají ani při jiném měřítku či rychlosti
+func _process(_delta: float) -> void:
+	if Engine.is_editor_hint() or not _chodi:
+		return
+	var usla := position.distance_to(_posledni_pozice) / maxf(scale.x, 0.01)
+	_posledni_pozice = position
+	_faze = fmod(_faze + usla / delka_cyklu * TAU, TAU)
+	_animuj(_faze)
+
+
+func _animuj(faze: float) -> void:
+	var krok := sin(faze)
+	var poskok := -absf(sin(faze)) * 16.0
+	if $Chuze.visible:
+		$Chuze/PredniNoha.rotation = krok * 0.42
+		$Chuze/ZadniNoha.rotation = -krok * 0.42
+		$Chuze/Trup.position.y = poskok
+		$Chuze/Trup.rotation = krok * 0.02
+	else:
+		$Sprite2D.position.y = poskok
+		$Sprite2D.rotation = krok * 0.045
 
 
 #endregion

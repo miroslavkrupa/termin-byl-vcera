@@ -255,6 +255,28 @@ Godot 4.7.2 a Popochiu 2.2.1, šablona Simple Click ve vysokém rozlišení, 153
    zařízeních je teď ukazatel skrytý.
 4. ❓ Zbývá ověřit: prohlédnutí bez pravého tlačítka, čitelnost textu, rychlost načtení.
 
+### K9 – animace chůze Rudy (hotovo)
+
+Dvě levné metody nad stávajícím AI obrázkem, bez kreslení nových fází:
+- **A „rozřez“:** boční pohled rozřezaný nástrojem `hra/nastroje/rozrez_rudu.gd` na trup a nohu.
+  Noha je ve scéně dvakrát (zadní ztmavená), obě se kývají v kyčli proti sobě (±24°), trup se při
+  každém kroku zhoupne nahoru.
+- **B „loutka“:** celý obrázek se při chůzi pohupuje a mírně kolébá. Použije se i při chůzi
+  dopředu a dozadu (pohled zepředu).
+- ✅ **Rozhodnutí autora po zkoušce v editoru: loutka působí lépe** a je výchozí metodou.
+  Rozřez zůstává v kódu jako varianta.
+- Fáze kroku se počítá z ušlé vzdálenosti, ne z času, takže nohy neklouzají ani při zmenšení do hloubky.
+- Při chůzi spíš do strany je Ruda bokem, při chůzi dopředu a dozadu zepředu.
+- Metoda se přepíná vlastností **Metoda chuze** u postavy Ruda (inspektor v editoru), ladicí pomocník
+  umí `chuze=loutka|rozrez` a `serie=N` (série snímků pro kontrolu animace).
+
+**Poznatky:**
+1. Rozřez funguje i s AI kresbou, protože boční pohled má jednu nohu zakrývající druhou. Pro pohled
+   zepředu by rozřezání bylo těžší (nohy vedle sebe, ruce přes tělo).
+2. Kolena se neohýbají a ruce se nehýbou, chůze tak působí trochu strnule. Pro finální hru: nechat
+   AI vygenerovat části postavy zvlášť (stehno, lýtko, chodidlo, paže) a složit kostru v Godotu,
+   nebo nakreslit 6–8 fází chůze (dražší, ale nejhezčí).
+
 ## Rizika prototypu
 
 | Riziko | Dopad | Co s tím |

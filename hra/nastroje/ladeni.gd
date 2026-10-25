@@ -1,6 +1,8 @@
 # Ladicí pomocník pro ověřování prototypu bez ručního klikání.
 # Bez parametrů nedělá nic. Spuštění se snímkem obrazovky:
 #   godot --path hra -- snimek=<soubor.png> [jazyk=cs|en] [cekej=3] [dojdi=x,y | klik=x,y | akce=…] [po=3]
+# serie=N [rozestup=0.12] uloží po akci N snímků za sebou (snimek_01.png …) pro kontrolu animace
+# chuze=loutka|rozrez přepne metodu chůze hráčovy postavy
 # nastaveni=1 otevře okno nastavení, prepni=cs|en přepne jazyk za běhu (jako hráč v nastavení, ale volbu neukládá)
 # cekej = sekundy před akcí, po = sekundy po akci; souřadnice hry (1536 × 1024)
 # dojdi = hráčova postava dojde na místo (ověří navigaci a zmenšování)
@@ -36,6 +38,8 @@ func _ready() -> void:
 	get_node("/root/E").text_speed = 0.005
 	await get_tree().create_timer(float(p.get("cekej", "3"))).timeout
 	_vypis("před akcí")
+	if p.has("chuze"):
+		get_node("/root/C").player.metoda_chuze = p["chuze"]
 	if p.has("nastaveni"):
 		get_node("/root/G").popup_requested.emit("SimpleClickSettings")
 		await get_tree().create_timer(1.0).timeout
@@ -80,6 +84,13 @@ func _ready() -> void:
 			await _az_bude_klid()
 		await get_tree().create_timer(float(p.get("po", "3"))).timeout
 		_vypis("po akci")
+	if p.has("serie"):
+		for i in int(p["serie"]):
+			await RenderingServer.frame_post_draw
+			get_viewport().get_texture().get_image().save_png(p["snimek"].get_basename() + "_%02d.png" % (i + 1))
+			var h = get_node("/root/C").player
+			print("[serie %02d] hráč %s měřítko %.3f" % [i + 1, h.position, h.scale.x])
+			await get_tree().create_timer(float(p.get("rozestup", "0.12"))).timeout
 	# Počkat na vykreslení aktuálního stavu (jinak může snímek zachytit starší obraz)
 	await RenderingServer.frame_post_draw
 	await RenderingServer.frame_post_draw
