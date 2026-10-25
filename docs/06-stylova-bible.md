@@ -31,6 +31,22 @@ do našeho světa: místo planety ze šrotu je tu město věčných staveb, leš
 - **Žlutá výstražná barva** stavby je vyhrazená pro důležité věci (aktivní předměty, akcenty,
   Archa). Nepoužívat ji na nedůležité pozadí.
 
+### Doba a místo (D28)
+
+**Současné zanedbané středoevropské maloměsto.** Staré domy se mísí s nedostavěnými šedými
+paneláky, radnice ze 70. let je obalená lešením. Technika z let 1970–2000: tlačítkové výtahy,
+telefonní budky, otočné telefony, zářivky, starý autobus. Postavy přitom normálně používají
+tablet a kávu z hrnku: doba je současná, jen město se zaseklo ve „fázi 2“.
+- **Ano:** paneláky, lešení, zrezivělé zábradlí, kašna bez vody, plechové cedule, jeřáby.
+- **Ne:** gotika, hrady, středověk, fantasy, středomořská krajina, futuristické sci-fi.
+
+### Archa (D29)
+
+**Stará rezavá loď, ke které někdo přidělal raketové motory, křídla a anténu.** Leží na betonové
+startovací rampě za městem, záplatovaná plachtami. Absurdní a okamžitě čitelná: „loď, která má
+letět“. S postupem hry se na ní přibývá hotových částí (motory, okna kajut, nátěr), takže hráč
+vidí pokrok stavby.
+
 ## Pravidla
 
 ### Linka
@@ -93,41 +109,87 @@ vizuálně temnější, aniž by se změnil styl. Varianta B se nepoužívá.
   nesmysly (AI ráda přidá text, prsty navíc, nelogickou architekturu).
 - Zaznamenat nástroj a zadání u každého finálního obrázku (Steam vyžaduje uvést použití AI).
 
+Šablony prošly prvním kolem vzorků ([hodnocení kola 1](styl/vzorky/hodnoceni-kolo-1.md)).
+Malířské stínování a bohaté detaily přebíjely linku, proto je zadání posunuté ke komiksu.
+Úplná aktuální zadání jsou v `tools/vzorky/zadani.json`.
+
 ### Šablona zadání: pozadí (varianta A)
 
 ```
-2D hand-painted cartoon background for a point-and-click adventure game,
-absurd ramshackle town where every building is unfinished: scaffolding, cranes,
-half-built bridge, tarps, traffic cones, warning tape,
-crooked exaggerated perspective, nothing is straight,
+2D cartoon background for a classic point-and-click comedy adventure game, caricature style,
+<popis scény>,
 warm muted palette of ochre, rust and faded teal with yellow construction accents,
-thick dark-brown ink outlines with varying line weight, soft painterly shading,
-rich cluttered detail, atmospheric haze in the distance,
-a comet with a long glowing tail in the hazy sky,
-no text, no letters, no people, 16:9
+contemporary run-down Central European small town setting, simplified exaggerated shapes,
+buildings leaning and bulging in different directions, nothing is straight,
+bold thick dark-brown outlines around every object,
+flat colors with simple soft shading and subtle hand-painted texture, moderate amount of detail,
+clear open walkable floor in the lower third of the image, main objects large and easy to read,
+not realistic, no gothic architecture, no medieval castles,
+no text, no letters, no logos, no people
 ```
 
-### Šablona zadání: referenční list postavy (Ruda)
+### Šablona zadání: referenční list postavy
 
 ```
-full-body character turnaround sheet, front view, side view and back view,
-lanky overconfident project manager in his forties, oversized head,
-long pointy nose, messy spiky dark hair, smug grin, loose striped tie,
-wrinkled shirt with rolled-up sleeves, too-short trousers, clipboard and coffee mug,
-exaggerated cartoon proportions, head about one third of body height, long thin limbs,
-thick dark-brown ink outlines with varying line weight, flat colors with soft cel shading,
-neutral standing pose, plain white background, no text
+full-body character turnaround sheet, front view, side view and back view of the same character,
+<popis postavy včetně velikosti hlavy>,
+warm muted palette of ochre, rust and faded teal with yellow construction accents,
+classic point-and-click comedy adventure caricature style, exaggerated cartoon proportions,
+bold thick dark-brown ink outlines with varying line weight, flat colors with soft cel shading,
+neutral standing pose, plain white background, no text, no letters
 ```
 
-Pro další varianty se mění jen řádek s paletou:
-- **B:** `bright cheerful palette, saturated blue sky, terracotta, fresh green, sunny light`
+### Předloha stylu
+
+Rudův referenční list stylem sedí nejlépe, proto slouží jako **předloha stylu** pro ostatní
+obrázky. Do zadání se přidá věta:
+
+```
+Match the drawing style, line work and coloring of the reference image exactly,
+but do not include the character from it.
+```
+
+V ChatGPT se list nahraje do konverzace, ve skriptu se uvede v poli `reference`.
+
+Pro variantu C se mění jen řádek s paletou:
 - **C:** `dramatic dusk palette, purple and deep blue sky, orange glow from the comet, strong contrast`
+
+## Automatické generování (D27)
+
+Vzorky se generují přes **OpenAI Images API** skriptem `tools/generuj_vzorky.py`. Zadání jsou
+v `tools/vzorky/zadani.json`: společný začátek a konec podle typu (pozadí / postava), palety A a C
+a seznam vzorků. Ladí se úpravou tohoto souboru, ne ručním přepisováním promptů.
+
+```bash
+python3 tools/generuj_vzorky.py --dry-run
+```
+
+Suchý běh vypíše zadání a odhad ceny, nic negeneruje. Bez `--dry-run` skript obrázky vygeneruje
+a uloží do `docs/styl/vzorky/` jako `<id>_v01.png`, `<id>_v02.png`… Další volby: `--only <id>`
+(jen vybrané vzorky), `--quality low|medium|high`, `--model <model>`.
+
+Vzorek s polem `"reference"` (seznam obrázků) se generuje podle předlohy, například scéna
+s Rudou podle jeho schváleného referenčního listu. Tím se drží konzistence postav.
+
+### Jak získat a nastavit API klíč
+
+Předplatné ChatGPT **nezahrnuje** přístup k API. API se platí zvlášť, předplacenými kredity.
+
+1. Přihlas se na **platform.openai.com** (stejný účet jako ChatGPT).
+2. V **Settings → Billing** přidej platební kartu a dobij kredit (stačí minimum, na vzorky
+   vystačí pár dolarů). Nastav si tam i **limit útraty**.
+3. Pokud API při prvním generování ohlásí, že model vyžaduje ověření organizace, udělej ho
+   v **Settings → Organization → General** (ověření totožnosti, trvá pár minut).
+4. V **API keys** vytvoř nový tajný klíč a zkopíruj ho (zobrazí se jen jednou).
+5. V kořeni projektu vytvoř soubor `.env` s jediným řádkem `OPENAI_API_KEY=` a za rovnítko
+   vlož klíč. Soubor je v `.gitignore`, do gitu se nedostane.
+6. Klíč nikdy nevkládej do chatu ani do jiných souborů.
 
 ## Další postup
 
 1. ~~Vybrat variantu~~ ✅ A + C (D21).
-2. Podle šablon nech vygenerovat 2–3 pozadí ve variantě A, jedno večerní ve variantě C
-   a referenční list Rudy. Ulož je do `docs/styl/vzorky/`.
+2. Skriptem vygenerovat první sadu: 3 pozadí ve variantě A (náměstí, archiv, rampa), náměstí
+   večer ve variantě C a referenční listy Rudy a Báry.
 3. Společně je porovnáme s pravidly výše a doladíme zadání. Schválené vzorky se stanou
    referencí pro všechny další obrázky.
 

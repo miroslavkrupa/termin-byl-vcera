@@ -33,6 +33,10 @@
 | D25 | 2026-10-25 | Ruda zosobňuje svět plánu, Bára svět iterací, oba mají vadu; romantická linka je metafora hybridu. Předseda Věčný je zvrhlý vodopád, Ing. Framework zvrhlá agilita | Bára dostává vadu (nerada se zavazuje k termínu); Ing. Framework je vedlejší záporák | [bible](03-pribehova-bible.md) |
 | D26 | 2026-10-25 | Ve hře se nepoužívají slova agilní, prediktivní ani hybridní; jen „Rudův způsob“ a „Bářin způsob“ | odborné názvy jen ve volitelném Deníku | [koncepce](07-dva-svety.md), [matice](02-vyukova-matice.md) |
 
+| D27 | 2026-10-25 | Vzorky grafiky se generují automaticky přes OpenAI Images API (autor platí ChatGPT, API se platí zvlášť) | skript `tools/generuj_vzorky.py`, zadání v `tools/vzorky/zadani.json`, klíč v `.env` mimo git | [stylová bible](06-stylova-bible.md) |
+| D28 | 2026-10-25 | Doba a místo: současné zanedbané středoevropské maloměsto (staré domy, nedostavěné paneláky, technika 1970–2000) | v zadáních pro AI vyloučena gotika, středověk a fantasy | [stylová bible](06-stylova-bible.md) |
+| D29 | 2026-10-25 | Archa je stará rezavá loď s přidělanými raketovými motory, křídly a anténou | s postupem hry na ní přibývají hotové části | [stylová bible](06-stylova-bible.md), [bible](03-pribehova-bible.md) |
+
 ## Čeká na rozhodnutí
 
 - Předseda Věčný: jasný záporák od začátku, nebo zvrat ve 4. kapitole? Doladit podle podrobností příběhu.

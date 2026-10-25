@@ -27,6 +27,10 @@ Komise pro schvalování komisí: dokud nic není hotové, rozpočty tečou.
 **Hrozba:** kometa **Deadline** dopadne za 30 dní. Jediná záchrana je **Archa**, která leží
 na rampě za městem od dob, kdy si na ni naposledy někdo vzpomněl.
 
+**Jak Archa vypadá** (D29): stará rezavá loď, ke které někdo přidělal raketové motory, křídla
+a anténu. Město je současné zanedbané středoevropské maloměsto se starými domy a nedostavěnými
+paneláky (D28).
+
 **Archa má dvě povahy** ([koncepce](07-dva-svety.md)): rampa, trup, pohon a startovací
 bezpečnostní systém potřebují plán; řídicí systém, evakuační aplikace, nástup obyvatel
 a interiér potřebují zkoušení s lidmi. Kde se části potkávají, musí se sladit.

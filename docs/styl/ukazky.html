@@ -108,24 +108,29 @@
 </main>
 
 <script>
-const BG_PROMPT = palette => `2D hand-painted cartoon background for a point-and-click adventure game,
-absurd ramshackle town where every building is unfinished: scaffolding, cranes,
-half-built bridge, tarps, traffic cones, warning tape,
-crooked exaggerated perspective, nothing is straight,
-${palette},
-thick dark-brown ink outlines with varying line weight, soft painterly shading,
-rich cluttered detail, atmospheric haze in the distance,
+// Šablony odpovídají stylové bibli po kole 1 (úplná zadání jsou v tools/vzorky/zadani.json)
+const BG_PROMPT = palette => `2D cartoon background for a classic point-and-click comedy adventure game, caricature style,
+small town square in front of a crooked half-finished 1970s town hall wrapped in scaffolding,
+an exterior elevator shaft that stops halfway up the second floor, a dry fountain,
 a comet with a long glowing tail in the sky,
-no text, no letters, no people, 16:9`;
-
-const CHAR_PROMPT = palette => `full-body character turnaround sheet, front view, side view and back view,
-lanky overconfident project manager in his forties, oversized head,
-long pointy nose, messy spiky dark hair, smug grin, loose striped tie,
-wrinkled shirt with rolled-up sleeves, too-short trousers, clipboard and coffee mug,
-exaggerated cartoon proportions, head about one third of body height, long thin limbs,
-thick dark-brown ink outlines with varying line weight, flat colors with soft cel shading,
 ${palette},
-neutral standing pose, plain white background, no text`;
+contemporary run-down Central European small town setting, simplified exaggerated shapes,
+buildings leaning and bulging in different directions, nothing is straight,
+bold thick dark-brown outlines around every object,
+flat colors with simple soft shading and subtle hand-painted texture, moderate amount of detail,
+clear open walkable floor in the lower third of the image, main objects large and easy to read,
+not realistic, no gothic architecture, no medieval castles,
+no text, no letters, no logos, no people`;
+
+const CHAR_PROMPT = palette => `full-body character turnaround sheet, front view, side view and back view of the same character,
+lanky overconfident project manager in his forties, big caricature head about one third of body height,
+long pointy nose, messy spiky dark hair, smug grin, loose red striped tie,
+wrinkled off-white shirt with rolled-up sleeves, too-short grey-blue trousers showing yellow socks,
+clipboard and coffee mug, long thin limbs,
+${palette},
+classic point-and-click comedy adventure caricature style, exaggerated cartoon proportions,
+bold thick dark-brown ink outlines with varying line weight, flat colors with soft cel shading,
+neutral standing pose, plain white background, no text, no letters`;
 
 const VARIANTS = [
   {
