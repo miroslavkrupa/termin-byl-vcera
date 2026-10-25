@@ -7,7 +7,8 @@
 
 ## Postup v ChatGPT
 
-1. Generuj v tomto pořadí: nejdřív Ruda, pak ostatní.
+1. Generuj v tomto pořadí: nejdřív Ruda, pak ostatní. ✅ Kroky 1 a 2 jsou hotové (`ruda-list_v02`, `bara-list_v02`,
+   [hodnocení](hodnoceni-kolo-2.md)); pozadí (kroky 3–6) generuj s předlohou `ruda-list_v02.png`.
 2. U každého kroku nahraj do konverzace uvedený obrázek (ikona sponky) a vlož celé zadání.
 3. Výsledek ulož do `docs/styl/vzorky/` jako `<id>_v02.png` (další pokus `_v03`).
 4. Úpravy piš klidně česky („silnější hnědé linky“, „méně detailů“, „odstraň Rudu z obrázku“).
@@ -39,7 +40,7 @@ classic point-and-click comedy adventure caricature style, exaggerated cartoon p
 
 ## 3. `a-namesti`: Náměstí (varianta A)
 
-Nová konverzace. Nahraj `ruda-list_v01.png` jako předlohu stylu.
+Nová konverzace. Nahraj `ruda-list_v02.png` jako předlohu stylu.
 
 ```
 Generate a landscape image, aspect ratio 3:2.
@@ -66,7 +67,7 @@ contemporary run-down Central European small town setting, simplified exaggerate
 
 ## 5. `a-archiv`: Archiv (varianta A)
 
-Nová konverzace. Nahraj `ruda-list_v01.png` jako předlohu stylu.
+Nová konverzace. Nahraj `ruda-list_v02.png` jako předlohu stylu.
 
 ```
 Generate a landscape image, aspect ratio 3:2.
@@ -79,7 +80,7 @@ contemporary run-down Central European small town setting, simplified exaggerate
 
 ## 6. `a-rampa`: Rampa s Archou (varianta A)
 
-Nová konverzace. Nahraj `ruda-list_v01.png` jako předlohu stylu.
+Nová konverzace. Nahraj `ruda-list_v02.png` jako předlohu stylu.
 
 ```
 Generate a landscape image, aspect ratio 3:2.

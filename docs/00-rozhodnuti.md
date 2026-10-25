@@ -36,6 +36,9 @@
 | D27 | 2026-10-25 | Vzorky grafiky se generují automaticky přes OpenAI Images API (autor platí ChatGPT, API se platí zvlášť) | skript `tools/generuj_vzorky.py`, zadání v `tools/vzorky/zadani.json`, klíč v `.env` mimo git | [stylová bible](06-stylova-bible.md) |
 | D28 | 2026-10-25 | Doba a místo: současné zanedbané středoevropské maloměsto (staré domy, nedostavěné paneláky, technika 1970–2000) | v zadáních pro AI vyloučena gotika, středověk a fantasy | [stylová bible](06-stylova-bible.md) |
 | D29 | 2026-10-25 | Archa je stará rezavá loď s přidělanými raketovými motory, křídly a anténou | s postupem hry na ní přibývají hotové části | [stylová bible](06-stylova-bible.md), [bible](03-pribehova-bible.md) |
+| D30 | 2026-10-25 | Referenční listy `ruda-list_v02` a `bara-list_v02` schváleny | jsou předlohou pro všechny další obrázky postav; Rudův list je i předlohou stylu pro pozadí | [vzorky](styl/vzorky/README.md) |
+| D31 | 2026-10-25 | Žluté ponožky Rudy i Báry jsou záměr | jen tyto dvě postavy nosí výstražnou žlutou; tichý symbol, že Archu dokončí právě oni | [stylová bible](06-stylova-bible.md), [bible](03-pribehova-bible.md) |
+| D32 | 2026-10-25 | Archiv v02 schválen jako vzor interiérů, náměstí A a C v02 jako směr pro exteriéry | další pozadí se porovnávají s nimi; v kole 3 úprava křivosti náměstí a nová rampa | [hodnocení kola 2](styl/vzorky/hodnoceni-kolo-2.md) |
 
 ## Čeká na rozhodnutí
 

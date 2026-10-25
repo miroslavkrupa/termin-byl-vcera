@@ -30,6 +30,7 @@ do našeho světa: místo planety ze šrotu je tu město věčných staveb, leš
   Hráč tak vidí čas bez jakéhokoli ukazatele.
 - **Žlutá výstražná barva** stavby je vyhrazená pro důležité věci (aktivní předměty, akcenty,
   Archa). Nepoužívat ji na nedůležité pozadí.
+  Z postav ji nosí jen Ruda a Bára (žluté ponožky, D31): tichý symbol, že Archu dokončí právě oni.
 
 ### Doba a místo (D28)
 
@@ -184,6 +185,15 @@ Předplatné ChatGPT **nezahrnuje** přístup k API. API se platí zvlášť, p�
 5. V kořeni projektu vytvoř soubor `.env` s jediným řádkem `OPENAI_API_KEY=` a za rovnítko
    vlož klíč. Soubor je v `.gitignore`, do gitu se nedostane.
 6. Klíč nikdy nevkládej do chatu ani do jiných souborů.
+
+## Schválené reference
+
+| Co | Soubor | Použití |
+|---|---|---|
+| Ruda | `styl/vzorky/ruda-list_v02.png` | reference postavy a předloha stylu pro všechna pozadí |
+| Bára | `styl/vzorky/bara-list_v02.png` | reference postavy |
+| interiéry | `styl/vzorky/a-archiv_v02.png` | vzor pro všechny interiéry |
+| exteriéry | `styl/vzorky/a-namesti_v02.png`, `c-namesti-vecer_v02.png` | směr pro exteriéry ve dne a večer (křivost se ještě ladí) |
 
 ## Další postup
 

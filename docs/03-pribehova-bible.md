@@ -80,6 +80,8 @@ a interiér potřebují zkoušení s lidmi. Kde se části potkávají, musí se
   i nenaplněná, podle hráčových voleb. Je to zároveň **metafora hybridu**: dva světy, které se
   nejdřív nesnášejí, se naučí spolupracovat a každý přinese svou sílu. Ruda se naučí poslouchat,
   Bára se naučí slíbit termín.
+- **Žluté ponožky:** Bára i Ruda nosí žluté ponožky (D31). Nikdo to nekomentuje, dokud si toho
+  v kap. 5 někdo nevšimne.
 - **Hratelné úseky:** v některých kapitolách se hraje za Báru. Řeší puzzly jinak než Ruda:
   ptá se, měří, ověřuje a nespoléhá na blafování. V kapitole 3 se hra střídá: Ruda na rampě,
   Bára u řídicího systému a interiéru. Hráč tak oba světy zažije zevnitř.
