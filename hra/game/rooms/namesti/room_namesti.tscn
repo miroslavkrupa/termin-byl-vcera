@@ -1,0 +1,36 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://game/rooms/namesti/room_namesti.gd" id="1_xhamq"]
+[ext_resource type="PackedScene" path="res://game/rooms/namesti/props/background/prop_background.tscn" id="2_dvawb"]
+[ext_resource type="PackedScene" path="res://game/rooms/namesti/walkable_areas/dlazba/walkable_area_dlazba.tscn" id="2_m3dto"]
+[ext_resource type="Texture2D" path="res://grafika/mistnosti/namesti_den.png" id="3_pp1hi"]
+[ext_resource type="PackedScene" path="res://game/rooms/namesti/regions/hloubka/region_hloubka.tscn" id="4_pp1hi"]
+
+[node name="RoomNamesti" type="Node2D" unique_id=1362046152]
+script = ExtResource("1_xhamq")
+script_name = "Namesti"
+width = 1536
+height = 1024
+
+[node name="WalkableAreas" type="Node2D" parent="." unique_id=1241135975]
+
+[node name="Dlazba" parent="WalkableAreas" unique_id=764696984 instance=ExtResource("2_m3dto")]
+
+[node name="Props" type="Node2D" parent="." unique_id=680432144]
+
+[node name="Background" parent="Props" unique_id=1933164184 instance=ExtResource("2_dvawb")]
+position = Vector2(768, 512)
+texture = ExtResource("3_pp1hi")
+
+[node name="Hotspots" type="Node2D" parent="." unique_id=1536900053]
+
+[node name="Regions" type="Node2D" parent="." unique_id=1128713920]
+
+[node name="Hloubka" parent="Regions" unique_id=1149518962 instance=ExtResource("4_pp1hi")]
+scaling = true
+scale_top = 0.17
+scale_bottom = 0.46
+
+[node name="Markers" type="Node2D" parent="." unique_id=1198552640]
+
+[node name="Characters" type="Node2D" parent="." unique_id=1280374402]

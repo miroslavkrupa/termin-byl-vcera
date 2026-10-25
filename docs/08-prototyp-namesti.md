@@ -53,8 +53,8 @@ Každý krok končí něčím, co jde spustit a vyzkoušet. Ke každému se zap�
 
 | Krok | Co | Kdo | Hotovo, když |
 |---|---|---|---|
-| **K0** | Instalace Godotu, stažení Popochiu, založení projektu, zapnutí pluginu a průvodce nastavením | autor instaluje a kliká v editoru, Claude připraví soubory a navede | prázdný projekt s Popochiu se spustí ⏳ Godot 4.7.2 nainstalován, projekt `hra/` s Popochiu 2.2.1 založen a ověřen importem; zbývá zapnout plugin a projít průvodce |
-| **K1** | Místnost Náměstí: pozadí, pochozí plocha, Ruda chodí kliknutím/klepnutím, zmenšuje se do hloubky, má stín | Claude kód a scény, autor doladí polygon pochozí plochy v editoru | Ruda dojde kamkoli na dlažbu a nevyjde mimo |
+| **K0** | Instalace Godotu, stažení Popochiu, založení projektu, zapnutí pluginu a průvodce nastavením | autor instaluje a kliká v editoru, Claude připraví soubory a navede | prázdný projekt s Popochiu se spustí ✅ hotovo |
+| **K1** | Místnost Náměstí: pozadí, pochozí plocha, Ruda chodí kliknutím/klepnutím, zmenšuje se do hloubky, má stín | Claude kód a scény, autor doladí polygon pochozí plochy v editoru | Ruda dojde kamkoli na dlažbu a nevyjde mimo | ✅ hotovo (viz Průběh) |
 | **K2** | Aktivní místa: kašna (prohlédnout), telefonní budka (použít), dveře radnice (zatím zamčené) | Claude | popisky a reakce v obou jazycích |
 | **K3** | Dialog se stánkem Pana Změny (hlas zpoza stánku), dvě volby, jedna z nich dá propisku | Claude | dialog proběhne v CZ i EN |
 | **K4** | Inventář: hrnek kávy + propiska → **kávové pero** | Claude, zástupné ikony | kombinování funguje a pero jde použít na Pana Změnu |
@@ -67,6 +67,33 @@ Každý krok končí něčím, co jde spustit a vyzkoušet. Ke každému se zap�
 
 Souběžně s K1–K8 může autor udělat **papírový prototyp miniher M13 a M14** (kartičky připraví
 Claude).
+
+## Průběh
+
+### K0 – projekt (hotovo)
+
+Godot 4.7.2 a Popochiu 2.2.1, šablona Simple Click ve vysokém rozlišení, 1536 × 1024.
+
+### K1 – Náměstí a chůze (hotovo)
+
+- Místnost Náměstí s pozadím `a-namesti_v03`, pochozí plocha po dlažbě (kašna, budka, patníky
+  a lavička jsou překážky), oblast zmenšování do hloubky, Ruda jako hráčova postava se stínem.
+- Ruda chodí, zmenšuje se do hloubky a ke kašně se nedostane, zastaví se u okraje.
+  Při chůzi se přepne na pohled z boku (doleva zrcadlově), když stojí, je vidět zepředu.
+- **Nástroj `nastroje/vytvor.gd`** zakládá místnosti, postavy, předměty, pochozí plochy, aktivní
+  místa, oblasti a kulisy z příkazové řádky, stejnými továrnami jako panel Popochiu. Claude tak
+  nepotřebuje editor ani na zakládání objektů (odpověď na O1 je zatím „ano“).
+- **Nástroj `nastroje/ladeni.gd`** spustí hru, pošle postavu na místo a uloží snímek obrazovky.
+  Claude si tak výsledek ověří sám.
+
+**Poznatky:**
+1. **Perspektiva AI pozadí je přehnaná a nekonzistentní.** Zmenšování nastavené podle telefonní
+   budky a patníků (0,17 vzadu, 0,46 vpředu) je kompromis. Dveře radnice by chtěly Rudu ještě menšího.
+   Do zadání dalších pozadí přidat „consistent believable perspective“.
+2. **Popochiu čte skutečnou pozici kurzoru**, ne souřadnice simulovaného kliknutí. Automatický
+   test klikání proto nejde; ověřuje se přes `dojdi` a ručně (autor v editoru, F5), na telefonu v K8.
+3. **Statický obrázek při chůzi „klouže“.** Čeká se na K9 (animace).
+4. Bílý lem u konečků vlasů po vyříznutí je ve hře téměř neviditelný.
 
 ## Rizika prototypu
 

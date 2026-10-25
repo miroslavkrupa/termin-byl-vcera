@@ -1,0 +1,9 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="Script" path="res://game/characters/ruda/character_ruda_state.gd" id="1_ank1a"]
+
+[resource]
+resource_name = "Ruda"
+script = ExtResource("1_ank1a")
+script_name = "Ruda"
+scene = "res://game/characters/ruda/character_ruda.tscn"

@@ -11,20 +11,22 @@ config_version=5
 [application]
 
 config/name="Termín byl včera – prototyp"
+run/main_scene="res://game/rooms/namesti/room_namesti.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
 [autoload]
 
-Globals="*res://game/popochiu_globals.gd"
+Globals="*uid://bp1n6nxpgph2s"
 Cursor="*uid://c2pqh7ajiuiy0"
 E="*uid://rda8wggldt5o"
-R="*res://game/autoloads/r.gd"
-C="*res://game/autoloads/c.gd"
-I="*res://game/autoloads/i.gd"
-D="*res://game/autoloads/d.gd"
-A="*res://game/autoloads/a.gd"
+R="*uid://ciufr3amc41et"
+C="*uid://cbgjku0fqvr0b"
+I="*uid://cwi2iq8vv2qv1"
+D="*uid://edkc1mnudsq1"
+A="*uid://cwmtasxkrjqx4"
 G="*uid://blk6nfpfiqrd2"
 T="*uid://30lm6k5s368s"
+Ladeni="*res://nastroje/ladeni.gd"
 
 [display]
 
@@ -56,6 +58,10 @@ popochiu-skip={
 &"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":16,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194305,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://game/rooms/namesti/room_namesti.gd", "res://game/rooms/namesti/props/background/prop_background.gd", "res://game/characters/ruda/character_ruda.gd")
 
 [rendering]
 

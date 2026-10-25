@@ -1,0 +1,20 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://game/rooms/namesti/walkable_areas/dlazba/walkable_area_dlazba.gd" id="1_vd8nm"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_epeck"]
+vertices = PackedVector2Array(200, 860, 190, 820, 200, 770, 285, 790, 290, 945, 1270, 795, 1400, 800, 1400, 830, 1170, 845, 450, 815, 885, 790, 1150, 1010, 300, 1010, 760, 812, 905, 735, 1260, 735, 600, 822)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(4, 3, 9), PackedInt32Array(10, 8, 11, 12, 4, 13), PackedInt32Array(14, 15, 5, 8, 10), PackedInt32Array(16, 13, 4), PackedInt32Array(16, 4, 9)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(200, 770, 285, 790, 450, 815, 600, 822, 760, 812, 885, 790, 905, 735, 1260, 735, 1270, 795, 1400, 800, 1400, 830, 1170, 845, 1150, 1010, 300, 1010, 290, 945, 200, 860, 190, 820)])
+agent_radius = 0.0
+
+[node name="Dlazba" type="Node2D" unique_id=764696984]
+script = ExtResource("1_vd8nm")
+script_name = "Dlazba"
+description = "Dlazba"
+interaction_polygon = Array[PackedVector2Array]([PackedVector2Array(200, 770, 285, 790, 450, 815, 600, 822, 760, 812, 885, 790, 905, 735, 1260, 735, 1270, 795, 1400, 800, 1400, 830, 1170, 845, 1150, 1010, 300, 1010, 290, 945, 200, 860, 190, 820)])
+
+[node name="Perimeter" type="NavigationRegion2D" parent="." unique_id=1904577690]
+visible = false
+modulate = Color(0, 1, 0, 1)
+navigation_polygon = SubResource("NavigationPolygon_epeck")

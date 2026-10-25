@@ -20,6 +20,20 @@ Godot → **Import** → `hra/project.godot` → *Import & Edit*.
 
 ## Nástroje
 
+Všechny se spouštějí z kořene repozitáře.
+
+Založení objektu Popochiu bez editoru (příkazy a souřadnice jsou v hlavičce skriptu):
+
+```bash
+godot --headless --path hra --script res://nastroje/vytvor.gd -- mistnost Archiv
+```
+
+Spuštění hry se snímkem obrazovky (pro ověřování; `dojdi` pošle hráčovu postavu na místo):
+
+```bash
+godot --path hra -- snimek=/tmp/snimek.png cekej=3 dojdi=1100,750 po=6
+```
+
 Vyříznutí postavy z referenčního listu (odstraní bílé pozadí):
 
 ```bash
