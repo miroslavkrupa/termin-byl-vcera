@@ -1,6 +1,7 @@
 # Ladicí pomocník pro ověřování prototypu bez ručního klikání.
 # Bez parametrů nedělá nic. Spuštění se snímkem obrazovky:
 #   godot --path hra -- snimek=<soubor.png> [jazyk=cs|en] [cekej=3] [dojdi=x,y | klik=x,y | akce=…] [po=3]
+# nastaveni=1 otevře okno nastavení, prepni=cs|en přepne jazyk za běhu (jako hráč v nastavení, ale volbu neukládá)
 # cekej = sekundy před akcí, po = sekundy po akci; souřadnice hry (1536 × 1024)
 # dojdi = hráčova postava dojde na místo (ověří navigaci a zmenšování)
 # akce = <AktivniMisto>:pouzit|prohlednout|najet[,…] – klepnutí levým / pravým tlačítkem, nebo jen popisek jako při najetí
@@ -35,6 +36,14 @@ func _ready() -> void:
 	get_node("/root/E").text_speed = 0.005
 	await get_tree().create_timer(float(p.get("cekej", "3"))).timeout
 	_vypis("před akcí")
+	if p.has("nastaveni"):
+		get_node("/root/G").popup_requested.emit("SimpleClickSettings")
+		await get_tree().create_timer(1.0).timeout
+	if p.has("prepni"):
+		# Stejně jako volba v nastavení, ale bez uložení (ladění nemá měnit hráčovo nastavení)
+		TranslationServer.set_locale(p["prepni"])
+		get_node("/root/Jazyk").zmenen.emit(p["prepni"])
+		await get_tree().create_timer(0.5).timeout
 	# Kroky se provedou v tomto pořadí: dojdi / klik, akce, volby, pouzij
 	if p.has("dojdi"):
 		var xy: PackedStringArray = p["dojdi"].split(",")

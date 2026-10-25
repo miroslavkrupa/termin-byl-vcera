@@ -11,7 +11,6 @@ ch1_budka_pouzit_1,Zavolám na linku pomoci.,I'll call the helpline.,Ruda,sebev�
 ch1_budka_pouzit_2,„Vaše žádost je pro nás důležitá. Jste v pořadí číslo… čtyři tisíce osm set dvanáct.“,"""Your call is important to us. You are caller number... four thousand eight hundred and twelve.""",Ruda,cituje automat,4812 = počet obyvatel (běžecký vtip z kap. 1)
 ch1_budka_pouzit_3,"Celé město visí na lince. Aspoň vím, kde všichni jsou.",The whole town is on hold. At least I know where everyone is.,Ruda,pobaveně,
 ch1_dvere_prohlednout,"Vchod do radnice. Lešení je tu tak dlouho, že je nejspíš nosné.",The town hall entrance. The scaffolding's been up so long it's probably load-bearing.,Ruda,suše,
-ch1_dvere_zamceno,Zamčeno. Na cedulce stojí: „Úřední hodiny: příští fáze.“,"Locked. A little sign says: ""Office hours: next phase.""",Ruda,otráveně,v K5 se dveře otevřou do archivu
 postava_pan_zmena,Pan Změna,Mr. Change,,,jméno v angličtině je pracovní (D15)
 ch1_hs_stanek,Stánek Pana Změny,Mr. Change's stall,,,popisek aktivního místa
 ch1_stanek_prohlednout,"Stánek, který prodává všechno. Jen nikdy dvakrát to samé.",A stall that sells everything. Just never the same thing twice.,Ruda,uznale,
@@ -56,3 +55,24 @@ ch1_kartoteka_pouzit_1,"Projekt „Modernizace výtahu“, zahájen 1987. Stav: 
 ch1_kartoteka_pouzit_2,"Projekt „Most přes řeku“, 1974. Poznámka: zapomněli jsme se zeptat rybářů.","Project 'Bridge over the River', 1974. Note: we forgot to ask the fishermen.",Ruda,čte,karta poučení z návrhu kap. 1
 ch1_kartoteka_pouzit_3,"Kdyby tohle někdo četl dřív, ušetřil by dvacet mostů.","If someone had read this sooner, they'd have saved twenty bridges.",Ruda,zamyšleně,
 ch1_archiv_prichod,"Archiv zkrachovalých projektů. Konečně místo, kde se něco dokončuje: seznamy toho, co se nedokončilo.","The archive of failed projects. Finally, a place where something gets finished: lists of what didn't.",Ruda,uznale,jen při prvním příchodu
+ui_nastaveni,Nastavení,Settings,,,titulek okna nastavení
+ui_jazyk,Jazyk,Language,,,nastavení
+Save,Uložit,Save,,,šablona Popochiu: klíčem je anglický text šablony
+Load,Nahrát,Load,,,šablona Popochiu
+History,Historie,History,,,šablona Popochiu
+Quit,Konec,Quit,,,šablona Popochiu
+Volume,Hlasitost,Volume,,,šablona Popochiu
+Dialogue Advancement,Posun replik,Dialogue Advancement,,,šablona Popochiu
+Dialogue Speed,Rychlost textu,Dialogue Speed,,,šablona Popochiu
+Manual,Ručně,Manual,,,šablona Popochiu
+Auto,Samo,Auto,,,šablona Popochiu
+Quit game,Ukončit hru,Quit game,,,šablona Popochiu
+Are you sure you want to quit?,Opravdu chceš skončit? Kometa nepočká.,Are you sure you want to quit? The comet won't wait.,,,šablona Popochiu
+OK,OK,OK,,,šablona Popochiu
+Cancel,Zrušit,Cancel,,,šablona Popochiu
+Choose a slot to save the game,Vyber pozici pro uložení hry,Choose a slot to save the game,,,šablona Popochiu
+Choose the slot to load,Vyber pozici k nahrání,Choose the slot to load,,,šablona Popochiu
+Nothing to show yet,Zatím tu nic není,Nothing to show yet,,,šablona Popochiu (historie)
+ok,OK,OK,,,šablona Popochiu (skryté tlačítko)
+cancel,Zrušit,Cancel,,,šablona Popochiu (skryté tlačítko)
+Master,Celkem,Master,,,šablona Popochiu (název zvukové sběrnice)

@@ -36,7 +36,16 @@ Spuštění hry se snímkem obrazovky (pro ověřování; `dojdi` pošle hráčo
 godot --path hra -- snimek=/tmp/snimek.png jazyk=en cekej=3 akce=DvereRadnice:pouzit,Kartoteka:pouzit po=1
 ```
 
-Texty jsou v `texty/texty.csv`; každý řádek musí mít češtinu i angličtinu.
+Texty jsou v `texty/texty.csv`; každý řádek musí mít češtinu i angličtinu. Po úpravě tabulky
+je potřeba import (editor ho udělá sám, z příkazové řádky `godot --headless --path hra --import`)
+a kontrola překladů:
+
+```bash
+python3 hra/nastroje/kontrola_textu.py
+```
+
+ID textů hry mají předponu podle místa použití (`ch1_`, `predmet_`, `postava_`, `obecne_`, `ui_`).
+Texty šablony GUI Popochiu mají jako klíč svůj anglický text.
 
 Zástupné ikony předmětů (do doby, než je nahradí AI grafika):
 

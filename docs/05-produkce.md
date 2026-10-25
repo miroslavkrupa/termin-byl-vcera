@@ -98,8 +98,8 @@ Postavy jsou nakreslené jednou, v denním světle. Do scény je usazuje engine 
 
 - Všechny texty v tabulkách řetězců (CSV nebo formát Godotu), sloupce `id`, `cs`, `en`,
   `mluvci`, `emoce`, `poznamka`.
-- **Nová replika bez obou jazyků se nepřijímá.** Kontrolní skript při sestavení hlásí
-  chybějící překlady.
+- **Nová replika bez obou jazyků se nepřijímá.** Kontrolní skript `hra/nastroje/kontrola_textu.py`
+  hlásí chybějící překlady (hotovo v prototypu, krok K6).
 - Dialogy v Ink nebo Dialogue Manageru s odkazy na ID řetězců.
 - Jazyk se dá přepnout kdykoli v menu, i uprostřed hry.
 - Testovat rozvržení s delší verzí textu. Čeština a angličtina mají různou délku slov.

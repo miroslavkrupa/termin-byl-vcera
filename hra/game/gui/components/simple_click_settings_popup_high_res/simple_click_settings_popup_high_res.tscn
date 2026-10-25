@@ -54,6 +54,7 @@ grow_vertical = 2
 theme = ExtResource("1_3m0fc")
 script = ExtResource("2_o6dvb")
 script_name = &"SimpleClickSettings"
+title = "ui_nastaveni"
 
 [node name="Overlay" type="PanelContainer" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -154,6 +155,35 @@ theme_override_styles/separator = SubResource("StyleBoxLine_ptjyl")
 [node name="RightContainer" type="VBoxContainer" parent="Overlay/PanelContainer/VBoxContainer/BodyContainer"]
 layout_mode = 2
 theme_override_constants/separation = 32
+
+[node name="JazykContainer" type="VBoxContainer" parent="Overlay/PanelContainer/VBoxContainer/BodyContainer/RightContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="Overlay/PanelContainer/VBoxContainer/BodyContainer/RightContainer/JazykContainer"]
+layout_mode = 2
+text = "ui_jazyk"
+
+[node name="Volby" type="HBoxContainer" parent="Overlay/PanelContainer/VBoxContainer/BodyContainer/RightContainer/JazykContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Cestina" type="Button" parent="Overlay/PanelContainer/VBoxContainer/BodyContainer/RightContainer/JazykContainer/Volby"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+text = "Čeština"
+
+[node name="English" type="Button" parent="Overlay/PanelContainer/VBoxContainer/BodyContainer/RightContainer/JazykContainer/Volby"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+text = "English"
 
 [node name="VolumeContainer" type="VBoxContainer" parent="Overlay/PanelContainer/VBoxContainer/BodyContainer/RightContainer"]
 custom_minimum_size = Vector2(0, 64)

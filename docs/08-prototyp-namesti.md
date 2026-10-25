@@ -59,7 +59,7 @@ Každý krok končí něčím, co jde spustit a vyzkoušet. Ke každému se zap�
 | **K3** | Dialog se stánkem Pana Změny (hlas zpoza stánku), dvě volby, jedna z nich dá propisku | Claude | dialog proběhne v CZ i EN | ✅ hotovo |
 | **K4** | Inventář: hrnek kávy + propiska → **kávové pero** | Claude, zástupné ikony | kombinování funguje a pero jde použít na Pana Změnu | ✅ hotovo |
 | **K5** | Přechod do Archivu dveřmi radnice a zpět, v archivu jedno aktivní místo (kartotéka) | Claude, autor doladí pochozí plochu | přechod oběma směry, Ruda se objeví u dveří | ✅ hotovo |
-| **K6** | Jazyky: přepínač CZ/EN za běhu, kontrolní skript na chybějící překlady | Claude | přepnutí bez restartu, skript hlásí chyby |
+| **K6** | Jazyky: přepínač CZ/EN za běhu, kontrolní skript na chybějící překlady | Claude | přepnutí bez restartu, skript hlásí chyby | ✅ hotovo |
 | **K7** | Večer: přepínač den/večer, tónování Rudy barvou světla scény, stín | Claude | Ruda večer nepůsobí vystřiženě (porovnat s testem z kola 3) |
 | **K8** | Export do prohlížeče a zkouška na telefonu | Claude export, autor zkouší na telefonu | odpovědi na O5, O6, O7 |
 | **K9** | Zkouška animace Rudy: a) kostrová animace z rozřezaného listu, b) záložní „loutka“ (pohupování a posun) | Claude, případně nové AI obrázky částí těla | vybraná metoda chůze (O3) |
@@ -182,6 +182,32 @@ Godot 4.7.2 a Popochiu 2.2.1, šablona Simple Click ve vysokém rozlišení, 153
 2. **Ruda nesedí do světla archivu:** je nasvícený jako na slunném náměstí, archiv je tlumený
    a teplý. Potvrzuje potřebu tónování postav podle scény (krok K7, D33).
 3. **Ruda se k objektům „neotáčí“,** protože má jen pohled zepředu a z boku. Vyřeší K9.
+
+### K6 – jazyky (hotovo)
+
+- **Přepínač jazyka v okně Nastavení** (ikona ozubeného kola v horní liště): tlačítka „Čeština“
+  a „English“, každé ve svém jazyce. Přepne se za běhu, bez restartu; další repliky, popisky
+  a volby jsou rovnou v novém jazyce (ověřeno snímkem).
+- **Volba se pamatuje** (`user://nastaveni.cfg`, autoload `Jazyk` v `game/jazyk.gd`). Při prvním
+  spuštění se hra řídí jazykem systému: česky v češtině, jinak anglicky.
+- **Šablona GUI je přeložená:** okno nastavení, ukončení hry, historie a ukládání. Klíčem u textů
+  šablony je její anglický text (Godot je pak přeloží sám), u textů hry ID podle předpony.
+- **Kontrolní skript `hra/nastroje/kontrola_textu.py`** hlásí chybějící češtinu nebo angličtinu,
+  různé zástupné symboly v jazycích, ID použitá ve hře a chybějící v tabulce, nepřeložené popisky
+  a volby dialogů, nepřeložené texty GUI a nepoužité klíče. Při chybě vrací 1. Ověřeno i
+  záporným testem (smazaná angličtina a neexistující ID se odhalí).
+- Ladicí pomocník umí `nastaveni=1` (otevře okno nastavení) a `prepni=en` (přepne jazyk za běhu,
+  ale neukládá ho).
+
+**Poznatky:**
+1. **Po úpravě tabulky je potřeba import.** Otevřený editor ho udělá sám, při spouštění z příkazové
+   řádky `godot --headless --path hra --import`. Bez toho hra ukazuje ID místo textu.
+2. **Čeština je delší než angličtina:** „Klepnutím / Automaticky“ přetekly panel, zkráceno na
+   „Ručně / Samo“. Rozvržení GUI testovat v obou jazycích.
+3. **Okno nastavení je v horní liště, která se ukáže jen po najetí myší.** Na mobilu (K8) bude
+   potřeba trvale viditelné tlačítko nabídky.
+4. Ladicí běh s přepnutím jazyka zpočátku uložil volbu do skutečného nastavení hry. Opraveno
+   a soubor smazán, hra v editoru tedy začne podle systému (česky).
 
 ## Rizika prototypu
 
