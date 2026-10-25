@@ -11,6 +11,8 @@ var kava_dana := false
 var zmena_dohoda := false
 ## Ruda už byl v archivu (replika u dveří zazní jen poprvé)
 var archiv_navstiven := false
+## Na náměstí je večer (prototyp K7: paleta C a tónování postav)
+var vecer := false
 
 
 #region Virtual ####################################################################################

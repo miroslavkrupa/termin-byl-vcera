@@ -80,6 +80,9 @@ func _ready() -> void:
 			await _az_bude_klid()
 		await get_tree().create_timer(float(p.get("po", "3"))).timeout
 		_vypis("po akci")
+	# Počkat na vykreslení aktuálního stavu (jinak může snímek zachytit starší obraz)
+	await RenderingServer.frame_post_draw
+	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(p["snimek"])
 	print("Snímek uložen: ", p["snimek"])
 	get_tree().quit()
@@ -135,7 +138,7 @@ func _klepnout(kde: Vector2) -> void:
 func _vypis(kdy: String) -> void:
 	var hrac = get_node("/root/C").player
 	var kamera := get_viewport().get_camera_2d()
-	var inventar: Array = get_node("/root/I").items
+	var inventar: Array = hrac.inventory.keys() if hrac else []
 	# Vlastní proměnné stavu aktuální místnosti (např. zmena_dohoda)
 	var stav := {}
 	var room = get_node("/root/R").current
@@ -146,6 +149,8 @@ func _vypis(kdy: String) -> void:
 		for v in room.state.get_script().get_script_property_list():
 			if v.usage & PROPERTY_USAGE_SCRIPT_VARIABLE and not v.name in zakladni:
 				stav[v.name] = room.state.get(v.name)
+	var pozadi = room.get_prop("Background") if room else null
+	print("[%s] barva hráče %s, pozadí %s" % [kdy, hrac.modulate if hrac else "?", pozadi.texture.resource_path if pozadi and pozadi.texture else "?"])
 	print("[%s] místnost %s, hráč %s, měřítko %s, inventář %s, stav %s, okno %s, viditelná oblast %s, kamera %s" % [
 		kdy, room.script_name if room else "?", hrac.position if hrac else "?", hrac.scale if hrac else "?", inventar, stav, get_window().size,
 		get_viewport().get_visible_rect(), kamera.get_screen_center_position() if kamera else "žádná"

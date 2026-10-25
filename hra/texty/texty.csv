@@ -76,3 +76,7 @@ Nothing to show yet,Zatím tu nic není,Nothing to show yet,,,šablona Popochiu 
 ok,OK,OK,,,šablona Popochiu (skryté tlačítko)
 cancel,Zrušit,Cancel,,,šablona Popochiu (skryté tlačítko)
 Master,Celkem,Master,,,šablona Popochiu (název zvukové sběrnice)
+ch1_hs_kometa,Kometa Deadline,Comet Deadline,,,popisek aktivního místa
+ch1_kometa_prohlednout,Kometa Deadline. Každý den o kousek větší. Jako můj seznam úkolů.,Comet Deadline. A little bigger every day. Like my to-do list.,Ruda,zasmušile,
+ch1_kometa_vecer,"Počkám, až se setmí. Polovina projektového řízení je čekání.",I'll wait until it gets dark. Half of project management is waiting.,Ruda,trpělivě,prototyp: přepne náměstí na večer
+ch1_kometa_rano,A zase je ráno. Termín je o den blíž a já pořád nemám plán.,Morning again. The deadline's a day closer and I still don't have a plan.,Ruda,zívá,prototyp: přepne náměstí na den

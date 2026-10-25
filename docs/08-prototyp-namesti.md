@@ -60,7 +60,7 @@ Každý krok končí něčím, co jde spustit a vyzkoušet. Ke každému se zap�
 | **K4** | Inventář: hrnek kávy + propiska → **kávové pero** | Claude, zástupné ikony | kombinování funguje a pero jde použít na Pana Změnu | ✅ hotovo |
 | **K5** | Přechod do Archivu dveřmi radnice a zpět, v archivu jedno aktivní místo (kartotéka) | Claude, autor doladí pochozí plochu | přechod oběma směry, Ruda se objeví u dveří | ✅ hotovo |
 | **K6** | Jazyky: přepínač CZ/EN za běhu, kontrolní skript na chybějící překlady | Claude | přepnutí bez restartu, skript hlásí chyby | ✅ hotovo |
-| **K7** | Večer: přepínač den/večer, tónování Rudy barvou světla scény, stín | Claude | Ruda večer nepůsobí vystřiženě (porovnat s testem z kola 3) |
+| **K7** | Večer: přepínač den/večer, tónování Rudy barvou světla scény, stín | Claude | Ruda večer nepůsobí vystřiženě (porovnat s testem z kola 3) | ✅ hotovo |
 | **K8** | Export do prohlížeče a zkouška na telefonu | Claude export, autor zkouší na telefonu | odpovědi na O5, O6, O7 |
 | **K9** | Zkouška animace Rudy: a) kostrová animace z rozřezaného listu, b) záložní „loutka“ (pohupování a posun) | Claude, případně nové AI obrázky částí těla | vybraná metoda chůze (O3) |
 | **K10** | Vyhodnocení: odpovědi na O1–O8, úpravy produkčních zásad a stylové bible, odhad rozsahu hry | Claude a autor | zapsáno, rozhodnuto o dalším postupu |
@@ -208,6 +208,24 @@ Godot 4.7.2 a Popochiu 2.2.1, šablona Simple Click ve vysokém rozlišení, 153
    potřeba trvale viditelné tlačítko nabídky.
 4. Ladicí běh s přepnutím jazyka zpočátku uložil volbu do skutečného nastavení hry. Opraveno
    a soubor smazán, hra v editoru tedy začne podle systému (česky).
+
+### K7 – večer a tónování postav (hotovo)
+
+- **Den a večer na náměstí:** klepnutí na kometu Deadline přepne scénu (krátké zatmívání, pozadí
+  `c-namesti-vecer_v03`). Pravým tlačítkem ji Ruda prohlédne. V plné hře se denní doba bude řídit
+  příběhem, kometa je jen přepínač pro prototyp.
+- **Tónování postav barvou světla scény** (D33): oblast Hloubka, která pokrývá celou pochozí plochu,
+  dává postavám barvu světla. Náměstí ve dne bílá, večer `Color(0.66, 0.5, 0.64)`, archiv teplá
+  `Color(0.86, 0.78, 0.64)`. Měkký stín pod nohama se tónuje spolu s postavou.
+- Večerní obrázek má stejnou kompozici jako denní, takže pochozí plocha i aktivní místa sedí bez úprav.
+
+**Poznatky:**
+1. **Tónování barvou (násobení) stačí na prototyp,** Ruda už večer nesvítí jako vystřižený. Chybí ale
+   oranžový odlesk od komety a lamp na hraně postavy. Pro finální hru zvážit jednoduchý shader
+   (barva světla + odlesk z jedné strany).
+2. **Snímky z ladění občas zachytily starý obraz.** Pomocník teď před snímkem počká na vykreslení
+   dvou snímků. Některé starší nesrovnalosti (K5) měly tuhle příčinu.
+3. Popochiu hlásí, že `I.items` je zastaralé; pomocník už používá `C.player.inventory`.
 
 ## Rizika prototypu
 

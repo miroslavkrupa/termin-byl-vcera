@@ -1,0 +1,15 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://game/rooms/namesti/hotspots/kometa/hotspot_kometa.gd" id="1_f0wtc"]
+
+[node name="Kometa" type="Area2D" unique_id=522304014]
+script = ExtResource("1_f0wtc")
+script_name = "Kometa"
+description = "ch1_hs_kometa"
+cursor = 1
+interaction_polygon = PackedVector2Array(150, 0, 340, 0, 610, 135, 610, 195, 530, 195, 320, 95, 150, 25)
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="." unique_id=747960031]
+visible = false
+modulate = Color(1, 0, 1, 1)
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)

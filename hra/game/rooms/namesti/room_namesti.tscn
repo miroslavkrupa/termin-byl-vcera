@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" path="res://game/rooms/namesti/hotspots/budka/hotspot_budka.tscn" id="6_oahb7"]
 [ext_resource type="PackedScene" path="res://game/rooms/namesti/hotspots/dvere_radnice/hotspot_dvere_radnice.tscn" id="7_tc4kd"]
 [ext_resource type="PackedScene" path="res://game/rooms/namesti/hotspots/stanek/hotspot_stanek.tscn" id="8_gky0t"]
+[ext_resource type="PackedScene" path="res://game/rooms/namesti/hotspots/kometa/hotspot_kometa.tscn" id="9_ls3d5"]
 [ext_resource type="PackedScene" path="res://game/characters/pan_zmena/character_pan_zmena.tscn" id="10_j80a0"]
 
 [node name="RoomNamesti" type="Node2D" unique_id=1362046152]
@@ -40,6 +41,8 @@ walk_to_point = Vector2(950, 748)
 
 [node name="Stanek" parent="Hotspots" unique_id=1402010503 instance=ExtResource("8_gky0t")]
 walk_to_point = Vector2(250, 805)
+
+[node name="Kometa" parent="Hotspots" unique_id=522304014 instance=ExtResource("9_ls3d5")]
 
 [node name="Regions" type="Node2D" parent="." unique_id=1128713920]
 
