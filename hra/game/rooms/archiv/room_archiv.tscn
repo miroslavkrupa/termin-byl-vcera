@@ -1,0 +1,44 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://game/rooms/archiv/room_archiv.gd" id="1_xo4er"]
+[ext_resource type="PackedScene" path="res://game/rooms/archiv/props/background/prop_background.tscn" id="2_ivysm"]
+[ext_resource type="PackedScene" path="res://game/rooms/archiv/walkable_areas/podlaha/walkable_area_podlaha.tscn" id="2_ne6vi"]
+[ext_resource type="Texture2D" path="res://grafika/mistnosti/archiv.png" id="3_ne6vi"]
+[ext_resource type="PackedScene" path="res://game/rooms/archiv/regions/hloubka/region_hloubka.tscn" id="5_eojfd"]
+[ext_resource type="PackedScene" path="res://game/rooms/archiv/hotspots/schody/hotspot_schody.tscn" id="5_u1aqt"]
+[ext_resource type="PackedScene" path="res://game/rooms/archiv/hotspots/kartoteka/hotspot_kartoteka.tscn" id="6_kc45p"]
+
+[node name="RoomArchiv" type="Node2D" unique_id=1664996948]
+script = ExtResource("1_xo4er")
+script_name = "Archiv"
+width = 1536
+height = 1024
+
+[node name="WalkableAreas" type="Node2D" parent="." unique_id=1348373216]
+
+[node name="Podlaha" parent="WalkableAreas" unique_id=1272593900 instance=ExtResource("2_ne6vi")]
+
+[node name="Props" type="Node2D" parent="." unique_id=54601477]
+
+[node name="Background" parent="Props" unique_id=1419888430 instance=ExtResource("2_ivysm")]
+position = Vector2(768, 512)
+texture = ExtResource("3_ne6vi")
+
+[node name="Hotspots" type="Node2D" parent="." unique_id=824496989]
+
+[node name="Schody" parent="Hotspots" unique_id=1391839831 instance=ExtResource("5_u1aqt")]
+walk_to_point = Vector2(330, 680)
+
+[node name="Kartoteka" parent="Hotspots" unique_id=1827233627 instance=ExtResource("6_kc45p")]
+walk_to_point = Vector2(530, 720)
+
+[node name="Regions" type="Node2D" parent="." unique_id=265882147]
+
+[node name="Hloubka" parent="Regions" unique_id=1899428041 instance=ExtResource("5_eojfd")]
+scaling = true
+scale_top = 0.32
+scale_bottom = 0.58
+
+[node name="Markers" type="Node2D" parent="." unique_id=2140564524]
+
+[node name="Characters" type="Node2D" parent="." unique_id=262763659]

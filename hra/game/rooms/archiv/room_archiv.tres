@@ -1,0 +1,9 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="Script" path="res://game/rooms/archiv/room_archiv_state.gd" id="1_h4fbu"]
+
+[resource]
+resource_name = "Archiv"
+script = ExtResource("1_h4fbu")
+script_name = "Archiv"
+scene = "res://game/rooms/archiv/room_archiv.tscn"

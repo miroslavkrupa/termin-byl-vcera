@@ -13,8 +13,13 @@ var state: Data = load("res://game/rooms/namesti/room_namesti.tres")
 # Add any code you want to setup the stage before the room is shown to the player (e.g. setting
 # character position and facing direction, active walkable area, props visibility, etc.).
 func _on_room_entered() -> void:
-	# Prototyp: Ruda začíná vpředu vedle kašny
-	C.player.position = Vector2(640, 960)
+	if C.player.last_room == "Archiv":
+		# Návrat z archivu: Ruda stojí u dveří radnice
+		C.player.position = Vector2(950, 748)
+		C.player.face_down()
+	else:
+		# Začátek hry: Ruda stojí vpředu vedle kašny
+		C.player.position = Vector2(640, 960)
 
 
 # Called after the room transition completes; the room is now visible.

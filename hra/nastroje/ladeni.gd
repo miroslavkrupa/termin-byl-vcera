@@ -3,10 +3,11 @@
 #   godot --path hra -- snimek=<soubor.png> [jazyk=cs|en] [cekej=3] [dojdi=x,y | klik=x,y | akce=…] [po=3]
 # cekej = sekundy před akcí, po = sekundy po akci; souřadnice hry (1536 × 1024)
 # dojdi = hráčova postava dojde na místo (ověří navigaci a zmenšování)
-# akce = <AktivniMisto>:pouzit|prohlednout|najet – klepnutí levým / pravým tlačítkem, nebo jen popisek jako při najetí myší
+# akce = <AktivniMisto>:pouzit|prohlednout|najet[,…] – klepnutí levým / pravým tlačítkem, nebo jen popisek jako při najetí
+#        myší; další krok počká, až hra dokončí předchozí (i přes změnu místnosti)
 # volby = <id>,<id>… – po akci vybírá volby dialogu, vždy jakmile se nabídka zobrazí
-# pouzij = <Predmet>:<Cil>[,<Predmet>:<Cil>…] – použije předmět z inventáře na aktivní místo nebo jiný předmět,
-#          postupně po „mezi“ sekundách (výchozí 8)
+# pouzij = <Predmet>:<Cil>[,<Predmet>:<Cil>…] – použije předmět z inventáře na aktivní místo nebo jiný předmět
+# po = sekundy čekání po posledním kroku (u akcí a předmětů se nejdřív počká, až hra domluví; hned=1 nečeká)
 # klik = simulované klepnutí; Popochiu ale čte skutečnou pozici kurzoru, takže míří tam, kde je myš
 #
 # Zakládání objektů Popochiu (viz nastroje/vytvor.gd):
@@ -29,8 +30,9 @@ func _ready() -> void:
 		TranslationServer.set_locale(p["jazyk"])
 	if not p.has("snimek"):
 		return
-	# Repliky se při ladění posouvají samy (hráč je posouvá klepnutím)
+	# Repliky se při ladění vypisují rychle a posouvají samy (hráč je posouvá klepnutím)
 	get_node("/root/E").settings.auto_continue_text = true
+	get_node("/root/E").text_speed = 0.005
 	await get_tree().create_timer(float(p.get("cekej", "3"))).timeout
 	_vypis("před akcí")
 	# Kroky se provedou v tomto pořadí: dojdi / klik, akce, volby, pouzij
@@ -41,13 +43,17 @@ func _ready() -> void:
 		var xy: PackedStringArray = p["klik"].split(",")
 		_klepnout(Vector2(float(xy[0]), float(xy[1])))
 	if p.has("akce"):
-		var c: PackedStringArray = p["akce"].split(":")
-		var misto: PopochiuClickable = get_node("/root/R").current.get_hotspot(c[0])
-		if c[1] == "najet":
-			get_node("/root/G").hover_text_shown.emit(misto.get_description())
-		else:
-			get_node("/root/E").clicked = misto
-			misto.handle_command(MOUSE_BUTTON_RIGHT if c[1] == "prohlednout" else MOUSE_BUTTON_LEFT)
+		var kroky: PackedStringArray = p["akce"].split(",")
+		for i in kroky.size():
+			if i > 0:
+				await _az_bude_klid()
+			var c: PackedStringArray = kroky[i].split(":")
+			var misto: PopochiuClickable = get_node("/root/R").current.get_hotspot(c[0])
+			if c[1] == "najet":
+				get_node("/root/G").hover_text_shown.emit(misto.get_description())
+			else:
+				get_node("/root/E").clicked = misto
+				misto.handle_command(MOUSE_BUTTON_RIGHT if c[1] == "prohlednout" else MOUSE_BUTTON_LEFT)
 	if p.has("volby"):
 		var d = get_node("/root/D")
 		for id in p["volby"].split(","):
@@ -58,14 +64,31 @@ func _ready() -> void:
 	if p.has("pouzij"):
 		for krok in p["pouzij"].split(","):
 			var c: PackedStringArray = krok.split(":")
-			await get_tree().create_timer(float(p.get("mezi", "8"))).timeout
+			await _az_bude_klid()
 			await _pouzij(c[0], c[1])
 	if p.has("dojdi") or p.has("akce") or p.has("pouzij") or p.has("klik"):
+		if not p.has("dojdi") and not p.has("klik") and not p.has("hned"):
+			await _az_bude_klid()
 		await get_tree().create_timer(float(p.get("po", "3"))).timeout
 		_vypis("po akci")
 	get_viewport().get_texture().get_image().save_png(p["snimek"])
 	print("Snímek uložen: ", p["snimek"])
 	get_tree().quit()
+
+
+# Počká, až hra dokončí rozběhnutou akci: je v místnosti, GUI není blokované a nikdo nemluví
+func _az_bude_klid() -> void:
+	var e = get_node("/root/E")
+	var g = get_node("/root/G")
+	var klidnych := 0
+	await get_tree().create_timer(0.5).timeout
+	while klidnych < 15:
+		await get_tree().create_timer(0.1).timeout
+		var mluvi := false
+		for c in get_tree().get_nodes_in_group("PopochiuClickable"):
+			if c is PopochiuCharacter and (c.is_talking or c.is_moving):
+				mluvi = true
+		klidnych = klidnych + 1 if e.in_room and not g.is_blocked and not mluvi else 0
 
 
 # Použití předmětu jako od hráče: vybrat předmět, pak klepnout na cíl
@@ -114,7 +137,7 @@ func _vypis(kdy: String) -> void:
 		for v in room.state.get_script().get_script_property_list():
 			if v.usage & PROPERTY_USAGE_SCRIPT_VARIABLE and not v.name in zakladni:
 				stav[v.name] = room.state.get(v.name)
-	print("[%s] hráč %s, měřítko %s, inventář %s, stav %s, okno %s, viditelná oblast %s, kamera %s" % [
-		kdy, hrac.position if hrac else "?", hrac.scale if hrac else "?", inventar, stav, get_window().size,
+	print("[%s] místnost %s, hráč %s, měřítko %s, inventář %s, stav %s, okno %s, viditelná oblast %s, kamera %s" % [
+		kdy, room.script_name if room else "?", hrac.position if hrac else "?", hrac.scale if hrac else "?", inventar, stav, get_window().size,
 		get_viewport().get_visible_rect(), kamera.get_screen_center_position() if kamera else "žádná"
 	])

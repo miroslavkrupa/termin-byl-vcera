@@ -1,0 +1,15 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://game/rooms/archiv/hotspots/kartoteka/hotspot_kartoteka.gd" id="1_bu5g3"]
+
+[node name="Kartoteka" type="Area2D" unique_id=1827233627]
+script = ExtResource("1_bu5g3")
+script_name = "Kartoteka"
+description = "ch1_hs_kartoteka"
+cursor = 1
+interaction_polygon = PackedVector2Array(470, 368, 665, 368, 665, 650, 470, 650)
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="." unique_id=1357111626]
+visible = false
+modulate = Color(1, 0, 1, 1)
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)

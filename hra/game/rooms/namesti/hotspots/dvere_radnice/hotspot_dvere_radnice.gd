@@ -10,7 +10,9 @@ extends PopochiuHotspot
 func _on_click() -> void:
 	await C.player.walk_to_clicked()
 	await C.player.face_clicked()
-	await C.player.say("ch1_dvere_zamceno")
+	if not R.Namesti.state.archiv_navstiven:
+		await C.player.say("ch1_dvere_vstup")
+	R.goto_room("Archiv")
 
 
 # Called when the hotspot is double-clicked

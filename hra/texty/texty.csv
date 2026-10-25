@@ -47,3 +47,12 @@ ch1_zmena_dohoda_uz,Modrou! Mám to podepsané. Kávou.,Blue! It's signed. In co
 obecne_nelze,S tím nic neudělám.,I can't do anything with that.,Ruda,,výchozí reakce
 obecne_pouzit_s,Použít %s na %s? To nedává smysl ani podle mých standardů.,"Use %s on %s? That doesn't make sense, even by my standards.",Ruda,,"výchozí reakce; %s = předmět, cíl"
 obecne_nic_k_videni,Nic zvláštního.,Nothing special.,Ruda,,výchozí reakce
+ch1_dvere_vstup,"Zamčeno? Sklep ale zamčený není. V tomhle městě se nikdy nic nedokončí, ani zámky.","Locked? The basement isn't, though. Nothing in this town ever gets finished, not even the locks.",Ruda,potěšeně,prototyp: dveře vedou rovnou do archivu (v kap. 1 až po získání čísla projektu)
+ch1_hs_schody,Schody na náměstí,Stairs to the square,,,popisek aktivního místa
+ch1_schody_prohlednout,"Schody nahoru. Jediná cesta ven, a i ta je ve fázi 2: zábradlí končí v půlce.","Stairs going up. The only way out, and even that's in phase two: the railing stops halfway.",Ruda,suše,
+ch1_hs_kartoteka,Kartotéka,Card index,,,popisek aktivního místa
+ch1_kartoteka_prohlednout,"Kartotéka zkrachovalých projektů, seřazená podle plánovaného dokončení. Na každém lístku stojí „příští rok“.","An index of failed projects, sorted by planned completion date. Every card says 'next year'.",Ruda,pobaveně,zárodek puzzlu kartotéky z kap. 1
+ch1_kartoteka_pouzit_1,"Projekt „Modernizace výtahu“, zahájen 1987. Stav: probíhá.","Project 'Elevator Modernisation', started 1987. Status: ongoing.",Ruda,čte,
+ch1_kartoteka_pouzit_2,"Projekt „Most přes řeku“, 1974. Poznámka: zapomněli jsme se zeptat rybářů.","Project 'Bridge over the River', 1974. Note: we forgot to ask the fishermen.",Ruda,čte,karta poučení z návrhu kap. 1
+ch1_kartoteka_pouzit_3,"Kdyby tohle někdo četl dřív, ušetřil by dvacet mostů.","If someone had read this sooner, they'd have saved twenty bridges.",Ruda,zamyšleně,
+ch1_archiv_prichod,"Archiv zkrachovalých projektů. Konečně místo, kde se něco dokončuje: seznamy toho, co se nedokončilo.","The archive of failed projects. Finally, a place where something gets finished: lists of what didn't.",Ruda,uznale,jen při prvním příchodu

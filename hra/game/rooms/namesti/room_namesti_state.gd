@@ -9,6 +9,8 @@ extends PopochiuRoomData
 var kava_dana := false
 ## Pan Změna podepsal svůj požadavek (kap. 1, příznak c1_zmena_dohoda)
 var zmena_dohoda := false
+## Ruda už byl v archivu (replika u dveří zazní jen poprvé)
+var archiv_navstiven := false
 
 
 #region Virtual ####################################################################################

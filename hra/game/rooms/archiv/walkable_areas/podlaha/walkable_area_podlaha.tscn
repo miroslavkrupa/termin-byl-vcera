@@ -1,0 +1,20 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://game/rooms/archiv/walkable_areas/podlaha/walkable_area_podlaha.gd" id="1_fvg4e"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ckpqe"]
+vertices = PackedVector2Array(1180, 690, 1235, 730, 1235, 1010, 330, 1010, 320, 840, 1030, 705, 250, 760, 245, 690, 300, 662, 470, 658, 560, 688, 600, 705, 1060, 688)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(4, 6, 7, 8, 9, 10, 11), PackedInt32Array(5, 12, 0), PackedInt32Array(4, 11, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(245, 690, 300, 662, 470, 658, 560, 688, 600, 705, 1030, 705, 1060, 688, 1180, 690, 1235, 730, 1235, 1010, 330, 1010, 320, 840, 250, 760)])
+agent_radius = 0.0
+
+[node name="Podlaha" type="Node2D" unique_id=1272593900]
+script = ExtResource("1_fvg4e")
+script_name = "Podlaha"
+description = "Podlaha"
+interaction_polygon = Array[PackedVector2Array]([PackedVector2Array(245, 690, 300, 662, 470, 658, 560, 688, 600, 705, 1030, 705, 1060, 688, 1180, 690, 1235, 730, 1235, 1010, 330, 1010, 320, 840, 250, 760)])
+
+[node name="Perimeter" type="NavigationRegion2D" parent="." unique_id=1295814699]
+visible = false
+modulate = Color(0, 1, 0, 1)
+navigation_polygon = SubResource("NavigationPolygon_ckpqe")

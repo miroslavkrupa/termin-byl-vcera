@@ -58,7 +58,7 @@ Každý krok končí něčím, co jde spustit a vyzkoušet. Ke každému se zap�
 | **K2** | Aktivní místa: kašna (prohlédnout), telefonní budka (použít), dveře radnice (zatím zamčené) | Claude | popisky a reakce v obou jazycích | ✅ hotovo |
 | **K3** | Dialog se stánkem Pana Změny (hlas zpoza stánku), dvě volby, jedna z nich dá propisku | Claude | dialog proběhne v CZ i EN | ✅ hotovo |
 | **K4** | Inventář: hrnek kávy + propiska → **kávové pero** | Claude, zástupné ikony | kombinování funguje a pero jde použít na Pana Změnu | ✅ hotovo |
-| **K5** | Přechod do Archivu dveřmi radnice a zpět, v archivu jedno aktivní místo (kartotéka) | Claude, autor doladí pochozí plochu | přechod oběma směry, Ruda se objeví u dveří |
+| **K5** | Přechod do Archivu dveřmi radnice a zpět, v archivu jedno aktivní místo (kartotéka) | Claude, autor doladí pochozí plochu | přechod oběma směry, Ruda se objeví u dveří | ✅ hotovo |
 | **K6** | Jazyky: přepínač CZ/EN za běhu, kontrolní skript na chybějící překlady | Claude | přepnutí bez restartu, skript hlásí chyby |
 | **K7** | Večer: přepínač den/večer, tónování Rudy barvou světla scény, stín | Claude | Ruda večer nepůsobí vystřiženě (porovnat s testem z kola 3) |
 | **K8** | Export do prohlížeče a zkouška na telefonu | Claude export, autor zkouší na telefonu | odpovědi na O5, O6, O7 |
@@ -162,6 +162,26 @@ Godot 4.7.2 a Popochiu 2.2.1, šablona Simple Click ve vysokém rozlišení, 153
    (bez najetí) bude potřeba jiné řešení, ověřit v K8.
 2. Ladicí pomocník vybírá volby dialogu přímo, ne kliknutím, takže na jeho snímcích zůstává po
    dialogu prázdný pruh nabídky. Při hraní myší se to neděje (ověřil autor v K3).
+
+### K5 – přechod do archivu (hotovo)
+
+- **Místnost Archiv** s pozadím `a-archiv_v02`, pochozí plocha mezi regály a stolem, vlastní
+  zmenšování do hloubky (0,32 u schodů, 0,58 vpředu; scéna je blíž než náměstí).
+- **Dveře radnice vedou do archivu** (při prvním vstupu Ruda poznamená, že „sklep zamčený není“),
+  **schody vedou zpět** a Ruda se objeví u dveří radnice. Příchod do archivu má jednorázovou repliku.
+- **Kartotéka:** prohlédnutí („seřazená podle plánovaného dokončení, na každém lístku stojí
+  příští rok“) a použití se dvěma lístky včetně karty poučení *Most přes řeku (1974)* z návrhu
+  kapitoly 1.
+- Stav hry se při přechodech zachovává (káva se při návratu nepřidá podruhé, příznaky platí).
+- Ladicí pomocník teď mezi kroky čeká, až hra domluví a postava dojde (místo pevných pauz),
+  repliky při ladění vypisuje rychle. Nová volba `hned=1` vyfotí scénu uprostřed repliky.
+
+**Poznatky:**
+1. **Prototyp zkracuje logiku kapitoly 1:** v návrhu vede do archivu cesta přes číslo projektu
+   (Bára nebo plakát Pana Změny). Tady stačí dveře, aby šel otestovat přechod.
+2. **Ruda nesedí do světla archivu:** je nasvícený jako na slunném náměstí, archiv je tlumený
+   a teplý. Potvrzuje potřebu tónování postav podle scény (krok K7, D33).
+3. **Ruda se k objektům „neotáčí“,** protože má jen pohled zepředu a z boku. Vyřeší K9.
 
 ## Rizika prototypu
 

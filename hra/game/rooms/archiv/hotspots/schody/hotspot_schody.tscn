@@ -1,0 +1,15 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://game/rooms/archiv/hotspots/schody/hotspot_schody.gd" id="1_hd6g4"]
+
+[node name="Schody" type="Area2D" unique_id=1391839831]
+script = ExtResource("1_hd6g4")
+script_name = "Schody"
+description = "ch1_hs_schody"
+cursor = 1
+interaction_polygon = PackedVector2Array(245, 640, 250, 400, 300, 350, 390, 360, 430, 420, 470, 640)
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="." unique_id=2058848677]
+visible = false
+modulate = Color(1, 0, 1, 1)
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
