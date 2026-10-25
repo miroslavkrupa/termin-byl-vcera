@@ -38,6 +38,11 @@ Hra schválně porušuje zjednodušení „železo plánem, software iteracemi�
 Hráč, který si odvodil pravidlo „železo = plán“, na výjimkách narazí a pochopí skutečné
 kritérium: jasnost požadavků, cenu změny a vratnost kroků.
 
+### Vizuální symbol: rovná rampa (D34)
+
+Startovací rampa je jediná rovná stavba v křivé Nedostavěnici. Je to stavba světa plánu:
+přesná, podle výkresů, s čistými hranami. Hráč tak rozdíl mezi světy vidí i bez jediného slova.
+
 ## Postavy jako dva světy (D25)
 
 | Postava | Svět | Síla | Vada |

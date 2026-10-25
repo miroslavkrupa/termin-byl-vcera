@@ -1,6 +1,7 @@
 # Hodnocení vzorků – kolo 3
 
-> Večerní náměstí: `c-namesti-vecer_v03.png` a `c-namesti-vecer_v03b.png` (ChatGPT, ručně, úprava
+> Večerní náměstí `c-namesti-vecer_v03.png` a `c-namesti-vecer_v03b.png` a rampa `a-rampa_v03.png`
+> (ChatGPT, ručně; náměstí jako úprava
 > křivosti podle zadání z [hodnocení kola 2](hodnoceni-kolo-2.md)). Pro srovnání i denní
 > `a-namesti_v03.png`, ze kterého večerní verze vychází.
 > Hodnoceno podle kontrolního seznamu ve [stylové bibli](../../06-stylova-bible.md).
@@ -67,3 +68,52 @@ zůstaly ve stejné kompozici.
 - ✅ Tónování postav podle světla scény a měkký stín pod nohama jsou v produkčních zásadách.
 - ✅ Duplicitní `c-namesti-vecer_v03b.png` je smazaný.
 - ⏳ Zbývá rampa v03 podle zadání z kola 2 (pokyn proti rybímu oku je v něm doplněný).
+
+## Rampa v03
+
+### Verdikt
+
+**Doporučuji schválit jako referenci.** Všechny výtky z kola 2 jsou opravené a rampa teď
+stylem sedí k náměstí v03 i k postavám (ověřeno testem `test-postavy-rampa_v03.png`).
+
+### Kontrolní seznam
+
+| Kritérium | Rampa v02 | Rampa v03 |
+|---|---|---|
+| paleta A | ✅ | ✅ |
+| linka hnědá, viditelná | ⚠️ malířštější | ✅ stejná jako u náměstí v03 |
+| rampa je šikmá a míří k obloze | ❌ vodorovná plošina | ✅ jasně šikmá, příď Archy míří nahoru |
+| Archa (D29) | ✅ | ✅ konzistentní s v02: rez, záplaty, tři raketové motory, křídla, anténa, mísa |
+| město v dálce (D28) | ❌ středomořské | ✅ paneláky, červené střechy, tovární komín; ⚠️ pár štíhlých stromů připomíná cypřiše |
+| motiv nedokončenosti | ✅ | ✅ horní konec rampy končí ve vzduchu s bedněním a výztuží |
+| rovná podlaha, bez rybího oka | – | ✅ |
+| volná pochozí plocha | ✅ | ✅ (spíš prázdná, louže ji oživují) |
+| nic není dokonale rovné | ⚠️ | ⚠️ okolí málo křivé |
+| žádný text, žádní lidé | ✅ | ✅ |
+| sedí k postavám | ⚠️ | ✅ ověřeno |
+
+### Co se povedlo
+
+- **Hned je jasné, kudy Archa poletí:** stojí na kolejovém vozíku přídí nahoru po šikmé rampě.
+- **Horní konec rampy končí v půlce ve vzduchu** s bedněním a trčící výztuží. Vtip Nedostavěnice
+  i úkol pro hráče v jednom obrázku.
+- **Jeřáb je žlutý**, a to je tu správně: v minihře Jeřábový balet (M13) je jediný jeřáb ve městě
+  klíčový objekt, takže si výstražnou žlutou zaslouží.
+- Archa je stejná jako ve v02, takže se dá považovat za ustálený návrh.
+
+### Na co dát pozor
+
+1. **Okolí je málo křivé** proti náměstí v03. Navrhuji to ale nechat a udělat z toho záměr:
+   **rampa je jediná rovná věc ve městě.** Je to stavba světa plánu (přesná, podle výkresů),
+   zatímco všechno kolem se kroutí. Bedny, lešení a boudy kolem mohou být křivější; to lze
+   dodělat úpravou jako u náměstí, není to nutné.
+2. **Pár štíhlých tmavých stromů** vlevo připomíná cypřiše. Drobnost, při finální výrobě opravit.
+3. **Míchačka je také žlutá.** Ta důležitá není; při finální výrobě přebarvit (např. oranžová).
+4. Archa je vysoko nad pochozí plochou. Pro hru to znamená, že se k ní hráč dostane po žebříku
+   nebo lešení; při návrhu kapitoly 2 s tím počítat.
+
+### Rozhodnutí (D34)
+
+- ✅ **`a-rampa_v03`** je schválená jako reference staveniště a ustálený vzhled Archy.
+- ✅ **Rampa je schválně jediná rovná stavba ve městě** (symbol světa plánu); zapsáno ve
+  stylové bibli a v koncepci Dva světy.

@@ -48,6 +48,11 @@ startovací rampě za městem, záplatovaná plachtami. Absurdní a okamžitě �
 letět“. S postupem hry se na ní přibývá hotových částí (motory, okna kajut, nátěr), takže hráč
 vidí pokrok stavby.
 
+**Rampa je jediná rovná stavba ve městě** (D34). Postavili ji podle výkresů, je to stavba světa
+plánu: přesná, rovná, s čistými hranami. Všechno kolem (bedny, lešení, boudy, město v dálce)
+se kroutí jako zbytek Nedostavěnice. Kontrast je záměrný a nese koncepci [Dva světy, jedna
+Archa](07-dva-svety.md). Výjimka z pravidla „nic není rovné“ platí jen pro rampu.
+
 ## Pravidla
 
 ### Linka
@@ -72,6 +77,7 @@ vidí pokrok stavby.
 - Vrstvy: pozadí, střední plán, pochozí plocha, popředí (pro parallax a překrývání postav).
 - Žádný text v obrázcích. Cedule mají prázdné plochy, nápisy dodá engine v obou jazycích.
 - Na mobilu musí být důležité objekty čitelné: nic důležitého menšího než zhruba 48 px v plném rozlišení.
+- **Výjimka:** startovací rampa je rovná (D34), viz Archa výše.
 - **Křiví se předměty, ne objektiv** (D33): budovy, lešení a nábytek se naklánějí, ale podlaha
   je rovná rovina bez efektu rybího oka. Postavy se při chůzi do hloubky zmenšují podle roviny
   podlahy a na prohnuté dlažbě by to vypadalo divně.
@@ -201,6 +207,7 @@ Předplatné ChatGPT **nezahrnuje** přístup k API. API se platí zvlášť, p�
 | Bára | `styl/vzorky/bara-list_v02.png` | reference postavy |
 | interiéry | `styl/vzorky/a-archiv_v02.png` | vzor pro všechny interiéry |
 | exteriéry | `styl/vzorky/a-namesti_v03.png`, `c-namesti-vecer_v03.png` | reference exteriérů ve dne a večer, včetně míry křivosti (D33) |
+| staveniště a Archa | `styl/vzorky/a-rampa_v03.png` | reference staveniště rampy a ustálený vzhled Archy (D34) |
 
 ## Další postup
 
