@@ -1,12 +1,12 @@
 {
-  "kolo": 2,
+  "kolo": 3,
   "model": "gpt-image-1",
   "kvalita": "medium",
   "predloha_stylu": "Match the drawing style, line work and coloring of the reference image exactly, but do not include the character from it",
   "typy": {
     "pozadi": {
       "uvod": "2D cartoon background for a classic point-and-click comedy adventure game, caricature style",
-      "zaver": "contemporary run-down Central European small town setting, simplified exaggerated shapes, buildings leaning and bulging in different directions, nothing is straight, bold thick dark-brown outlines around every object, flat colors with simple soft shading and subtle hand-painted texture, moderate amount of detail, clear open walkable floor in the lower third of the image, main objects large and easy to read, not realistic, no gothic architecture, no medieval castles, no text, no letters, no logos, no people"
+      "zaver": "contemporary run-down Central European small town setting, simplified exaggerated shapes, buildings leaning and bulging in different directions, nothing is straight, bold thick dark-brown outlines around every object, flat colors with simple soft shading and subtle hand-painted texture, moderate amount of detail, clear open walkable floor in the lower third of the image, main objects large and easy to read, flat even ground plane, no fisheye lens distortion, only the objects are crooked, not realistic, no gothic architecture, no medieval castles, no text, no letters, no logos, no people"
     },
     "postava": {
       "uvod": "full-body character turnaround sheet, front view, side view and back view of the same character",
@@ -81,7 +81,7 @@
       "reference": [
         "docs/styl/vzorky/ruda-list_v02.png"
       ],
-      "popis": "construction site of a huge concrete launch ramp outside town, half-poured segments with wooden formwork, one old crane, a cement mixer; on the ramp lies the Ark: a big rusty old ship hull with improvised rocket engines bolted to the stern, makeshift wings and a radio antenna, patched with tarps; unfinished panel blocks of the town in the distance, a comet with a long glowing tail in the hazy sky"
+      "popis": "construction site of a huge concrete launch ramp outside town, the ramp is clearly inclined and points diagonally up toward the sky, half-poured segments with wooden formwork, one old crane, a cement mixer; on the ramp lies the Ark: a big rusty old ship hull with improvised rocket engines bolted to the stern, makeshift wings and a radio antenna, patched with tarps, its bow pointing up the ramp; in the distance a Central European small town with grey concrete panel blocks and red roofs, no cypress trees, no hilltop church, a comet with a long glowing tail in the hazy sky"
     }
   ]
 }

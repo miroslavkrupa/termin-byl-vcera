@@ -72,6 +72,12 @@ vidí pokrok stavby.
 - Vrstvy: pozadí, střední plán, pochozí plocha, popředí (pro parallax a překrývání postav).
 - Žádný text v obrázcích. Cedule mají prázdné plochy, nápisy dodá engine v obou jazycích.
 - Na mobilu musí být důležité objekty čitelné: nic důležitého menšího než zhruba 48 px v plném rozlišení.
+- **Křiví se předměty, ne objektiv** (D33): budovy, lešení a nábytek se naklánějí, ale podlaha
+  je rovná rovina bez efektu rybího oka. Postavy se při chůzi do hloubky zmenšují podle roviny
+  podlahy a na prohnuté dlažbě by to vypadalo divně.
+- **Postavy nesou denní světlo.** Do jiného světla scény (večer, noc, krize) je ladí engine
+  tónováním a měkkým stínem pod nohama, viz [produkční zásady](05-produkce.md). Noční verze
+  postav se nekreslí.
 
 ### Animace
 - Postavy po částech (hlava, trup, ruce, nohy) pro kostrovou animaci.
@@ -125,6 +131,7 @@ buildings leaning and bulging in different directions, nothing is straight,
 bold thick dark-brown outlines around every object,
 flat colors with simple soft shading and subtle hand-painted texture, moderate amount of detail,
 clear open walkable floor in the lower third of the image, main objects large and easy to read,
+flat even ground plane, no fisheye lens distortion, only the objects are crooked,
 not realistic, no gothic architecture, no medieval castles,
 no text, no letters, no logos, no people
 ```
@@ -193,7 +200,7 @@ Předplatné ChatGPT **nezahrnuje** přístup k API. API se platí zvlášť, p�
 | Ruda | `styl/vzorky/ruda-list_v02.png` | reference postavy a předloha stylu pro všechna pozadí |
 | Bára | `styl/vzorky/bara-list_v02.png` | reference postavy |
 | interiéry | `styl/vzorky/a-archiv_v02.png` | vzor pro všechny interiéry |
-| exteriéry | `styl/vzorky/a-namesti_v02.png`, `c-namesti-vecer_v02.png` | směr pro exteriéry ve dne a večer (křivost se ještě ladí) |
+| exteriéry | `styl/vzorky/a-namesti_v03.png`, `c-namesti-vecer_v03.png` | reference exteriérů ve dne a večer, včetně míry křivosti (D33) |
 
 ## Další postup
 

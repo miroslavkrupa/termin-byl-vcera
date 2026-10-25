@@ -65,6 +65,24 @@ Cíl: kdykoli vyměnit obrázky za ručně kreslené bez zásahu do logiky hry.
 - U každého obrázku zaznamenat, jak vznikl (nástroj, zadání). Steam vyžaduje uvést použití AI
   na stránce hry.
 
+## Postavy ve scéně (engine)
+
+Postavy jsou nakreslené jednou, v denním světle. Do scény je usazuje engine (D33):
+
+- **Měkký stín pod nohama.** Bez něj postavy působí nalepeně (ověřeno testem v
+  `styl/vzorky/test-postavy-namesti_v02.png`). Stín je eliptický, poloprůhledný a kreslí ho engine,
+  ne obrázek postavy.
+- **Tónování podle světla scény.** Každá scéna (nebo část scény) má barvu světla; postava se jí
+  přizpůsobí násobením barvy a mírným ztmavením. Ve dne skoro neutrální, večer a v krizi
+  (paleta C) do fialova s oranžovými odlesky. Bez tónování denně nasvícené postavy ve večerní
+  scéně svítí jako vystřižené (`styl/vzorky/test-postavy-namesti-vecer_v03.png`).
+- **Světelné zóny.** Kde je ve scéně výrazný zdroj světla (lampa, rozsvícená okna, telefonní
+  budka), může se tónování měnit podle toho, kde postava stojí. Pro vertical slice stačí jedna
+  barva na scénu.
+- **Zmenšování do hloubky** podle roviny podlahy. Proto pozadí nesmějí mít prohnutou podlahu
+  (pravidlo „křiví se předměty, ne objektiv“ ve stylové bibli).
+- Noční verze postav se nekreslí. Výjimkou mohou být jednotlivé speciální scény.
+
 ## Příprava na dabing
 
 - Každá replika má **stabilní ID** (`ch1_bara_012`), které se nemění ani při úpravě textu.
