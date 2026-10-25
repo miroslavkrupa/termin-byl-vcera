@@ -65,6 +65,10 @@ corner_radius_bottom_left = 4
 thickness = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uj4y4"]
+content_margin_left = 28.0
+content_margin_top = 10.0
+content_margin_right = 28.0
+content_margin_bottom = 14.0
 bg_color = Color(0, 0, 0, 0.705882)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cf0go"]

@@ -29,7 +29,7 @@ godot --headless --path hra -- vytvor mistnost Archiv
 ```
 
 Spuštění hry se snímkem obrazovky (pro ověřování; `dojdi` pošle hráčovu postavu na místo,
-`akce` klepne na aktivní místo, `jazyk` přepne jazyk):
+`akce` klepne na aktivní místo, `volby` vybírá volby dialogu, `jazyk` přepne jazyk):
 
 ```bash
 godot --path hra -- snimek=/tmp/snimek.png jazyk=en cekej=3 akce=Budka:pouzit po=6

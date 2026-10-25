@@ -56,7 +56,7 @@ Každý krok končí něčím, co jde spustit a vyzkoušet. Ke každému se zap�
 | **K0** | Instalace Godotu, stažení Popochiu, založení projektu, zapnutí pluginu a průvodce nastavením | autor instaluje a kliká v editoru, Claude připraví soubory a navede | prázdný projekt s Popochiu se spustí ✅ hotovo |
 | **K1** | Místnost Náměstí: pozadí, pochozí plocha, Ruda chodí kliknutím/klepnutím, zmenšuje se do hloubky, má stín | Claude kód a scény, autor doladí polygon pochozí plochy v editoru | Ruda dojde kamkoli na dlažbu a nevyjde mimo | ✅ hotovo (viz Průběh) |
 | **K2** | Aktivní místa: kašna (prohlédnout), telefonní budka (použít), dveře radnice (zatím zamčené) | Claude | popisky a reakce v obou jazycích | ✅ hotovo |
-| **K3** | Dialog se stánkem Pana Změny (hlas zpoza stánku), dvě volby, jedna z nich dá propisku | Claude | dialog proběhne v CZ i EN |
+| **K3** | Dialog se stánkem Pana Změny (hlas zpoza stánku), dvě volby, jedna z nich dá propisku | Claude | dialog proběhne v CZ i EN | ✅ hotovo |
 | **K4** | Inventář: hrnek kávy + propiska → **kávové pero** | Claude, zástupné ikony | kombinování funguje a pero jde použít na Pana Změnu |
 | **K5** | Přechod do Archivu dveřmi radnice a zpět, v archivu jedno aktivní místo (kartotéka) | Claude, autor doladí pochozí plochu | přechod oběma směry, Ruda se objeví u dveří |
 | **K6** | Jazyky: přepínač CZ/EN za běhu, kontrolní skript na chybějící překlady | Claude | přepnutí bez restartu, skript hlásí chyby |
@@ -117,6 +117,28 @@ Godot 4.7.2 a Popochiu 2.2.1, šablona Simple Click ve vysokém rozlišení, 153
    okraje měl jen 35 px a po zvětšení písma se spodek ořízl. Rámeček je teď 80 px vysoký a 30 px
    nad okrajem obrazovky. Popisek ale překrývá postavu, když stojí vpředu; zvážit popisek u kurzoru
    nebo nahoře (rozhodnout po zkoušce na telefonu v K8).
+
+### K3 – dialog se stánkem (hotovo)
+
+- **Pan Změna jako hlas zpoza stánku:** neviditelná a neklikatelná postava za stánkem s vlastní
+  barvou textu (světle zelená). Na stánek se kliká přes aktivní místo Stánek.
+- **Dialog se třemi volbami:** „Co vlastně prodáváte?“ (odpověď se pokaždé změní, třetí je replika
+  z návrhu kapitoly 1), „Neměl byste propisku?“ (Ruda dostane propisku, volba pak zmizí)
+  a „Na shledanou.“ Ověřeno v češtině i angličtině.
+- **Předmět Propiska** se zástupnou ikonou; po dialogu je v inventáři (ověřeno výpisem).
+- Nástroj na zakládání umí `dialog` (s volbami) a `postava_do` (umístění postavy do místnosti),
+  ladicí pomocník umí `volby=…` (vybírá volby, jakmile se nabídka zobrazí).
+
+**Poznatky:**
+1. **Nabídka voleb byla stavěná na malé písmo:** při velikosti 36 se třetí volba schovala pod
+   okraj. Výška nabídky zvětšena, výpočet výšky opraven (nepočítal s okraji panelu), přidány okraje.
+2. **Barvy voleb ze šablony** (fialová, použité volby tmavě modré) byly na tmavém panelu nečitelné.
+   Teď paleta A: krémová, použité tlumeně, při najetí výstražná žlutá.
+3. **Repliky se posouvají kliknutím.** Pro automatické ověřování je zapnuté automatické pokračování
+   jen v ladicím režimu. Pro hráče rozhodnout výchozí nastavení (klepnutí vs. automaticky) v K8.
+4. **Postupné vypisování textu je pomalé:** úvod dialogu trvá asi 15 s. Zvážit rychlejší vypisování.
+5. **Všechny tři nalezené chyby rozvržení měly stejnou příčinu: šablona GUI počítá s malým písmem.**
+   Při dalších prvcích GUI (inventář, menu, nastavení) proto kontrolovat velikosti hned.
 
 ## Rizika prototypu
 

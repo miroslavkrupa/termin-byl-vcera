@@ -110,6 +110,9 @@ func _create_options(options := [], autoshow := false) -> void:
 		dialog_options_container.get_theme_constant("separation") * (visible_options - 1)
 	)
 	
+	# Okraje panelu (motiv hry) se připočítají, jinak se spodní volba ořízne
+	options_height += int(panel_container.get_theme_stylebox("panel").get_minimum_size().y)
+
 	panel_container.size.y = min(options_height, max_height)
 	panel_container.position.y = PopochiuUtils.e.height - panel_container.size.y
 

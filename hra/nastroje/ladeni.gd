@@ -4,6 +4,7 @@
 # cekej = sekundy před akcí, po = sekundy po akci; souřadnice hry (1536 × 1024)
 # dojdi = hráčova postava dojde na místo (ověří navigaci a zmenšování)
 # akce = <AktivniMisto>:pouzit|prohlednout|najet – klepnutí levým / pravým tlačítkem, nebo jen popisek jako při najetí myší
+# volby = <id>,<id>… – po akci vybírá volby dialogu, vždy jakmile se nabídka zobrazí
 # klik = simulované klepnutí; Popochiu ale čte skutečnou pozici kurzoru, takže míří tam, kde je myš
 #
 # Zakládání objektů Popochiu (viz nastroje/vytvor.gd):
@@ -26,6 +27,8 @@ func _ready() -> void:
 		TranslationServer.set_locale(p["jazyk"])
 	if not p.has("snimek"):
 		return
+	# Repliky se při ladění posouvají samy (hráč je posouvá klepnutím)
+	get_node("/root/E").settings.auto_continue_text = true
 	await get_tree().create_timer(float(p.get("cekej", "3"))).timeout
 	_vypis("před akcí")
 	if p.has("dojdi"):
@@ -42,6 +45,12 @@ func _ready() -> void:
 	elif p.has("klik"):
 		var xy: PackedStringArray = p["klik"].split(",")
 		_klepnout(Vector2(float(xy[0]), float(xy[1])))
+	if p.has("volby"):
+		var d = get_node("/root/D")
+		for id in p["volby"].split(","):
+			await d.dialog_options_requested
+			await get_tree().create_timer(0.8).timeout
+			d.option_selected.emit(d.current_dialog.get_option(id))
 	if p.has("dojdi") or p.has("akce") or p.has("klik"):
 		await get_tree().create_timer(float(p.get("po", "3"))).timeout
 		_vypis("po akci")
@@ -70,7 +79,8 @@ func _klepnout(kde: Vector2) -> void:
 func _vypis(kdy: String) -> void:
 	var hrac = get_node("/root/C").player
 	var kamera := get_viewport().get_camera_2d()
-	print("[%s] hráč %s, měřítko %s, okno %s, viditelná oblast %s, kamera %s" % [
-		kdy, hrac.position if hrac else "?", hrac.scale if hrac else "?", get_window().size,
+	var inventar: Array = get_node("/root/I").items
+	print("[%s] hráč %s, měřítko %s, inventář %s, okno %s, viditelná oblast %s, kamera %s" % [
+		kdy, hrac.position if hrac else "?", hrac.scale if hrac else "?", inventar, get_window().size,
 		get_viewport().get_visible_rect(), kamera.get_screen_center_position() if kamera else "žádná"
 	])

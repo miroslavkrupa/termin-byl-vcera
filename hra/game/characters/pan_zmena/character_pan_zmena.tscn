@@ -1,0 +1,30 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://game/characters/pan_zmena/character_pan_zmena.gd" id="1_ywn00"]
+
+[node name="CharacterPanZmena" type="Area2D" unique_id=1644422242]
+script = ExtResource("1_ywn00")
+script_name = "PanZmena"
+description = "postava_pan_zmena"
+clickable = false
+cursor = 8
+interaction_polygon = PackedVector2Array()
+text_color = Color(0.78, 0.95, 0.55, 1)
+ignore_region_scaling = true
+dialog_pos = Vector2(0, -330)
+
+[node name="ScalingPolygon" type="CollisionPolygon2D" parent="." unique_id=337128735]
+polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=638049865]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=976500593]
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="." unique_id=2016066282]
+visible = false
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="ObstaclePolygon" type="NavigationObstacle2D" parent="." unique_id=132649710]
+visible = false
+affect_navigation_mesh = true
+carve_navigation_mesh = true

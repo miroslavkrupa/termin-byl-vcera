@@ -1,0 +1,9 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="Script" path="res://game/inventory_items/propiska/inventory_item_propiska_state.gd" id="1_788v5"]
+
+[resource]
+resource_name = "Propiska"
+script = ExtResource("1_788v5")
+script_name = "Propiska"
+scene = "res://game/inventory_items/propiska/inventory_item_propiska.tscn"

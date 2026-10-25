@@ -12,3 +12,21 @@ ch1_budka_pouzit_2,„Vaše žádost je pro nás důležitá. Jste v pořadí č
 ch1_budka_pouzit_3,"Celé město visí na lince. Aspoň vím, kde všichni jsou.",The whole town is on hold. At least I know where everyone is.,Ruda,pobaveně,
 ch1_dvere_prohlednout,"Vchod do radnice. Lešení je tu tak dlouho, že je nejspíš nosné.",The town hall entrance. The scaffolding's been up so long it's probably load-bearing.,Ruda,suše,
 ch1_dvere_zamceno,Zamčeno. Na cedulce stojí: „Úřední hodiny: příští fáze.“,"Locked. A little sign says: ""Office hours: next phase.""",Ruda,otráveně,v K5 se dveře otevřou do archivu
+postava_pan_zmena,Pan Změna,Mr. Change,,,jméno v angličtině je pracovní (D15)
+ch1_hs_stanek,Stánek Pana Změny,Mr. Change's stall,,,popisek aktivního místa
+ch1_stanek_prohlednout,"Stánek, který prodává všechno. Jen nikdy dvakrát to samé.",A stall that sells everything. Just never the same thing twice.,Ruda,uznale,
+ch1_zmena_uvod_ruda,Dobrý den!,Good morning!,Ruda,sebevědomě,
+ch1_zmena_uvod,Vítejte u Pana Změny! Dnes prodáváme… to se ještě uvidí.,Welcome to Mr. Change's! Today we're selling... we'll see.,Pan Změna,nadšeně,hlas zpoza stánku
+ch1_zmena_volba_prodej,Co vlastně prodáváte?,So what are you actually selling?,Ruda,,volba dialogu
+ch1_zmena_volba_propiska,Neměl byste propisku?,"Got a pen, by any chance?",Ruda,,volba dialogu
+ch1_zmena_volba_konec,Na shledanou.,Goodbye.,Ruda,,volba dialogu
+ch1_zmena_prodej_1,"Deštníky. Ne, slunečníky. Vlastně holínky.","Umbrellas. No, parasols. Actually, wellies.",Pan Změna,rozhodně,odpovědi se střídají
+ch1_zmena_prodej_2,"Okurky. Ne, nakládané okurky. Čerstvé, ale nakládané.","Cucumbers. No, pickles. Fresh ones, but pickled.",Pan Změna,rozhodně,odpovědi se střídají
+ch1_zmena_001,"Chci Archu. Modrou. Ne, zelenou. S bazénem. Bez vody, kvůli bezpečnosti.","I want an Ark. Blue. No, green. With a pool. No water, for safety reasons.",Pan Změna,nadšeně,replika z návrhu kapitoly 1
+ch1_zmena_prodej_ruda,"Aspoň víte, co chcete. Ne, nevíte.","At least you know what you want. No, you don't.",Ruda,suše,
+ch1_zmena_propiska_1,"Mám! Vlastně ne. Vlastně ano, ale bez inkoustu.","I do! Actually, no. Actually, yes, but it's out of ink.",Pan Změna,zmateně,
+ch1_zmena_propiska_2,"Inkoust je ve fázi 2. Vezměte si ji zdarma, než si to rozmyslím.",The ink is in phase two. Take it for free before I change my mind.,Pan Změna,velkoryse,
+ch1_zmena_propiska_ruda,"Prázdná propiska. Přesně to, co projektový manažer potřebuje.",An empty pen. Exactly what a project manager needs.,Ruda,ironicky,
+ch1_zmena_konec,Nashle! Nebo ahoj. Ještě si to rozmyslím.,Goodbye! Or see ya. I'll decide later.,Pan Změna,rozverně,
+predmet_propiska,Propiska bez inkoustu,Empty pen,,,název předmětu
+predmet_propiska_prohlednout,"Propiska bez inkoustu. Podepíše cokoli, ale nic nezůstane.","An empty pen. It'll sign anything, but nothing sticks.",Ruda,suše,

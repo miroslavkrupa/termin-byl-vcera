@@ -1,0 +1,15 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://game/rooms/namesti/hotspots/stanek/hotspot_stanek.gd" id="1_jgk05"]
+
+[node name="Stanek" type="Area2D" unique_id=1402010503]
+script = ExtResource("1_jgk05")
+script_name = "Stanek"
+description = "ch1_hs_stanek"
+cursor = 1
+interaction_polygon = PackedVector2Array(0, 445, 340, 450, 338, 738, 0, 742)
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="." unique_id=977608971]
+visible = false
+modulate = Color(1, 0, 1, 1)
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="Script" path="res://game/characters/pan_zmena/character_pan_zmena_state.gd" id="1_i2ak2"]
+
+[resource]
+resource_name = "PanZmena"
+script = ExtResource("1_i2ak2")
+script_name = "PanZmena"
+scene = "res://game/characters/pan_zmena/character_pan_zmena.tscn"

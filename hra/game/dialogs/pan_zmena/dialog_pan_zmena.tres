@@ -1,0 +1,28 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="Script" path="res://addons/popochiu/engine/objects/dialog/popochiu_dialog_option.gd" id="1_rrhpp"]
+[ext_resource type="Script" path="res://game/dialogs/pan_zmena/dialog_pan_zmena.gd" id="2_slf5m"]
+
+[sub_resource type="Resource" id="Resource_ckwei"]
+resource_name = "Prodej"
+script = ExtResource("1_rrhpp")
+id = "Prodej"
+text = "ch1_zmena_volba_prodej"
+
+[sub_resource type="Resource" id="Resource_hh4ls"]
+resource_name = "Propiska"
+script = ExtResource("1_rrhpp")
+id = "Propiska"
+text = "ch1_zmena_volba_propiska"
+
+[sub_resource type="Resource" id="Resource_3jj2k"]
+resource_name = "Konec"
+script = ExtResource("1_rrhpp")
+id = "Konec"
+text = "ch1_zmena_volba_konec"
+
+[resource]
+resource_name = "PanZmena"
+script = ExtResource("2_slf5m")
+script_name = "PanZmena"
+options = Array[ExtResource("1_rrhpp")]([SubResource("Resource_ckwei"), SubResource("Resource_hh4ls"), SubResource("Resource_3jj2k")])

@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" path="res://game/rooms/namesti/hotspots/kasna/hotspot_kasna.tscn" id="5_eluva"]
 [ext_resource type="PackedScene" path="res://game/rooms/namesti/hotspots/budka/hotspot_budka.tscn" id="6_oahb7"]
 [ext_resource type="PackedScene" path="res://game/rooms/namesti/hotspots/dvere_radnice/hotspot_dvere_radnice.tscn" id="7_tc4kd"]
+[ext_resource type="PackedScene" path="res://game/rooms/namesti/hotspots/stanek/hotspot_stanek.tscn" id="8_gky0t"]
+[ext_resource type="PackedScene" path="res://game/characters/pan_zmena/character_pan_zmena.tscn" id="10_j80a0"]
 
 [node name="RoomNamesti" type="Node2D" unique_id=1362046152]
 script = ExtResource("1_xhamq")
@@ -36,6 +38,9 @@ walk_to_point = Vector2(1235, 790)
 [node name="DvereRadnice" parent="Hotspots" unique_id=1826390217 instance=ExtResource("7_tc4kd")]
 walk_to_point = Vector2(950, 748)
 
+[node name="Stanek" parent="Hotspots" unique_id=1402010503 instance=ExtResource("8_gky0t")]
+walk_to_point = Vector2(250, 805)
+
 [node name="Regions" type="Node2D" parent="." unique_id=1128713920]
 
 [node name="Hloubka" parent="Regions" unique_id=1149518962 instance=ExtResource("4_pp1hi")]
@@ -46,3 +51,7 @@ scale_bottom = 0.46
 [node name="Markers" type="Node2D" parent="." unique_id=1198552640]
 
 [node name="Characters" type="Node2D" parent="." unique_id=1280374402]
+
+[node name="CharacterPanZmena" parent="Characters" unique_id=1644422242 instance=ExtResource("10_j80a0")]
+position = Vector2(170, 735)
+input_pickable = false

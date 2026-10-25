@@ -7,6 +7,8 @@
 #   mistnost <Nazev> [hlavni]                        místnost; „hlavni“ = spouští se jako první
 #   postava <Nazev> [hrac]                           postava; „hrac“ = ovládá ji hráč
 #   predmet <Nazev>                                  předmět do inventáře
+#   dialog <Nazev> <id:klic> [<id:klic> …]           dialog s volbami (klic = ID textu volby v tabulce)
+#   postava_do <Mistnost> <Postava> <x,y>            umístí postavu do místnosti
 #   pochozi <Mistnost> <Nazev> "<x,y x,y …>"         pochozí plocha s obrysem (souřadnice místnosti)
 #   aktivni <Mistnost> <Nazev> "<x,y x,y …>" <x,y>   aktivní místo s obrysem a bodem, kam postava dojde
 #   kulisa <Mistnost> <Nazev> <res://obrázek.png> [x,y]   neinteraktivní obrázek (název Background = pozadí)
@@ -32,6 +34,10 @@ func spust(a: PackedStringArray) -> bool:
 			vysledek = _postava(a[1], a.size() > 2 and a[2] == "hrac")
 		"predmet":
 			vysledek = _predmet(a[1])
+		"dialog":
+			vysledek = _dialog(a[1], a.slice(2))
+		"postava_do":
+			vysledek = _postava_do(a[1], a[2], _bod(a[3]))
 		"pochozi":
 			vysledek = _pochozi(a[1], a[2], _body(a[3]))
 		"aktivni":
@@ -104,6 +110,54 @@ func _predmet(nazev: String) -> int:
 	if r != USPECH:
 		return r
 	_registrovat(f)
+	return USPECH
+
+
+func _dialog(nazev: String, volby: PackedStringArray) -> int:
+	# Kroky továrny PopochiuDialogFactory.create() bez části, která potřebuje editor
+	var f := PopochiuDialogFactory.new()
+	f._setup_name(nazev)
+	var r: int = f._create_obj_folder()
+	if r != USPECH:
+		return r
+	r = f._copy_script_template()
+	if r != USPECH:
+		return r
+	var dialog := PopochiuDialog.new()
+	dialog.set_script(load(f._path_script))
+	dialog.script_name = f._pascal_name
+	dialog.resource_name = f._pascal_name
+	var seznam: Array[PopochiuDialogOption] = []
+	for v in volby:
+		var c := v.split(":")
+		var volba := PopochiuDialogOption.new()
+		volba.id = c[0]
+		volba.text = c[1]
+		seznam.append(volba)
+	dialog.options = seznam
+	r = f._save_obj_resource(dialog)
+	if r != USPECH:
+		return r
+	_registrovat(f)
+	return USPECH
+
+
+func _postava_do(mistnost: String, postava: String, kde: Vector2) -> int:
+	var room := _nacti_mistnost(mistnost)
+	if room == null:
+		return ResultCodes.FAILURE
+	var snake := postava.to_snake_case()
+	var cesta := PopochiuResources.CHARACTERS_PATH.path_join("%s/character_%s.tscn" % [snake, snake])
+	if not FileAccess.file_exists(cesta):
+		push_error("Postava %s neexistuje (%s)" % [postava, cesta])
+		return ResultCodes.FAILURE
+	var chr: Node2D = (load(cesta) as PackedScene).instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
+	chr.position = kde
+	room.get_node("Characters").add_child(chr)
+	chr.owner = room
+	var balik := PackedScene.new()
+	if balik.pack(room) != OK or ResourceSaver.save(balik, room.scene_file_path) != OK:
+		return ResultCodes.ERR_CANT_SAVE_OBJ_SCENE
 	return USPECH
 
 

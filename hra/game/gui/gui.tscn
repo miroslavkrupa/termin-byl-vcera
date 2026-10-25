@@ -252,7 +252,13 @@ mouse_filter = 2
 theme = ExtResource("1_jeul6")
 script = ExtResource("11_bjqyy")
 option_scene = ExtResource("12_be73h")
-max_height = 98
+max_height = 300
+normal_font_color = Color(0.95, 0.89, 0.78, 1)
+normal_used_font_color = Color(0.72, 0.66, 0.54, 1)
+hover_font_color = Color(1, 0.79, 0.24, 1)
+hover_used_font_color = Color(0.88, 0.72, 0.31, 1)
+pressed_font_color = Color(1, 1, 1, 1)
+pressed_used_font_color = Color(0.9, 0.9, 0.9, 1)
 
 [node name="SystemTextHighRes" type="Control" parent="." unique_id=1815258486 groups=["popochiu_gui_component"] instance=ExtResource("8_75iei")]
 layout_mode = 1
