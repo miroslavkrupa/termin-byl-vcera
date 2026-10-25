@@ -27,6 +27,13 @@ jménem Deadline – a hráč se mimochodem naučí řídit projekty.
 
 Podrobnosti k platformám, grafice, dabingu a jazykům jsou v [produkčních zásadách](05-produkce.md).
 
+## Hlavní myšlenka: Dva světy, jedna Archa
+
+Archa se skládá z částí různé povahy: rampa a trup potřebují plán, řídicí systém a nástup
+obyvatel potřebují zkoušení s lidmi. Ruda Gantt zosobňuje svět plánu, Bára Backlogová svět
+iterací a pravý konec nastane, až se naučí spolupracovat. Hra tak nenásilně učí hybridní řízení:
+přístup se volí podle povahy práce. Podrobně v [koncepci](07-dva-svety.md).
+
 ## Pilíře
 
 1. **Nejdřív hra, potom výuka.** Hraje se kvůli příběhu, postavám a humoru. Když minihra nebo
@@ -43,6 +50,8 @@ Podrobnosti k platformám, grafice, dabingu a jazykům jsou v [produkčních zá
 
 - Projekt je o **lidech a hodnotě**, ne o plánu. Plán je nástroj.
 - Kdo přeskočí **iniciaci** (proč, pro koho, kdo rozhoduje), zaplatí za to později.
+- **Přístup se volí podle povahy práce.** Co je jasné a nevratné, se plánuje; co je nejisté,
+  se zkouší. Většina velkých projektů potřebuje obojí a spojení mezi tím.
 - **Nejistotu** je třeba řídit: rizika, plánování po vlnách, krátké iterace a zpětná vazba.
 - **Změna** není nepřítel, nepřítel je změna bez řízení.
 - Projektový manažer nemá být hrdina, ale **servant leader** svého týmu.

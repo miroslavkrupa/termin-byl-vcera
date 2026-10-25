@@ -27,6 +27,12 @@
 | D20 | 2026-10-25 | Výtvarný styl podobný Deponii | stylová bible a varianty ke schválení; v zadáních pro AI se nejmenuje cizí hra ani autoři | [stylová bible](06-stylova-bible.md) |
 | D21 | 2026-10-25 | Schválena varianta A (Rezavá Nedostavěnice) jako hlavní styl a C (Soumrak termínu) pro večerní a krizové scény | zadání pro AI vycházejí z palety A, večerní a krizové scény (hlavně kap. 4) z palety C; další krok jsou vzorky přes AI | [stylová bible](06-stylova-bible.md) |
 
+| D22 | 2026-10-25 | Jednotící koncepce **Dva světy, jedna Archa**: hybridní řízení je páteří hry. Části Archy mají různou povahu a každá potřebuje jiný přístup | minihry, kapitoly, postavy i konce se řadí podle této myšlenky | [koncepce](07-dva-svety.md) a všechny dokumenty |
+| D23 | 2026-10-25 | Minihry ve čtyřech patrech (společný základ, svět plánu, svět iterací, spojka); rozdíl mezi světy nese mechanika | nové minihry M13 Jeřábový balet, M14 Ukázka na náměstí, M15 Integrační okno; M09 Standup už není minihra, ale scéna | [minihry](04-minihry.md) |
+| D24 | 2026-10-25 | O přístupu rozhoduje povaha práce, ne obor: startovací bezpečnostní systém (software) patří do světa plánu, interiér Archy (fyzický) do světa iterací | dvě schválné výjimky, na kterých hráč pochopí skutečné kritérium | [koncepce](07-dva-svety.md), [bible](03-pribehova-bible.md) |
+| D25 | 2026-10-25 | Ruda zosobňuje svět plánu, Bára svět iterací, oba mají vadu; romantická linka je metafora hybridu. Předseda Věčný je zvrhlý vodopád, Ing. Framework zvrhlá agilita | Bára dostává vadu (nerada se zavazuje k termínu); Ing. Framework je vedlejší záporák | [bible](03-pribehova-bible.md) |
+| D26 | 2026-10-25 | Ve hře se nepoužívají slova agilní, prediktivní ani hybridní; jen „Rudův způsob“ a „Bářin způsob“ | odborné názvy jen ve volitelném Deníku | [koncepce](07-dva-svety.md), [matice](02-vyukova-matice.md) |
+
 ## Čeká na rozhodnutí
 
 - Předseda Věčný: jasný záporák od začátku, nebo zvrat ve 4. kapitole? Doladit podle podrobností příběhu.

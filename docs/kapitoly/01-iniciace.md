@@ -2,7 +2,7 @@
 
 > Podrobný návrh kapitoly 1. Je to první hratelná část hry: ověří zábavnost, humor, minihry,
 > rozhodnutí s pozdějším následkem, hraní za Báru i rychlost výroby.
-> Stav: **koncept**, verze 0.1
+> Stav: **koncept**, verze 0.2
 
 ## Přehled
 
@@ -15,6 +15,18 @@
 | **Rozhodnutí** | R1.1 slib, R1.2 babička, R1.3 Bára, R1.4 „fáze 2“ |
 | **Hraní za Báru** | ano, krátký úsek v archivu |
 | **Kometa** | malá, sotva viditelná tečka s ocasem |
+
+## Místo v koncepci Dva světy, jedna Archa
+
+Kapitola 1 je **společný základ** ([koncepce](../07-dva-svety.md)): proč, pro koho a kdo
+rozhoduje platí pro celou Archu bez ohledu na to, jak se pak která část bude stavět. Oba světy
+se tu ale poprvé ukážou v postavách a kapitola zasévá rozdělení Archy pro kapitolu 2:
+- **Ruda a Bára se poprvé střetnou:** on slibuje, ona měří (R1.3).
+- **Původní zadání Archy** v archivu má dvě části, které se liší: „Rampa a trup: výkresy hotové,
+  schváleno 1994.“ a „Řídicí systém a kajuty: dopracuje se podle potřeb obyvatel.“
+- **Ing. Framework** se mihne ve frontě na frontu a nabízí „agilní frontu“.
+- Vertical slice rozdíl mezi světy ještě netestuje. Proto po něm hned následuje papírový
+  prototyp dvojice M13 Jeřábový balet a M14 Ukázka na náměstí ([minihry](../04-minihry.md)).
 
 Výuka zůstává skrytá: nikdo ve hře neřekne „charter“, „stakeholder“ ani „business case“.
 Ruda prostě potřebuje papír, bez kterého ho Komise nepustí dál, a zjistí, že ten papír má smysl
@@ -60,7 +72,9 @@ projekt a je na to tiše hrdý. Jako jediný ve městě něco opravdu dokončuje
    - **tlačítko „2“** do výtahu v krabici projektu *Modernizace výtahu (1987–dosud)*;
    - **původní zadání Archy**. Kartotéka je seřazená podle plánovaného dokončení a na každém
      lístku stojí „příští rok“. Kdo seřadí lístky podle skutečného data zahájení z Lumírovy
-     knihy, zadání najde. Zadání říká: Archa má odvézt **všechny** obyvatele;
+     knihy, zadání najde. Zadání říká: Archa má odvézt **všechny** obyvatele. Rampa a trup
+     mají hotové výkresy, řídicí systém a kajuty se mají „dopracovat podle potřeb obyvatel“
+     (zárodek rozdělení Archy v kap. 2);
    - **kartu poučení** *Most přes řeku (1974): Zapomněli jsme se zeptat rybářů.*;
    - **katastrální mapu**, podle které pozemek pod rampou patří někomu jménem Pozemková.
 5. **Starosta.** Tlačítko „2“ zapojené do výtahu ho dopraví ke starostovi. Starosta chce „něco,
@@ -76,8 +90,9 @@ projekt a je na to tiše hrdý. Jako jediný ve městě něco opravdu dokončuje
 9. **M01 Charter z trosek** v kanceláři Komise. Útržky má hráč z celé kapitoly: termín od starosty,
    cíl z původního zadání, kritéria úspěchu od Báry (jen když ji poslouchal), nesmysly od Pana
    Změny a od Předsedy.
-10. **Fronta na frontu.** Ruda musí čekat ve frontě, aby se mohl postavit do fronty. Mezitím se
-    **hraje za Báru** (viz níže).
+10. **Fronta na frontu.** Ruda musí čekat ve frontě, aby se mohl postavit do fronty. Ve frontě
+    stojí i **Ing. Framework** a nabízí „agilní frontu“: stejná fronta, ale každé dva týdny se
+    jí říká jinak. Mezitím se **hraje za Báru** (viz níže).
 11. **Předseda Věčný** charter orazítkuje. Bez babiččiny podušky jen kávovým perem: razítko je
     hnědé a rozmazané, platí, ale Předseda se mračí. Na závěr chce do charteru připsat
     „a následné fáze“ (**R1.4**).
@@ -203,6 +218,9 @@ emoce, oba jazyky. Vtipy jsou psané pro každý jazyk zvlášť, ne přeložen�
 | `ch1_predseda_002` | Předseda | nad kávovým razítkem | Hnědé razítko. Platné. Bohužel. | A brown stamp. Valid. Regrettably. |
 | `ch1_babicka_001` | babička Pozemková | suše | Mladej, můj dům tu stojí šedesát let. Jediná dokončená stavba ve městě. Proto se mnou nikdo nemluví – nevědí, co se s hotovou věcí dělá. | Young man, my house has stood here for sixty years. The only finished building in town. That's why nobody talks to me. They don't know how to handle closure. |
 | `ch1_ruda_090` | Ruda | ve frontě | Fronta na frontu. Kdyby tohle šlo exportovat, byli bychom nejbohatší město na světě. | A queue for the queue. If we could export this, we'd be the richest city on earth. |
+| `ch1_framework_001` | Ing. Framework | obchodnicky | Agilní fronta! Pořád stejná fronta, ale každé dva týdny jí říkáme jinak. Zvýší to morálku čekajících o čtyřicet procent. | The agile queue! Same queue, but every two weeks we give it a new name. Boosts waiting-room morale by forty percent. |
+| `ch1_ruda_091` | Ruda | podezíravě | A kdo to změřil? | And who measured that? |
+| `ch1_framework_002` | Ing. Framework | uraženě | Měřit? To je strašně vodopádové. | Measured? How terribly waterfall of you. |
 | `ch1_ui_komise_cedule` | cedule | – | Komise pro schvalování komisí. Úřední hodiny: příští fáze. | Committee for Approving Committees. Office hours: next phase. |
 
 ## Rozsah výroby (odhad)
@@ -210,7 +228,7 @@ emoce, oba jazyky. Vtipy jsou psané pro každý jazyk zvlášť, ne přeložen�
 | Položka | Počet |
 |---|---|
 | Pozadí scén | 6 (+ úvod) |
-| Postavy s referenčním listem | 8 (Ruda, Bára, Předseda, starosta, Pan Změna, Lumír, babička, vrátný) + kocour |
+| Postavy s referenčním listem | 9 (Ruda, Bára, Předseda, starosta, Pan Změna, Lumír, babička, vrátný, Ing. Framework) + kocour |
 | Předměty v inventáři | cca 15 |
 | Minihry | 3 |
 | Repliky | cca 350–450 na jazyk |
