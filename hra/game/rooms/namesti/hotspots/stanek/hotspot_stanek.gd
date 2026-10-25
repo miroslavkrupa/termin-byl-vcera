@@ -35,12 +35,18 @@ func _on_middle_click() -> void:
 
 
 # Called when the hotspot is clicked and there is an inventory item selected
-func _on_item_used(_item: PopochiuInventoryItem) -> void:
-	# Replace the call to E.command_fallback() with your own logic.
-	PopochiuUtils.e.command_fallback()
-	# Example: if a Key is used here, make the player say something.
-#	if _item == I.Key:
-#		await C.player.say("No can do")
+func _on_item_used(item: PopochiuInventoryItem) -> void:
+	match item:
+		I.KavovePero:
+			await C.player.walk_to_clicked()
+			await C.player.face_clicked()
+			await _dohoda()
+		I.Propiska:
+			await C.player.say("ch1_stanek_propiska")
+		I.Kava:
+			await C.player.say("ch1_stanek_kava")
+		_:
+			E.command_fallback()
 
 
 # Called when the hotspot starts moving
@@ -70,6 +76,24 @@ func _on_movement_ended() -> void:
 # hotspot is the target.
 # This keeps the code way more tidy and organized with GUIs with many different commands,
 # as opposed to having a single `match` statement in the general-use methods.
+
+
+#endregion
+
+
+#region Private ####################################################################################
+# Ruda zapíše požadavek Pana Změny kávovým perem a nechá ho podepsat (zárodek řízení změn)
+func _dohoda() -> void:
+	var stav = R.Namesti.state
+	if stav.zmena_dohoda:
+		await C.PanZmena.say("ch1_zmena_dohoda_uz")
+		return
+	await C.player.say("ch1_zmena_dohoda_ruda_1")
+	await C.PanZmena.say("ch1_zmena_dohoda_1")
+	await C.player.say("ch1_zmena_dohoda_ruda_2")
+	await C.PanZmena.say("ch1_zmena_002")
+	await C.player.say("ch1_zmena_dohoda_ruda_3")
+	stav.zmena_dohoda = true
 
 
 #endregion

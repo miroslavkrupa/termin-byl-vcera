@@ -5,6 +5,11 @@ extends PopochiuRoomData
 # Use `save_custom` and `load_custom` to handle custom data types.
 # Note: `script_name` and `scene` variables inherited from the base class are not saved.
 
+## Ruda už dostal na začátku hrnek kávy
+var kava_dana := false
+## Pan Změna podepsal svůj požadavek (kap. 1, příznak c1_zmena_dohoda)
+var zmena_dohoda := false
+
 
 #region Virtual ####################################################################################
 # Return a Dictionary of custom data to save for this PopochiuRoom.

@@ -21,8 +21,10 @@ func _on_room_entered() -> void:
 # Implement this to start cutscenes, play sounds, etc.
 # NOTE: this is NOT called when loading a saved game. Use [_on_restore_from_savegame] for that.
 func _on_room_transition_finished() -> void:
-	# You can use await E.queue([]) to run a sequence of actions here.
-	pass
+	# Ruda začíná s hrnkem kávy (návrh kapitoly 1, Výchozí stav)
+	if not state.kava_dana:
+		state.kava_dana = true
+		await I.Kava.add()
 
 
 # Called before Popochiu unloads the room.

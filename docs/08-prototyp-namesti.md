@@ -57,7 +57,7 @@ Každý krok končí něčím, co jde spustit a vyzkoušet. Ke každému se zap�
 | **K1** | Místnost Náměstí: pozadí, pochozí plocha, Ruda chodí kliknutím/klepnutím, zmenšuje se do hloubky, má stín | Claude kód a scény, autor doladí polygon pochozí plochy v editoru | Ruda dojde kamkoli na dlažbu a nevyjde mimo | ✅ hotovo (viz Průběh) |
 | **K2** | Aktivní místa: kašna (prohlédnout), telefonní budka (použít), dveře radnice (zatím zamčené) | Claude | popisky a reakce v obou jazycích | ✅ hotovo |
 | **K3** | Dialog se stánkem Pana Změny (hlas zpoza stánku), dvě volby, jedna z nich dá propisku | Claude | dialog proběhne v CZ i EN | ✅ hotovo |
-| **K4** | Inventář: hrnek kávy + propiska → **kávové pero** | Claude, zástupné ikony | kombinování funguje a pero jde použít na Pana Změnu |
+| **K4** | Inventář: hrnek kávy + propiska → **kávové pero** | Claude, zástupné ikony | kombinování funguje a pero jde použít na Pana Změnu | ✅ hotovo |
 | **K5** | Přechod do Archivu dveřmi radnice a zpět, v archivu jedno aktivní místo (kartotéka) | Claude, autor doladí pochozí plochu | přechod oběma směry, Ruda se objeví u dveří |
 | **K6** | Jazyky: přepínač CZ/EN za běhu, kontrolní skript na chybějící překlady | Claude | přepnutí bez restartu, skript hlásí chyby |
 | **K7** | Večer: přepínač den/večer, tónování Rudy barvou světla scény, stín | Claude | Ruda večer nepůsobí vystřiženě (porovnat s testem z kola 3) |
@@ -139,6 +139,29 @@ Godot 4.7.2 a Popochiu 2.2.1, šablona Simple Click ve vysokém rozlišení, 153
 4. **Postupné vypisování textu je pomalé:** úvod dialogu trvá asi 15 s. Zvážit rychlejší vypisování.
 5. **Všechny tři nalezené chyby rozvržení měly stejnou příčinu: šablona GUI počítá s malým písmem.**
    Při dalších prvcích GUI (inventář, menu, nastavení) proto kontrolovat velikosti hned.
+
+### K4 – inventář a kávové pero (hotovo)
+
+- **Ruda začíná s hrnkem kávy** (podle výchozího stavu v návrhu kapitoly 1).
+- **Propiska + káva = kávové pero.** Funguje v obou směrech (propisku na kávu i kávu na propisku);
+  propiska zmizí, pero přibude.
+- **Kávové pero na stánek:** Ruda zapíše požadavek Pana Změny, než ho stihne změnit, a nechá ho
+  podepsat („Já… to jsem podepsal? Tak to asi opravdu chci.“). Nastaví se příznak místnosti
+  `zmena_dohoda` (v návrhu kapitoly `c1_zmena_dohoda`), opakované použití má jinou repliku.
+  Zárodek tématu řízení změn, jak ho popisuje návrh kapitoly 1.
+- **Nápovědy místo slepých uliček:** prázdná propiska na stánek („potřebovala by něco hnědého
+  a tekutého“) a káva na stánek mají vlastní repliky.
+- **Výchozí reakce v obou jazycích:** šablona hlásila anglické systémové texty („Can't INTERACT
+  with it“). Teď místo nich mluví Ruda a texty jsou v tabulce.
+- **Zástupné ikony** předmětů kreslí skript `nastroje/zastupne_ikony.gd` (hrnek, propiska, kávové
+  pero; linka podle stylové bible). Nástroj na vyříznutí umí práh bělosti a zmenšení na ikonu.
+- Ověřeno automaticky celým řetězcem: dialog → propiska → kombinace → pero na stánek → příznak.
+
+**Poznatky:**
+1. **Inventář se v šabloně Simple Click ukáže až po najetí myší k hornímu okraji.** Na mobilu
+   (bez najetí) bude potřeba jiné řešení, ověřit v K8.
+2. Ladicí pomocník vybírá volby dialogu přímo, ne kliknutím, takže na jeho snímcích zůstává po
+   dialogu prázdný pruh nabídky. Při hraní myší se to neděje (ověřil autor v K3).
 
 ## Rizika prototypu
 

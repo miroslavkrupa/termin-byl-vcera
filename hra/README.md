@@ -29,13 +29,20 @@ godot --headless --path hra -- vytvor mistnost Archiv
 ```
 
 Spuštění hry se snímkem obrazovky (pro ověřování; `dojdi` pošle hráčovu postavu na místo,
-`akce` klepne na aktivní místo, `volby` vybírá volby dialogu, `jazyk` přepne jazyk):
+`akce` klepne na aktivní místo, `volby` vybírá volby dialogu, `pouzij` použije předmět,
+`jazyk` přepne jazyk; kroky běží za sebou):
 
 ```bash
 godot --path hra -- snimek=/tmp/snimek.png jazyk=en cekej=3 akce=Budka:pouzit po=6
 ```
 
 Texty jsou v `texty/texty.csv`; každý řádek musí mít češtinu i angličtinu.
+
+Zástupné ikony předmětů (do doby, než je nahradí AI grafika):
+
+```bash
+godot --headless --path hra --script res://nastroje/zastupne_ikony.gd
+```
 
 Vyříznutí postavy z referenčního listu (odstraní bílé pozadí):
 

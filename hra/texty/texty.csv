@@ -30,3 +30,20 @@ ch1_zmena_propiska_ruda,"Prázdná propiska. Přesně to, co projektový manaže
 ch1_zmena_konec,Nashle! Nebo ahoj. Ještě si to rozmyslím.,Goodbye! Or see ya. I'll decide later.,Pan Změna,rozverně,
 predmet_propiska,Propiska bez inkoustu,Empty pen,,,název předmětu
 predmet_propiska_prohlednout,"Propiska bez inkoustu. Podepíše cokoli, ale nic nezůstane.","An empty pen. It'll sign anything, but nothing sticks.",Ruda,suše,
+predmet_kava,Hrnek kávy,Mug of coffee,,,název předmětu
+predmet_kava_prohlednout,"Hrnek kávy. Jediný zdroj energie, který v tomhle městě funguje.",A mug of coffee. The only energy source in this town that actually works.,Ruda,láskyplně,
+predmet_kavove_pero,Kávové pero,Coffee pen,,,název předmětu
+predmet_kavove_pero_prohlednout,Propiska namočená v kávě. Píše hnědě a voní jako porada.,A pen dipped in coffee. Writes in brown and smells like a status meeting.,Ruda,spokojeně,
+ch1_kombinace_pero_1,Inkoust je ve fázi 2? Káva je ve fázi teď.,Ink is in phase two? Coffee is in phase now.,Ruda,vítězoslavně,propiska + káva
+ch1_kombinace_pero_2,"Kávové pero. Inovace, kterou by nikdo neschválil, a proto funguje.","A coffee pen. An innovation nobody would ever approve, which is why it works.",Ruda,hrdě,
+ch1_stanek_propiska,Prázdnou propiskou nic nezapíšu. Potřebovala by něco hnědého a tekutého.,I can't write anything with an empty pen. It needs something brown and runny.,Ruda,přemýšlivě,nápověda ke kombinaci s kávou
+ch1_stanek_kava,Svoji kávu nikomu nedám. Ani za Archu.,Nobody gets my coffee. Not even for an Ark.,Ruda,majetnicky,
+ch1_zmena_dohoda_ruda_1,"Pane Změno, co přesně chcete? Zapíšu to.","Mr. Change, what exactly do you want? I'll write it down.",Ruda,úředně,kávové pero na stánek
+ch1_zmena_dohoda_1,"Archu. Modrou. Ne, zel…","An Ark. Blue. No, gr...",Pan Změna,"nadšeně, přerušen",
+ch1_zmena_dohoda_ruda_2,"Pozdě, už je to zapsané. Modrá. Tady podepište.","Too late, it's written down. Blue. Sign here.",Ruda,rychle,
+ch1_zmena_002,Já… to jsem podepsal? Tak to asi opravdu chci. Zvláštní pocit.,I... signed that? Then I suppose I really want it. What a strange feeling.,Pan Změna,zmateně,replika z návrhu kapitoly 1
+ch1_zmena_dohoda_ruda_3,Gratuluju. Právě jste se poprvé v životě rozhodl.,Congratulations. You've just made your first decision ever.,Ruda,samolibě,
+ch1_zmena_dohoda_uz,Modrou! Mám to podepsané. Kávou.,Blue! It's signed. In coffee.,Pan Změna,hrdě,po dohodě
+obecne_nelze,S tím nic neudělám.,I can't do anything with that.,Ruda,,výchozí reakce
+obecne_pouzit_s,Použít %s na %s? To nedává smysl ani podle mých standardů.,"Use %s on %s? That doesn't make sense, even by my standards.",Ruda,,"výchozí reakce; %s = předmět, cíl"
+obecne_nic_k_videni,Nic zvláštního.,Nothing special.,Ruda,,výchozí reakce

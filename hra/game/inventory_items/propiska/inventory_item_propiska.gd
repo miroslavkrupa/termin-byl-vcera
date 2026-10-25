@@ -25,12 +25,11 @@ func _on_middle_click() -> void:
 
 
 # Called when the item is clicked while another inventory item is selected
-func _on_item_used(_item: PopochiuInventoryItem) -> void:
-	# Replace the call to E.command_fallback() with your own logic.
-	E.command_fallback()
-	# Example: if a Key is used on this item, make the player say something.
-#	if _item == I.Key:
-#		await C.player.say("This item has no lock!")
+func _on_item_used(item: PopochiuInventoryItem) -> void:
+	if item == I.Kava:
+		await namocit()
+	else:
+		E.command_fallback()
 
 
 # Called when the item is added to the inventory
@@ -45,6 +44,18 @@ func _on_discard() -> void:
 	# Replace the call to `super()` to implement custom behavior.
 	# Calling `super()` preserves default behavior as well.
 	super()
+
+
+#endregion
+
+
+#region Public #####################################################################################
+## Propiska + káva = kávové pero (kombinace funguje v obou směrech, viz Kava)
+func namocit() -> void:
+	await C.player.say("ch1_kombinace_pero_1")
+	await remove()
+	await I.KavovePero.add()
+	await C.player.say("ch1_kombinace_pero_2")
 
 
 #endregion
