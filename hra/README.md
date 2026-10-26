@@ -53,6 +53,20 @@ Zástupné ikony předmětů (do doby, než je nahradí AI grafika):
 godot --headless --path hra --script res://nastroje/zastupne_ikony.gd
 ```
 
+Nasazení webové verze na GitHub Pages (export, kontrola textů, nahrání do větve `gh-pages`):
+
+```bash
+sh hra/nastroje/nasad_web.sh
+```
+
+Hra pak běží na https://miroslavkrupa.github.io/termin-byl-vcera/ (nasazení trvá asi minutu).
+
+Rozdělení listu s částmi postavy na samostatné obrázky:
+
+```bash
+godot --headless --path hra --script res://nastroje/rozdel_casti.gd -- <list.png> <složka> [předpona]
+```
+
 Vyříznutí postavy z referenčního listu (odstraní bílé pozadí):
 
 ```bash
