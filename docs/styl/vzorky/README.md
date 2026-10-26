@@ -5,7 +5,7 @@ Generují se skriptem `tools/generuj_vzorky.py` (viz stylová bible, část Auto
 nebo ručně v ChatGPT se stejným zadáním. Skript ke každému obrázku uloží stejnojmenný `.json`
 s úplným zadáním, modelem a datem a přidá řádek do tabulky níže; u ručně vytvořených se řádek
 doplní ručně. Pojmenování: `<id vzorku>_v01.png`, další pokus `_v02`. Schválené vzorky se označí ☑.
-Hodnocení kol: [kolo 1](hodnoceni-kolo-1.md). Zadání ke zkopírování: [kolo 2](zadani-kolo-2.md). Hodnocení kola 2: [postavy a pozadí](hodnoceni-kolo-2.md), tam jsou i zadání pro kolo 3. Hodnocení kola 3: [večerní náměstí a rampa](hodnoceni-kolo-3.md).
+Hodnocení kol: [kolo 1](hodnoceni-kolo-1.md). Zadání ke zkopírování: [kolo 2](zadani-kolo-2.md). Hodnocení kola 2: [postavy a pozadí](hodnoceni-kolo-2.md), tam jsou i zadání pro kolo 3. Hodnocení kola 3: [večerní náměstí a rampa](hodnoceni-kolo-3.md). Části postavy pro animaci: [zadání](zadani-casti.md).
 
 | Soubor | Nástroj | Zadání | Schváleno |
 |---|---|---|---|

@@ -10,6 +10,9 @@ Použití:
 API klíč se čte z proměnné prostředí OPENAI_API_KEY nebo ze souboru .env v kořeni projektu
 (řádek OPENAI_API_KEY=...). Soubor .env je v .gitignore a nikdy se necommituje.
 
+Typ s "pruhledne": true se generuje s průhledným pozadím (PNG), takže postavu ani části není
+potřeba vyřezávat z bílé.
+
 Vzorek může mít v zadání "reference": seznam cest k obrázkům (relativně ke kořeni projektu).
 Pak se použije endpoint pro úpravy a model obrázky vezme jako předlohu, např. referenční list
 postavy pro konzistentní vzhled. S "predloha": true se na začátek zadání přidá věta
@@ -133,16 +136,17 @@ def main():
     for i in items:
         prompt = build_prompt(spec, i)
         refs = [ROOT / r for r in i.get("reference", [])]
+        extra = {"background": "transparent", "output_format": "png"} if spec["typy"][i["typ"]].get("pruhledne") else {}
         print(f"→ {i['id']} …", flush=True)
         if refs:
             res = post_multipart(f"{API}/edits",
                                  {"model": model, "prompt": prompt, "size": i["velikost"],
-                                  "quality": quality},
+                                  "quality": quality, **extra},
                                  [("image[]", r) for r in refs], key)
         else:
             res = post_json(f"{API}/generations",
                             {"model": model, "prompt": prompt, "size": i["velikost"],
-                             "quality": quality, "n": 1}, key)
+                             "quality": quality, "n": 1, **extra}, key)
         path = next_path(i["id"])
         path.write_bytes(base64.b64decode(res["data"][0]["b64_json"]))
         meta = {"id": i["id"], "model": model, "kvalita": quality, "velikost": i["velikost"],

@@ -277,6 +277,17 @@ Dvě levné metody nad stávajícím AI obrázkem, bez kreslení nových fází:
    AI vygenerovat části postavy zvlášť (stehno, lýtko, chodidlo, paže) a složit kostru v Godotu,
    nebo nakreslit 6–8 fází chůze (dražší, ale nejhezčí).
 
+### Doladění pro ukázku kolegům (2026-10-26)
+
+- **Repozitář je veřejný** (před zveřejněním zkontrolováno: v historii nejsou klíče ani certifikát).
+- **Chůze „loutkou“ v editoru působí, jako by Ruda klouzal:** pohupování o 16 px se při měřítku
+  0,4 zmenší na pár pixelů. Řešení: části postavy od ChatGPT a kostra s klouby
+  ([zadání](styl/vzorky/zadani-casti.md), nástroj `rozdel_casti.gd`).
+- **Bílá místa mezi vlasy:** nový postup ve `vyrez_postavy.gd` (uzavřené bílé ostrůvky obklopené
+  vlasy jsou pozadí, oči a hrnek zůstanou; kolem obrysu převod bílé na průhlednost). Ruda zepředu
+  i z boku znovu vyříznut. Do budoucna generovat postavy rovnou s průhledným pozadím
+  (`"pruhledne": true` ve skriptu, v ChatGPT „transparent background“).
+
 ## Rizika prototypu
 
 | Riziko | Dopad | Co s tím |

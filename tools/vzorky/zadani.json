@@ -11,6 +11,11 @@
     "postava": {
       "uvod": "full-body character turnaround sheet, front view, side view and back view of the same character",
       "zaver": "classic point-and-click comedy adventure caricature style, exaggerated cartoon proportions, bold thick dark-brown ink outlines with varying line weight, flat colors with soft cel shading, neutral standing pose, plain white background, no text, no letters"
+    },
+    "casti": {
+      "uvod": "Using the attached character reference sheet, draw the same character as separate body parts for 2D cutout animation (like a paper puppet), side view facing right, exactly matching the drawing style, line work, colors and proportions of the reference",
+      "zaver": "each part separate with generous empty space around it, nothing overlapping, nothing touching, every joint end drawn complete and rounded like a puppet joint so the parts can overlap and rotate without gaps, same scale for all parts, transparent background, no text, no labels, no numbers, no shadows",
+      "pruhledne": true
     }
   },
   "palety": {
@@ -82,6 +87,16 @@
         "docs/styl/vzorky/ruda-list_v02.png"
       ],
       "popis": "construction site of a huge concrete launch ramp outside town, the ramp is clearly inclined and points diagonally up toward the sky, half-poured segments with wooden formwork, one old crane, a cement mixer; on the ramp lies the Ark: a big rusty old ship hull with improvised rocket engines bolted to the stern, makeshift wings and a radio antenna, patched with tarps, its bow pointing up the ramp; in the distance a Central European small town with grey concrete panel blocks and red roofs, no cypress trees, no hilltop church, a comet with a long glowing tail in the hazy sky"
+    },
+    {
+      "id": "ruda-casti",
+      "typ": "casti",
+      "paleta": "A",
+      "velikost": "1536x1024",
+      "reference": [
+        "docs/styl/vzorky/ruda-list_v02.png"
+      ],
+      "popis": "the parts of the character from the reference: 1. head with neck and hair, 2. torso with shirt, loose red striped tie and belt, without arms and without legs, ending at the hips, 3. upper arm with rolled-up shirt sleeve, shoulder to elbow, 4. forearm with hand holding the coffee mug, elbow to hand, 5. forearm with hand holding the clipboard, elbow to hand, 6. thigh in grey-blue trousers, hip to knee, 7. lower leg in grey-blue trousers ending with a yellow sock, knee to ankle, 8. brown shoe in side view"
     }
   ]
 }

@@ -31,6 +31,7 @@ pro **PC, Mac a mobily**.
 | [Stylové ukázky](docs/styl/ukazky.html) | vizuální porovnání variant (otevřít v prohlížeči) |
 | [Prototyp Náměstí](docs/08-prototyp-namesti.md) | technický prototyp v Godot 4.7 + Popochiu: otázky, rozsah, kroky K0–K10, rizika |
 | [Vyhodnocení prototypu](docs/09-vyhodnoceni-prototypu.md) | odpovědi O1–O8, změřené časy, odhad rozsahu hry, doporučení |
+| [Plán výroby kapitoly 1](docs/10-plan-kapitoly-1.md) | fáze F0–F5, iterace I1–I6, rozhodnutí na začátek, rizika, záznam času |
 | [Kapitola 1: Iniciace](docs/kapitoly/01-iniciace.md) | vertical slice: scény, puzzly, graf závislostí, rozhodnutí, minihry, ukázkové dialogy CS/EN |
 
 ## Postup návrhu

@@ -3,6 +3,7 @@
 > Podrobný návrh kapitoly 1. Je to první hratelná část hry: ověří zábavnost, humor, minihry,
 > rozhodnutí s pozdějším následkem, hraní za Báru i rychlost výroby.
 > Stav: **koncept**, verze 0.2
+> Výroba: [plán výroby kapitoly 1](../10-plan-kapitoly-1.md)
 
 ## Přehled
 
