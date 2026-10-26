@@ -90,10 +90,14 @@ Zkušenosti z prototypu (D35, [vyhodnocení](09-vyhodnoceni-prototypu.md)):
 
 ## Animace postav
 
-- **Prototyp: loutka** (D36): obrázek se při chůzi pohupuje a kolébá, fáze kroku podle ušlé
-  vzdálenosti. Pro vertical slice stačí.
-- **Finální hra:** postavy po částech (stehno, lýtko, chodidlo, paže, hlava) přes AI a kostra
-  v Godotu, nebo kreslené fáze chůze (6–8 na směr). Rozhodnout po zkoušce na Rudovi.
+- **Chůze bokem: loutka s klouby** (D39): postava po částech (hlava s krkem, trup, paže,
+  2 předloktí s předměty, stehno, lýtko, bota) od ChatGPT s průhledným pozadím, složená skriptem
+  `game/characters/spolecne/kostra.gd`. Zadání: [zadani-casti.md](styl/vzorky/zadani-casti.md).
+- **Chůze dopředu a dozadu:** celý obrázek zepředu nebo zezadu se pohupuje (D36).
+- **Pozor v Popochiu:** postavy nemají zapnutý `_process`; animace patří do `_physics_process`.
+- **Rozhodnuto (D40, D41): kreslené fáze** celé postavy od ChatGPT podle [modelu a zadání](styl/animace-postav.md) (8 fází na směr ve 2 řadách na jednom
+  obrázku kvůli konzistenci), zarovnání nástrojem `hra/nastroje/sestav_faze.gd`. Když existují
+  ve složce `grafika/postavy/<postava>_chuze_bok/`, hra je použije místo loutky.
 
 ## Postavy ve scéně (engine)
 

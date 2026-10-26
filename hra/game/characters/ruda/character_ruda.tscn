@@ -3,8 +3,6 @@
 [ext_resource type="Script" path="res://game/characters/ruda/character_ruda.gd" id="1_7mwa3"]
 [ext_resource type="Texture2D" path="res://grafika/postavy/ruda_zepredu.png" id="2_zepredu"]
 [ext_resource type="Script" path="res://game/characters/spolecne/stin.gd" id="3_stin"]
-[ext_resource type="Texture2D" path="res://grafika/postavy/ruda_bok_trup.png" id="4_trup"]
-[ext_resource type="Texture2D" path="res://grafika/postavy/ruda_bok_noha.png" id="5_noha"]
 
 [node name="CharacterRuda" type="Area2D" unique_id=1131318484]
 script = ExtResource("1_7mwa3")
@@ -14,6 +12,7 @@ description = "postava_ruda"
 cursor = 8
 interaction_polygon = PackedVector2Array(-150, -990, 150, -990, 150, 0, -150, 0)
 dialog_pos = Vector2(0, -1060)
+walk_speed = 350.0
 
 [node name="ScalingPolygon" type="CollisionPolygon2D" parent="." unique_id=1712295456]
 polygon = PackedVector2Array(-40, -20, 40, -20, 40, 0, -40, 0)
@@ -25,27 +24,7 @@ script = ExtResource("3_stin")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1770996857]
 texture = ExtResource("2_zepredu")
-offset = Vector2(0, -490)
-
-[node name="Chuze" type="Node2D" parent="." unique_id=1770996860]
-visible = false
-
-[node name="ZadniNoha" type="Sprite2D" parent="Chuze" unique_id=1770996861]
-modulate = Color(0.72, 0.68, 0.66, 1)
-position = Vector2(-6, -335)
-texture = ExtResource("5_noha")
-centered = false
-offset = Vector2(-100, -5)
-
-[node name="Trup" type="Sprite2D" parent="Chuze" unique_id=1770996862]
-texture = ExtResource("4_trup")
-offset = Vector2(0, -490)
-
-[node name="PredniNoha" type="Sprite2D" parent="Chuze" unique_id=1770996863]
-position = Vector2(10, -330)
-texture = ExtResource("5_noha")
-centered = false
-offset = Vector2(-100, -5)
+offset = Vector2(0, -494)
 
 [node name="InteractionPolygon" type="CollisionPolygon2D" parent="." unique_id=445894098]
 visible = false

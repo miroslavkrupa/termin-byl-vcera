@@ -5,7 +5,7 @@ Generují se skriptem `tools/generuj_vzorky.py` (viz stylová bible, část Auto
 nebo ručně v ChatGPT se stejným zadáním. Skript ke každému obrázku uloží stejnojmenný `.json`
 s úplným zadáním, modelem a datem a přidá řádek do tabulky níže; u ručně vytvořených se řádek
 doplní ručně. Pojmenování: `<id vzorku>_v01.png`, další pokus `_v02`. Schválené vzorky se označí ☑.
-Hodnocení kol: [kolo 1](hodnoceni-kolo-1.md). Zadání ke zkopírování: [kolo 2](zadani-kolo-2.md). Hodnocení kola 2: [postavy a pozadí](hodnoceni-kolo-2.md), tam jsou i zadání pro kolo 3. Hodnocení kola 3: [večerní náměstí a rampa](hodnoceni-kolo-3.md). Části postavy pro animaci: [zadání](zadani-casti.md).
+Hodnocení kol: [kolo 1](hodnoceni-kolo-1.md). Zadání ke zkopírování: [kolo 2](zadani-kolo-2.md). Hodnocení kola 2: [postavy a pozadí](hodnoceni-kolo-2.md), tam jsou i zadání pro kolo 3. Hodnocení kola 3: [večerní náměstí a rampa](hodnoceni-kolo-3.md). Části postavy pro animaci: [zadání](zadani-casti.md). Kreslené fáze chůze: [zadání](zadani-faze-chuze.md).
 
 | Soubor | Nástroj | Zadání | Schváleno |
 |---|---|---|---|
@@ -28,3 +28,7 @@ Hodnocení kol: [kolo 1](hodnoceni-kolo-1.md). Zadání ke zkopírování: [kolo
 | test-postavy-namesti-vecer_v03.png | složeno skriptem | ruda/bara-list_v02 na c-namesti-vecer_v03 | test |
 | a-rampa_v03.png | ChatGPT (ručně) | zadání rampy v03 z hodnocení kola 2 | ☑ reference staveniště a Archy (D34) ([hodnocení](hodnoceni-kolo-3.md)) |
 | test-postavy-rampa_v03.png | složeno skriptem | ruda/bara-list_v02 na a-rampa_v03 | test |
+| ruda-casti_v01.png | ChatGPT (ručně) | [zadání částí](zadani-casti.md), průhledné pozadí | ☑ použito pro loutku s klouby (D39) |
+| ruda-list_v03.png | ChatGPT (ručně) | list Rudy s průhledným pozadím | ☑ pohledy zepředu, z boku, zezadu ve hře |
+| ruda-chuze-bok_v01.png | ChatGPT (ručně) | [zadání fází chůze](zadani-faze-chuze.md), stejná konverzace jako v03 | ☐ zkouška D40 |
+| ruda-stoji_v01.png | ChatGPT (ručně) | [zadání stání](zadani-faze-chuze.md), stejná konverzace jako fáze chůze | ☑ pohledy zepředu, z boku, zezadu ve hře (nahrazují v03) |

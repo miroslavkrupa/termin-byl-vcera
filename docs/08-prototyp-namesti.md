@@ -287,6 +287,51 @@ Dvě levné metody nad stávajícím AI obrázkem, bez kreslení nových fází:
   vlasy jsou pozadí, oči a hrnek zůstanou; kolem obrysu převod bílé na průhlednost). Ruda zepředu
   i z boku znovu vyříznut. Do budoucna generovat postavy rovnou s průhledným pozadím
   (`"pruhledne": true` ve skriptu, v ChatGPT „transparent background“).
+- **Proč animace v K9 nefungovala:** Popochiu postavám vypíná `_process` (zapíná ho jen při
+  sledování jiné postavy), takže výpočet animace se vůbec nespouštěl. Na snímcích z K9 byly vidět
+  jen změny pohledu, ne pohyb. Moje chyba v ověřování: snímky jsem vyhodnotil jako funkční animaci.
+  Animace se teď počítá v `_physics_process`, kde Popochiu postavu i posouvá.
+- **Loutka s klouby (D39):** části Rudy od ChatGPT (průhledné pozadí, čisté hrany) rozdělené
+  nástrojem `rozdel_casti.gd` a složené skriptem `game/characters/spolecne/kostra.gd`: klouby
+  rameno, loket, kyčel, koleno, kotník a krk. Procedurální chůze: švih stehen, pokrčení kolene
+  při švihu, chodidlo vodorovně s odvinutím přes špičku, pokles těla při rozkroku, paže proti
+  nohám, lehký předklon a pohyb hlavy. Fáze podle ušlé vzdálenosti. Skript je obecný, další postavy
+  potřebují jen své části a body kloubů.
+- Ruda zepředu, z boku a zezadu je teď z listu `ruda-list_v03` s průhledným pozadím; při chůzi
+  dozadu je vidět zezadu.
+- **Autor po zkoušce:** kolena a paže jsou lepší, ale loutka pořád působí amatérsky; chce chůzi jako
+  v Deponii. Chůze dopředu a dozadu se jen kývala a působila směšně: kývání zrušeno, zbylo jemné
+  pohupování a postava se otáčí bokem už při mírně šikmé chůzi.
+- **Další zkouška (D40):** kreslené fáze chůze ([zadání](styl/vzorky/zadani-faze-chuze.md)),
+  nástroj `sestav_faze.gd` a přehrávání fází v rytmu ušlé vzdálenosti jsou připravené
+  a vyzkoušené na zástupných obrázcích.
+- **Fáze chůze bokem od ChatGPT (`ruda-chuze-bok_v01`):** 8 fází, výrazné kreslené pózy (vysoké
+  koleno při míjení, přehnaný krok, houpající se hrnek a desky). Konzistence mezi fázemi je dobrá:
+  oblečení, kravata i předměty drží, liší se jen drobné detaily vlasů. Rozřezáno a zarovnáno do
+  `hra/grafika/postavy/ruda_chuze_bok/`, hra je přehrává místo loutky; délka cyklu 1100 px (asi
+  6 fází za sekundu při běžné rychlosti). Čeká na posouzení autorem (D40).
+- **Autor:** chůze moc pomalá, nohy kloužou („moonwalk“), působí trhaně; pohled zepředu nesedí
+  stylem (štíhlejší, menší hlava, jiné stínování). Opravy:
+  - nástroj `sestav_faze.gd` změří, o kolik se mezi fázemi posune noha na zemi, a uloží to do
+    `faze.json`; další fáze přijde přesně po ušlé vzdálenosti (dřív odhad 1100 px, skutečně 800 px),
+  - obrázek se během fáze nehýbe a poskočí až s další fází (jako v klasických adventurách); noha
+    na zemi tak stojí na místě,
+  - Ruda chodí rychleji (rychlost 260 místo 200), asi 11 fází za sekundu,
+  - po chůzi do strany zůstane stát bokem a čelem po směru,
+  - pohledy ve stylu chůze: [zadání stání](styl/vzorky/zadani-faze-chuze.md) (fáze chůze jsou
+    nová hlavní předloha postavy).
+- **Stání `ruda-stoji_v01`** (ve stejné konverzaci jako fáze chůze) stylem odpovídá chůzi: stejné
+  džíny, boty, hlava i stínování. Nahradilo pohledy z v03 zepředu, z boku i zezadu.
+- **Autor:** chůze pořád pomalá a trhaná; Ruda při chůzi „mění velikost“ a poskakuje, po zastavení
+  je vyšší. Úpravy: rychlost 350 (o třetinu víc, asi 15 fází za sekundu); stání má výšku průměrné
+  fáze chůze (dřív nejvyšší). Zbývá rozdíl proporcí stání a chůze (hlava 31 % vs 36 % výšky) →
+  [zadání stání v2](styl/vzorky/zadani-faze-chuze.md). Pokus srovnat fáze podle výšky hlavy rozdíly
+  zhoršil (krk se v kresbě měří nepřesně), proto zůstává jen pohupování z kresby. Pokud bude
+  poskakování vadit, dalším krokem je 12 fází se zadáním „head stays at the same height“.
+- **Autor:** rychlost lepší; hrnek a desky se uprostřed chůze prohodí (chyba v obrázku, AI je
+  ve fázích 3–6 přehodila); pořád trhané. Navrhl celou sadu najednou. Výsledek: model postavy
+  a samostatné animace se společnými pravidly ([animace postav](styl/animace-postav.md), D40, D41);
+  nástroje ověřeny i na mřížce 3 × 4 (12 fází).
 
 ## Rizika prototypu
 

@@ -45,6 +45,9 @@
 | D36 | 2026-10-25 | Chůze postav v prototypu a vertical slice: loutka (pohupování a kolébání) | rozřezané nohy zůstávají jako varianta v kódu; finální animace se rozhodne později | [produkce](05-produkce.md) |
 | D37 | 2026-10-25 | Technický prototyp obstál: Godot 4.7 + Popochiu 2.2 zůstávají | odpovědi O1–O8, změřené časy a odhad rozsahu v [vyhodnocení](09-vyhodnoceni-prototypu.md) | [vyhodnocení](09-vyhodnoceni-prototypu.md) |
 | D38 | 2026-10-25 | Nejdřív se vyrobí a vydá **kapitola 1 jako samostatná ukázka**; o rozsahu celé hry se rozhodne podle její skutečné pracnosti a ohlasu | další kapitoly se zatím neplánují do detailu; během výroby se měří čas | [vyhodnocení](09-vyhodnoceni-prototypu.md) |
+| D39 | 2026-10-26 | Chůze bokem: **loutka s klouby** složená z částí od ChatGPT (`ruda-casti_v01`); chůze dopředu a dozadu dál pohupováním (nahrazuje rozřez z D36) | postavy se generují i po částech, s průhledným pozadím; Ruda zepředu, z boku a zezadu z listu `ruda-list_v03` (průhledné pozadí) | [produkce](05-produkce.md), [prototyp](08-prototyp-namesti.md) |
+| D40 | 2026-10-26 | Animace postav **kreslenými fázemi** (snímek po snímku) místo loutky s klouby (D39) | zkouška chůze bokem obstála: živější a bližší Deponii; loutka zůstává v kódu jako záloha | [animace postav](styl/animace-postav.md) |
+| D41 | 2026-10-26 | Postup animací: nejdřív **model postavy**, pak **každá animace jako samostatný obrázek** ve stejné konverzaci a se stejnými pravidly (předměty vždy ve stejné ruce, proporce modelu); chůze bokem 12 fází; jen animace, které hra potřebuje | zadání pro kapitolu 1: model, chůze bokem, k divákovi, od diváka, stání, mluvení, sebrání a použití | [animace postav](styl/animace-postav.md) |
 
 ## Čeká na rozhodnutí
 

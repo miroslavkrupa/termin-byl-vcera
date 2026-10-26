@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eo3fxa02l30n"
-path="res://.godot/imported/ruda_bok_noha.png-58d06d3e4b1cb01037717a81351b418b.ctex"
+uid="uid://bjqnnlh0n84vn"
+path="res://.godot/imported/faze_01.png-5c06ea7636c3ebd76d89b1fef2bdca49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://grafika/postavy/ruda_bok_noha.png"
-dest_files=["res://.godot/imported/ruda_bok_noha.png-58d06d3e4b1cb01037717a81351b418b.ctex"]
+source_file="res://grafika/postavy/ruda_chuze_bok/faze_01.png"
+dest_files=["res://.godot/imported/faze_01.png-5c06ea7636c3ebd76d89b1fef2bdca49.ctex"]
 
 [params]
 

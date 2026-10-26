@@ -30,6 +30,7 @@ pro **PC, Mac a mobily**.
 | [Minihry](docs/04-minihry.md) | 14 miniher ve čtyřech patrech koncepce, zásady, specifikace, pořadí prototypů, šablona |
 | [Produkce](docs/05-produkce.md) | rozsah pro jednoho autora, platformy a ovládání, příspěvky, AI grafika, příprava na dabing, jazyky |
 | [Stylová bible](docs/06-stylova-bible.md) | výtvarný styl podobný Deponii, pravidla, schválená varianta A (večer a krize C), zadání pro AI a automatické generování vzorků |
+| [Animace postav](docs/styl/animace-postav.md) | model postavy a zadání všech animací pro ChatGPT, pravidla a zpracování |
 | [Stylové ukázky](docs/styl/ukazky.html) | vizuální porovnání variant (otevřít v prohlížeči) |
 | [Prototyp Náměstí](docs/08-prototyp-namesti.md) | technický prototyp v Godot 4.7 + Popochiu: otázky, rozsah, kroky K0–K10, rizika |
 | [Vyhodnocení prototypu](docs/09-vyhodnoceni-prototypu.md) | odpovědi O1–O8, změřené časy, odhad rozsahu hry, doporučení |

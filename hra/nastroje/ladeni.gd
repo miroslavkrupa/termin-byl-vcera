@@ -2,7 +2,6 @@
 # Bez parametrů nedělá nic. Spuštění se snímkem obrazovky:
 #   godot --path hra -- snimek=<soubor.png> [jazyk=cs|en] [cekej=3] [dojdi=x,y | klik=x,y | akce=…] [po=3]
 # serie=N [rozestup=0.12] uloží po akci N snímků za sebou (snimek_01.png …) pro kontrolu animace
-# chuze=loutka|rozrez přepne metodu chůze hráčovy postavy
 # nastaveni=1 otevře okno nastavení, prepni=cs|en přepne jazyk za běhu (jako hráč v nastavení, ale volbu neukládá)
 # cekej = sekundy před akcí, po = sekundy po akci; souřadnice hry (1536 × 1024)
 # dojdi = hráčova postava dojde na místo (ověří navigaci a zmenšování)
@@ -38,8 +37,6 @@ func _ready() -> void:
 	get_node("/root/E").text_speed = 0.005
 	await get_tree().create_timer(float(p.get("cekej", "3"))).timeout
 	_vypis("před akcí")
-	if p.has("chuze"):
-		get_node("/root/C").player.metoda_chuze = p["chuze"]
 	if p.has("nastaveni"):
 		get_node("/root/G").popup_requested.emit("SimpleClickSettings")
 		await get_tree().create_timer(1.0).timeout

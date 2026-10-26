@@ -61,10 +61,17 @@ sh hra/nastroje/nasad_web.sh
 
 Hra pak běží na https://miroslavkrupa.github.io/termin-byl-vcera/ (nasazení trvá asi minutu).
 
-Rozdělení listu s částmi postavy na samostatné obrázky:
+Rozdělení listu s částmi postavy na samostatné obrázky (pak doplnit body kloubů do skriptu postavy,
+viz `POPIS` v `game/characters/ruda/character_ruda.gd`):
 
 ```bash
 godot --headless --path hra --script res://nastroje/rozdel_casti.gd -- <list.png> <složka> [předpona]
+```
+
+Zarovnání kreslených fází animace (chodidla na jednu čáru, trup na jednu svislici):
+
+```bash
+godot --headless --path hra --script res://nastroje/sestav_faze.gd -- <složka s fázemi> <výstupní složka>
 ```
 
 Vyříznutí postavy z referenčního listu (odstraní bílé pozadí):
