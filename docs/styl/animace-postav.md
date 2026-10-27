@@ -2,7 +2,7 @@
 
 > Jak vyrobit animace postav přes ChatGPT tak, aby k sobě všechny seděly. Platí pro Rudu i další
 > postavy (D41). Nahrazuje dílčí zadání [fází chůze](vzorky/zadani-faze-chuze.md).
-> Stav: **schváleno**, verze 1.0
+> Stav: **schváleno a zapojeno u Rudy**, verze 1.1
 
 ## Princip
 
@@ -45,6 +45,35 @@ Frames 1-6 are one step with the near leg: 1 contact (near leg forward, heel tou
 Classic hand-drawn 2D adventure game animation: lively, slightly exaggerated, knees bend, arms swing opposite to the legs, hair and tie bounce a little. The head moves up and down only slightly, keep it at almost the same height in all frames.
 ```
 + pravidla
+
+### 1b. Chůze bokem v03 (`ruda-chuze-bok_v03.png`)
+
+Oprava v02: předměty skákaly mezi rukama dopředu a dozadu, obě poloviny cyklu vypadaly stejně
+(jako by krokovala pořád jedna noha) a Ruda byl jinak vysoký a měl jiné vlasy než při stání.
+Pokračuj ve stejné konverzaci jako stání a mluvení.
+
+```
+Redraw the side view walk cycle, 12 frames in 3 rows of 4, walking to the right, with these fixes:
+1. Use the side view standing frames from the idle animation sheet as the exact reference: the same height when the legs pass each other, the same head size, the same hair shape and the same body width.
+2. The two halves of the cycle must clearly differ: in frames 1-6 the leg closer to the viewer steps forward, in frames 7-12 the far leg steps forward. Draw the far leg and far arm slightly darker so the legs are easy to tell apart.
+3. The arm with the mug and the arm with the clipboard stay almost still in front of the body in every frame, with only a very small swing. The mug and the clipboard never jump from front to back. Only the legs and the body move.
+4. Frame 12 must flow smoothly back into frame 1 (seamless loop).
+```
++ pravidla
+
+### Sjednocení podle chůze (stání v2, mluvení v2, akce v2)
+
+Chůze bokem v03 a chůze k divákovi a od diváka jsou nejpovedenější, proto jsou **nová hlavní
+předloha**. Stání, mluvení a akce se překreslí podle nich, aby se při přechodu nelišily vlasy
+a velikost hlavy. Do konverzace nahraj (nebo v ní už jsou) **`ruda-chuze-bok_v03.png`**
+a **`ruda-chuze-predu_v01.png`** a před každé ze zadání 4, 5 a 6 vlož tuto větu:
+
+```
+Use the walk cycle sheets as the exact reference for the head, hair and body: copy the hair shape and every hair spike exactly from frame 1 of the side walk sheet (for side views) and frame 1 of the front walk sheet (for front views), with the same head size relative to the body and the same height when standing with feet together as the walk frames where the legs pass each other.
+```
+
+Ulož jako `ruda-stani_v02.png`, `ruda-mluveni_v02.png`, `ruda-akce_v02.png`. Stání zezadu bere hra
+přímo z chůze od diváka, takže pohled zezadu se překreslovat nemusí.
 
 ### 2. Chůze k divákovi, 8 fází (`ruda-chuze-predu_v01.png`)
 
@@ -102,4 +131,35 @@ Když něco nesedí, oprav to ve stejné konverzaci jednou větou, například:
    a u chůze změří krok, aby nohy neklouzaly.
 3. Fáze se uloží do `hra/grafika/postavy/<postava>_<animace>/` a zapojí do hry.
 
-Dnes je ve hře zapojená chůze bokem a stání. Ostatní animace se zapojí, jakmile budou obrázky.
+Celé zpracování jedním příkazem (z každého listu vezme nejnovější verzi):
+
+```bash
+sh hra/nastroje/zpracuj_animace.sh ruda
+```
+
+## Stav u Rudy (2026-10-26)
+
+| Animace | List | Ve hře | Poznámka |
+|---|---|---|---|
+| model | `ruda-model_v01` | stání a mluvení zezadu | |
+| chůze bokem | `ruda-chuze-bok_v03` (12 fází) | ✅ | předměty drží na místě, nohy se střídají; proporce blízko stání (poměr výška/hlava 2,96 vs 3,09) |
+| chůze k divákovi | `ruda-chuze-predu_v01` | ✅ | |
+| chůze od diváka | `ruda-chuze-zezadu_v01` | ✅ | |
+| stání | `ruda-stani_v01` | ✅ bokem (usrknutí), zepředu (mrknutí) | |
+| mluvení | `ruda-mluveni_v01` | ✅ bokem i zepředu, náhodné fáze úst | |
+| sebrání a použití | `ruda-akce_v01` | ✅ použití u kašny, budky, stánku a kartotéky; sebrání připravené | |
+
+**Proporce mezi listy nejsou stejné:** poměr výšky postavy a šířky hlavy se mezi listy liší
+(u chůze bokem v02 2,7, ve v03 už 2,96; stání 3,1, model 3,5). Hra proto každou sadu
+škáluje podle průměru výšky a šířky hlavy (`_meritko_sady`), takže při přechodu mezi animacemi
+se velikost mění nanejvýš o pár procent. Pro dokonalý soulad by bylo potřeba přegenerovat chůzi
+podle modelu.
+
+## Jak to hra používá
+
+- **Pohled** podle směru: při chůzi podle směru pohybu (bokem, kdykoli jde aspoň trochu do strany),
+  při stání a mluvení podle toho, kam se Ruda naposledy otočil (Popochiu `_looking_dir`;
+  aktivní místa mají `look_at_point` v těžišti obrysu).
+- **Chůze** se přepíná podle ušlé vzdálenosti (bokem podle změřeného kroku, obrázek během fáze
+  stojí); stání podle času (dlouhá klidová fáze a krátký pohyb); mluvení náhodnými fázemi úst.
+- **Akce:** `await C.player.animuj_akci("pouziti")` nebo `"zvednuti"` v kódu aktivního místa.

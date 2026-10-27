@@ -10,6 +10,7 @@ extends PopochiuHotspot
 func _on_click() -> void:
 	await C.player.walk_to_clicked()
 	await C.player.face_clicked()
+	await C.player.animuj_akci("pouziti")
 	await C.player.say("ch1_kartoteka_pouzit_1")
 	await C.player.say("ch1_kartoteka_pouzit_2")
 	await C.player.say("ch1_kartoteka_pouzit_3")

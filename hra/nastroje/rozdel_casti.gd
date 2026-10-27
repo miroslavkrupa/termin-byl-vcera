@@ -7,6 +7,7 @@
 extends SceneTree
 
 const MIN_PIXELU := 400   # menší skvrny jsou nečistoty, ne části postavy
+const MIN_PODIL := 0.12   # části menší než tento podíl mediánu jsou rekvizity mimo postavu (šroubek na zemi)
 const OKRAJ := 4          # průhledný okraj kolem každé části
 
 
@@ -56,11 +57,17 @@ func _init() -> void:
 			casti.append({"id": casti.size(), "obdelnik": obdelnik.grow_individual(0, 0, 1, 1), "pocet": pocet})
 
 	var velke := casti.filter(func(c): return c.pocet >= MIN_PIXELU)
-	# Po řádcích: části, jejichž středy jsou svisle blízko, patří do stejného řádku
+	var pocty := velke.map(func(c): return c.pocet)
+	pocty.sort()
+	if not pocty.is_empty():
+		var median: int = pocty[pocty.size() / 2]
+		velke = velke.filter(func(c): return c.pocet >= median * MIN_PODIL)
+	# Po řádcích: nový řádek začne, když je mezera mezi středy sousedních částí velká
+	# (ohnutá postava má střed níž než stojící, ale pořád patří do stejného řádku)
 	velke.sort_custom(func(p, q): return p.obdelnik.get_center().y < q.obdelnik.get_center().y)
 	var radky: Array = []
 	for c in velke:
-		if radky.is_empty() or c.obdelnik.get_center().y - radky[-1][0].obdelnik.get_center().y > h / 12:
+		if radky.is_empty() or c.obdelnik.get_center().y - radky[-1][-1].obdelnik.get_center().y > h / 6:
 			radky.append([c])
 		else:
 			radky[-1].append(c)

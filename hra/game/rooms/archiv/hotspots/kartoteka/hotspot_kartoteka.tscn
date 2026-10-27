@@ -8,6 +8,7 @@ script_name = "Kartoteka"
 description = "ch1_hs_kartoteka"
 cursor = 1
 interaction_polygon = PackedVector2Array(470, 368, 665, 368, 665, 650, 470, 650)
+look_at_point = Vector2(568, 509)
 
 [node name="InteractionPolygon" type="CollisionPolygon2D" parent="." unique_id=1357111626]
 visible = false

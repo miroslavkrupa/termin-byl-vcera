@@ -8,6 +8,7 @@ script_name = "Kasna"
 description = "ch1_hs_kasna"
 cursor = 1
 interaction_polygon = PackedVector2Array(290, 765, 300, 700, 420, 688, 495, 640, 500, 560, 650, 555, 690, 640, 760, 690, 875, 700, 885, 770, 760, 810, 580, 825, 420, 815)
+look_at_point = Vector2(587, 704)
 
 [node name="InteractionPolygon" type="CollisionPolygon2D" parent="." unique_id=1583018907]
 visible = false

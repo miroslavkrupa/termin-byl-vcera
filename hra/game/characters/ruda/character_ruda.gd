@@ -8,54 +8,45 @@ const Data := preload('character_ruda_state.gd')
 
 var state: Data = load("res://game/characters/ruda/character_ruda.tres")
 
-# Pohledy: zepředu (stojí, mluví, jde dopředu), zezadu (jde dozadu) a z boku jako loutka s klouby
-# složená z částí (game/characters/spolecne/kostra.gd, části v grafika/postavy/ruda_casti/).
-# Chůze dopředu a dozadu: celý obrázek se pohupuje (D36).
-const ZEPREDU := preload("res://grafika/postavy/ruda_zepredu.png")
-const ZEZADU := preload("res://grafika/postavy/ruda_zezadu.png")
-const ZBOKU := preload("res://grafika/postavy/ruda_zboku.png")
-const KOSTRA := preload("res://game/characters/spolecne/kostra.gd")
-const CASTI := "res://grafika/postavy/ruda_casti/%s.png"
-## Kreslené fáze chůze bokem (D40); když existují, mají přednost před loutkou s klouby
-const FAZE_BOK := "res://grafika/postavy/ruda_chuze_bok/faze_%02d.png"
-## Výška postavy v souřadnicích postavy (stejná jako obrázek zepředu)
+# Animace kreslenými fázemi (D40, D41): sady fází v grafika/postavy/ruda_<sada>/ vznikají z listů
+# od ChatGPT nástrojem nastroje/zpracuj_animace.sh. Fáze bokem jsou kreslené doprava, doleva se zrcadlí.
+# (Loutka s klouby z D39 zůstává jako záloha v game/characters/spolecne/kostra.gd.)
+const SADY := "res://grafika/postavy/ruda_%s/"
+const NAZVY_SAD := ["model", "chuze_bok", "chuze_predu", "chuze_zezadu", "stani_bok", "stani_predu",
+	"mluveni_bok", "mluveni_predu", "zvednuti", "pouziti"]
+## Výška stojící postavy v souřadnicích postavy
 const VYSKA := 988.0
-## Popis fází z nástroje sestav_faze.gd: o kolik se mezi fázemi posune noha na zemi
-const FAZE_BOK_POPIS := "res://grafika/postavy/ruda_chuze_bok/faze.json"
+## Poměr výška postavy / šířka hlavy, ke kterému se srovnávají sady (viz _meritko_sady)
+const POMER_HLAVY := 3.15
+## Délky fází stání v sekundách (bokem: usrknutí kávy, zepředu: mrknutí)
+const STANI_BOK := [2.6, 0.35, 0.8, 0.35]
+const STANI_PREDU := [3.0, 0.25, 0.15, 0.25]
+## Délka fáze mluvení a akce v sekundách
+const FAZE_MLUVENI := 0.11
+const FAZE_AKCE := 0.11
+## Fáze chůze zezadu, která slouží jako stání zezadu (nohy nejblíž u sebe)
+const STANI_ZEZADU_FAZE := 1
+## Chůze dopředu a dozadu: o kolik delší krok (a tedy pomalejší střídání fází) než bokem
+const ZPOMALENI_PREDU_ZEZADU := 2.4
 
-## Části postavy a body kloubů v pixelech obrázků (z listu docs/styl/vzorky/ruda-casti_v01.png)
-const POPIS := {
-	meritko = 0.567,
-	ruka_zadni = "predlokti_hrnek",
-	ruka_predni = "predlokti_desky",
-	casti = {
-		hlava = {krk = Vector2(240, 545)},
-		trup = {krk = Vector2(122, 32), rameno = Vector2(42, 150), kycel = Vector2(140, 455)},
-		paze = {rameno = Vector2(85, 45), loket = Vector2(125, 355)},
-		predlokti_hrnek = {loket = Vector2(35, 65)},
-		predlokti_desky = {loket = Vector2(35, 140)},
-		stehno = {kycel = Vector2(75, 30), koleno = Vector2(110, 355)},
-		lytko = {koleno = Vector2(55, 30), kotnik = Vector2(55, 345)},
-		bota = {kotnik = Vector2(65, 30)},
-	},
-}
-
-var _chodi := false
-var _bokem := false
-var _posledni_pozice := Vector2.ZERO
-var _kostra: Node2D
-var _faze_bok: Array[Texture2D] = []
-var _posuny_bok: Array[float] = []   # posun nohy na zemi za každou fázi, v souřadnicích postavy
-var _vyska_stani := VYSKA            # výška obrázků stání, aby byl Ruda stejně velký jako při chůzi
-var _faze := 0                       # zobrazená fáze
-var _usla_ve_fazi := 0.0             # kolik už postava ušla od začátku zobrazené fáze
+var _sady := {}                # název -> {snimky, meritko, vyska, posuny}
+var _stav := "stani"           # stani | chuze | mluveni | akce
+var _pohled := "predu"         # bok | predu | zezadu
+var _doleva := false
+var _faze := 0
+var _cas_ve_fazi := 0.0
+var _usla_ve_fazi := 0.0
 var _smer_chuze := Vector2.RIGHT
+var _posledni_pozice := Vector2.ZERO
+var _akce := ""
+
+signal akce_dokoncena
 
 
 #region Virtual ####################################################################################
 # Called when the room where this character is located has finished being added to the scene tree.
 func _on_room_set() -> void:
-	_postav_kostru()
+	_nacti_sady()
 
 
 # Called when the character is clicked
@@ -102,45 +93,49 @@ func _on_item_used(_item: PopochiuInventoryItem) -> void:
 #		await C.player.say("I don't want to give my key away!")
 
 
-# Override this to alter the idle animation or hook custom logic to it. 
-# By default, it plays the "idle" animation from the character's Sprite.
+# Popochiu volá při zastavení. Pohled podle směru, kam se postava naposledy otočila.
 func _play_idle() -> void:
-	_chodi = false
-	# Po chůzi do strany zůstane stát bokem a čelem po směru chůze, jinak zepředu
-	if _bokem:
-		_pohled(ZBOKU, _smer_chuze.x < 0)
-		$Sprite2D.flip_h = _smer_chuze.x < 0
-	else:
-		_pohled(ZEPREDU, false)
+	if _stav == "akce":
+		return
+	_nastav_stav("stani", _pohled_ze_smeru_pohledu(true))
 
 
-# Override this to alter the walk animation or hook custom logic to it. 
-# `target_pos` can be used to determine the movement direction.
-# By default, it plays the "walk" animation from the character's Sprite.
+# Popochiu ji volá na začátku chůze a znovu na každém zlomu cesty: fáze se proto nastaví od začátku
+# jen tehdy, když postava teprve vyráží nebo mění pohled, jinak by se chůze stále vracela na 1. fázi.
 func _play_walk(target_pos: Vector2) -> void:
-	_chodi = true
-	_posledni_pozice = position
 	var smer := target_pos - position
-	# Bokem, kdykoli jde aspoň trochu do strany; zepředu nebo zezadu jen při chůzi skoro svisle
-	_bokem = absf(smer.x) > absf(smer.y) * 0.3
 	if smer != Vector2.ZERO:
 		_smer_chuze = smer.normalized()
-	_pohled(ZEZADU if smer.y < 0 else ZEPREDU, smer.x < 0)
+		# Směr pohledu pro pozdější stání a mluvení (Popochiu ho při chůzi sám nemění)
+		face_direction(target_pos)
+	# Těsně před zlomem cesty je směr k němu nespolehlivý (krátký vektor), proto se pohled mění
+	# s rezervou (hystereze): bokem až při výrazně šikmé chůzi, zpět dopředu/dozadu až při skoro svislé
+	var pohled := _pohled if _stav == "chuze" else "bok"
+	var pomer := absf(_smer_chuze.x) / maxf(absf(_smer_chuze.y), 0.001)
+	if smer.length() > 4.0 or _stav != "chuze":
+		if pomer > 0.5:
+			pohled = "bok"
+		elif pomer < 0.2 or _stav != "chuze":
+			pohled = "predu" if _smer_chuze.y > 0.0 else "zezadu"
+	var doleva := _doleva
+	if absf(smer.x) > 4.0 or _stav != "chuze":
+		doleva = _smer_chuze.x < 0.0
+	if _stav == "chuze" and _pohled == pohled and _doleva == doleva:
+		# Popochiu před každým voláním vrací otočení obrázku na výchozí, proto ho obnovit
+		$Sprite2D.flip_h = _doleva and _pohled == "bok"
+		return
+	_doleva = doleva
+	_posledni_pozice = position
+	_usla_ve_fazi = 0.0
+	_nastav_stav("chuze", pohled)
 
 
-# Override this to alter the talk animation or hook custom logic to it.
-# By default, it plays the "talk" animation from the character's Sprite.
 func _play_talk() -> void:
-	_chodi = false
-	_bokem = false
-	_pohled(ZEPREDU, false)
+	_nastav_stav("mluveni", _pohled_ze_smeru_pohledu(false))
 
 
-# Override this to alter the grab animation or hook custom logic to it.
-# By default, it plays the "grab" animation from the character's Sprite.
 func _play_grab() -> void:
-	_chodi = false
-	_pohled(ZEPREDU, false)
+	await animuj_akci("zvednuti")
 
 
 # Called when the character starts moving.
@@ -167,107 +162,191 @@ func _on_blocked_by_region(_region: PopochiuRegion) -> void:
 #endregion
 
 #region Public #####################################################################################
-# Add functions here that are triggered by GUI commands.
-#
-# If you name the functions following the `on_<command_id>` pattern, they will be automatically
-# called when the corresponding command is triggered in the GUI.
-#
-# For example, if your GUI provides a `look_at` command you could add:
-#
-#func on_look_at() -> void:
-#	pass
-#
-# This function will be called whenever the `look_at` command is triggered in the GUI while this
-# character is the target.
-# This keeps the code way more tidy and organized with GUIs with many different commands,
-# as opposed to having a single `match` statement in the general-use methods.
+## Přehraje jednorázovou akci bokem ("zvednuti" nebo "pouziti") a počká na její konec.
+func animuj_akci(nazev: String) -> void:
+	_nacti_sady()
+	if not _sady.has(nazev):
+		return
+	_akce = nazev
+	_pohled_ze_smeru_pohledu(false)   # nastaví, jestli je otočený doleva
+	_nastav_stav("akce", "bok")
+	await akce_dokoncena
+	_nastav_stav("stani", "bok")
 
 
 #endregion
 
 
 #region Private ####################################################################################
-func _pohled(obrazek: Texture2D, doleva: bool) -> void:
-	_postav_kostru()
-	var kostra := _chodi and _bokem and _faze_bok.is_empty()
-	# Fáze chůze jsou kreslené doprava, doleva se zrcadlí; pohledy zepředu a zezadu se nezrcadlí
-	$Sprite2D.flip_h = doleva and _chodi and _bokem
-	_kostra.visible = kostra
-	_kostra.scale.x = absf(_kostra.scale.x) * (-1.0 if doleva else 1.0)
-	$Sprite2D.visible = not kostra
-	if not _chodi or not _bokem or _faze_bok.is_empty():
-		_nastav_obrazek(obrazek)
-	if not _chodi:
-		$Sprite2D.position = Vector2.ZERO
-		$Stin.position = Vector2.ZERO
-		$Sprite2D.rotation = 0.0
-		_usla_ve_fazi = 0.0
-
-
-# Obrázek postavy ve správné výšce bez ohledu na rozlišení (fáze chůze jsou menší než pohledy).
-# Fáze chůze mají společné plátno, škáluje se celé; pohledy stání se škálují podle postavy.
-func _nastav_obrazek(obrazek: Texture2D) -> void:
-	$Sprite2D.texture = obrazek
-	var k := (VYSKA if obrazek in _faze_bok else _vyska_stani) / obrazek.get_height()
-	$Sprite2D.scale = Vector2(k, k)
-	$Sprite2D.offset = Vector2(0, -obrazek.get_height() / 2.0)
-
-
-func _postav_kostru() -> void:
-	if _kostra:
+func _nacti_sady() -> void:
+	if not _sady.is_empty():
 		return
-	var popis: Dictionary = POPIS.duplicate(true)
-	for nazev in popis.casti:
-		popis.casti[nazev].obrazek = load(CASTI % nazev)
-	var i := 1
-	while ResourceLoader.exists(FAZE_BOK % i):
-		_faze_bok.append(load(FAZE_BOK % i))
-		i += 1
-	if not _faze_bok.is_empty():
-		var popis_faze: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(FAZE_BOK_POPIS))
-		for posun in popis_faze.posuny:
-			_posuny_bok.append(posun * VYSKA / popis_faze.vyska)
-		# Stání má stejnou výšku jako průměrná fáze chůze (ne jako nejvyšší), jinak Ruda po zastavení „vyroste“
-		_vyska_stani = VYSKA * popis_faze.vyska_prumer / popis_faze.vyska
-	_kostra = KOSTRA.new()
-	_kostra.name = "Kostra"
-	_kostra.visible = false
-	add_child(_kostra)
-	move_child(_kostra, $Sprite2D.get_index())
-	_kostra.sestav(popis)
+	for nazev in NAZVY_SAD:
+		var slozka: String = SADY % nazev
+		var popis_cesta := slozka + "faze.json"
+		if not FileAccess.file_exists(popis_cesta):
+			continue
+		var popis: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(popis_cesta))
+		var snimky: Array[Texture2D] = []
+		var i := 1
+		while ResourceLoader.exists(slozka + "faze_%02d.png" % i):
+			snimky.append(load(slozka + "faze_%02d.png" % i))
+			i += 1
+		var meritko := _meritko_sady(popis, nazev)
+		var posuny: Array[float] = []
+		for p in popis.posuny:
+			posuny.append(p * meritko)
+		_sady[nazev] = {snimky = snimky, meritko = meritko, vyska = float(popis.vyska), posuny = posuny}
 
 
-# Fáze kroku se posouvá podle ušlé vzdálenosti, takže nohy neklouzají ani při zmenšení do hloubky.
-# Pozor: Popochiu postavám vypíná _process (zapíná ho jen při sledování jiné postavy), proto se
-# animace počítá v _physics_process, kde Popochiu postavu i posouvá.
+# AI kreslí každý list s trochu jinými proporcemi (u chůze má Ruda větší hlavu než při stání).
+# Srovnává se podle výšky postavy i šířky hlavy a bere se střed mezi nimi: při přechodu mezi
+# animacemi se pak ani výška, ani hlava nezmění skokem o víc než pár procent.
+func _meritko_sady(popis: Dictionary, nazev: String) -> float:
+	var vysky: Array = popis.vysky
+	# Bokem se Ruda při přechodu chůze ↔ stání nejvíc porovná, proto tam rozhoduje výška
+	if nazev.ends_with("_bok") or nazev in ["zvednuti", "pouziti"]:
+		return VYSKA / float(vysky.max())
+	var hlavy: Array = popis.hlavy.duplicate()
+	hlavy.sort()
+	var podle_vysky := VYSKA / float(vysky.max())
+	var podle_hlavy := (VYSKA / POMER_HLAVY) / float(hlavy[hlavy.size() / 2])
+	return sqrt(podle_vysky * podle_hlavy)
+
+
+# Popochiu směr pohledu (_looking_dir): 0 vpravo, 1 vpravo dolů, 2 dolů, … 6 nahoru, 7 vpravo nahoru
+func _pohled_ze_smeru_pohledu(i_zezadu: bool) -> String:
+	match _looking_dir:
+		2:
+			return "predu"
+		6:
+			return "zezadu" if i_zezadu else "bok"
+	_doleva = _looking_dir in [3, 4, 5]
+	return "bok"
+
+
+func _nastav_stav(stav: String, pohled: String) -> void:
+	_nacti_sady()
+	_stav = stav
+	_pohled = pohled
+	_faze = 0
+	_cas_ve_fazi = 0.0
+	if stav == "mluveni" and pohled != "zezadu":
+		_faze = randi() % _sada().snimky.size()
+	_zobraz()
+
+
+func _sada() -> Dictionary:
+	var nazev := ""
+	match _stav:
+		"chuze":
+			nazev = "chuze_" + _pohled
+		"stani":
+			nazev = "stani_" + _pohled
+		"mluveni":
+			nazev = "mluveni_" + _pohled
+		"akce":
+			nazev = _akce
+	if _sady.has(nazev):
+		return _sady[nazev]
+	# Stání a mluvení zezadu: nehybná fáze chůze zezadu (nohy u sebe). Model postavy má jiné
+	# proporce než chůze, takže by Ruda při zastavení zezadu skokem změnil výšku i vlasy.
+	if _pohled == "zezadu" and _sady.has("chuze_zezadu"):
+		return _sady["chuze_zezadu"]
+	return _sady.get("model", {})
+
+
+func _zobraz() -> void:
+	var sada := _sada()
+	if sada.is_empty():
+		return
+	var snimek: Texture2D = sada.snimky[_faze % sada.snimky.size()]
+	if _stav != "chuze" and sada == _sady.get("chuze_zezadu", {}):
+		snimek = sada.snimky[STANI_ZEZADU_FAZE]
+	elif sada == _sady.get("model", {}):
+		var index: int = {"predu": 0, "bok": 1, "zezadu": 2}.get(_pohled, 0)
+		snimek = sada.snimky[mini(index, sada.snimky.size() - 1)]
+	$Sprite2D.texture = snimek
+	$Sprite2D.scale = Vector2(sada.meritko, sada.meritko)
+	$Sprite2D.offset = Vector2(0, -sada.vyska / 2.0)
+	$Sprite2D.flip_h = _doleva and _pohled == "bok"
+	$Sprite2D.position = Vector2.ZERO
+	$Stin.position = Vector2.ZERO
+
+
+# Popochiu postavám vypíná _process, proto se animace počítá v _physics_process, kde Popochiu
+# postavu i posouvá.
 func _physics_process(delta: float) -> void:
 	super(delta)
-	if Engine.is_editor_hint() or not _kostra:
+	if Engine.is_editor_hint() or _sady.is_empty():
 		return
 	var pohyb := position - _posledni_pozice
 	var usla := pohyb.length() / maxf(scale.x, 0.01)
 	_posledni_pozice = position
-	if _kostra.visible:
-		_kostra.posun(usla / _kostra.scale.y, _chodi, delta)
-	elif _chodi and _bokem and not _faze_bok.is_empty():
-		# Další fáze přijde, až postava ujde tolik, o kolik se ve fázi posune noha na zemi.
-		# Chodidlo tak stojí na místě a neklouže.
-		_usla_ve_fazi += usla
-		while _usla_ve_fazi >= _posuny_bok[_faze]:
-			_usla_ve_fazi -= _posuny_bok[_faze]
-			_faze = (_faze + 1) % _faze_bok.size()
-		_nastav_obrazek(_faze_bok[_faze])
-		# Obrázek se během fáze nehýbe a poskočí až s další fází, o krok stojící nohy.
-		# Jinak by se celá postava i s nohou na zemi plynule posouvala a noha by klouzala.
-		if usla > 0.0:
-			_smer_chuze = pohyb.normalized()
+	var sada := _sada()
+	if sada.is_empty():
+		return
+	var pocet: int = sada.snimky.size()
+	# Popochiu otočení obrázku při chůzi a otáčení resetuje, tady se vždy obnoví podle pohledu
+	$Sprite2D.flip_h = _doleva and _pohled == "bok"
+	match _stav:
+		"chuze":
+			_animuj_chuzi(sada, usla, pohyb)
+		"stani":
+			var delky: Array = STANI_BOK if _pohled == "bok" else STANI_PREDU
+			if _pohled == "zezadu" or pocet < 2:
+				return
+			_cas_ve_fazi += delta
+			if _cas_ve_fazi >= delky[_faze % delky.size()]:
+				_cas_ve_fazi = 0.0
+				_faze = (_faze + 1) % pocet
+				_zobraz()
+		"mluveni":
+			if _pohled == "zezadu":
+				return
+			_cas_ve_fazi += delta
+			if _cas_ve_fazi >= FAZE_MLUVENI:
+				_cas_ve_fazi = 0.0
+				# Náhodná další fáze (ne stejná), ať pusa nepůsobí jako smyčka
+				_faze = (_faze + 1 + randi() % (pocet - 1)) % pocet
+				_zobraz()
+		"akce":
+			_cas_ve_fazi += delta
+			if _cas_ve_fazi >= FAZE_AKCE:
+				_cas_ve_fazi = 0.0
+				if _faze + 1 >= pocet:
+					akce_dokoncena.emit()
+				else:
+					_faze += 1
+					_zobraz()
+
+
+# Další fáze chůze přijde, až postava ujde tolik, o kolik se ve fázi posune noha na zemi.
+# Bokem obrázek během fáze stojí a poskočí až s další fází, takže noha na zemi neklouže.
+# Dopředu a dozadu se fáze střídají po průměrném kroku chůze bokem.
+func _animuj_chuzi(sada: Dictionary, usla: float, pohyb: Vector2) -> void:
+	if usla <= 0.0:
+		return
+	_smer_chuze = pohyb.normalized()
+	var krok: float
+	if _pohled == "bok":
+		krok = sada.posuny[_faze % sada.posuny.size()]
+	else:
+		var bok: Dictionary = _sady.get("chuze_bok", sada)
+		krok = ZPOMALENI_PREDU_ZEZADU * bok.posuny.reduce(func(a, b): return a + b, 0.0) / maxi(bok.posuny.size(), 1)
+	_usla_ve_fazi += usla
+	var zmena := false
+	while _usla_ve_fazi >= krok and krok > 0.0:
+		_usla_ve_fazi -= krok
+		_faze = (_faze + 1) % sada.snimky.size()
+		zmena = true
+		if _pohled == "bok":
+			krok = sada.posuny[_faze % sada.posuny.size()]
+	if zmena:
+		_zobraz()
+	if _pohled == "bok":
 		$Sprite2D.position = -_smer_chuze * _usla_ve_fazi
 		$Stin.position = $Sprite2D.position
-	elif _chodi:
-		# Dopředu a dozadu (dočasně, než budou kreslené fáze): jen jemné pohupování v rytmu kroků,
-		# bez kývání do stran, které působilo směšně
-		var f := fmod(Time.get_ticks_msec() / 1000.0 * 8.0, TAU)
-		$Sprite2D.position.y = -absf(sin(f)) * 10.0
 
 
 #endregion

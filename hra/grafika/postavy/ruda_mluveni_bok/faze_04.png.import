@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0j367jccys84"
-path="res://.godot/imported/ruda_zboku.png-195550976534a8000295911588604040.ctex"
+uid="uid://dbt6ecc4nwpjs"
+path="res://.godot/imported/faze_04.png-3446871bf1fbb385fcbcda3fde8f57dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://grafika/postavy/ruda_zboku.png"
-dest_files=["res://.godot/imported/ruda_zboku.png-195550976534a8000295911588604040.ctex"]
+source_file="res://grafika/postavy/ruda_mluveni_bok/faze_04.png"
+dest_files=["res://.godot/imported/faze_04.png-3446871bf1fbb385fcbcda3fde8f57dd.ctex"]
 
 [params]
 

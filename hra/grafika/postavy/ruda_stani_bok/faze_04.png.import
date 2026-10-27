@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd76fuoqkjnyy"
-path="res://.godot/imported/ruda_zezadu.png-3a3a860d11569570133478ac9be8d3c6.ctex"
+uid="uid://cwdo2wjwupo4v"
+path="res://.godot/imported/faze_04.png-b728631201833fcd4ca2f0e09c6eb6af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://grafika/postavy/ruda_zezadu.png"
-dest_files=["res://.godot/imported/ruda_zezadu.png-3a3a860d11569570133478ac9be8d3c6.ctex"]
+source_file="res://grafika/postavy/ruda_stani_bok/faze_04.png"
+dest_files=["res://.godot/imported/faze_04.png-b728631201833fcd4ca2f0e09c6eb6af.ctex"]
 
 [params]
 

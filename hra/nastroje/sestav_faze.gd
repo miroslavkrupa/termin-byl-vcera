@@ -53,7 +53,7 @@ func _init() -> void:
 		print("faze_%02d z %s, posun svislice %d px" % [i + 1, soubory[i], int(z.svislice - z.obdelnik.get_center().x)])
 	var posuny := _posuny_chodidel(a[1], faze.size())
 	var meta := FileAccess.open(a[1].path_join("faze.json"), FileAccess.WRITE)
-	meta.store_string(JSON.stringify({vyska = h, vyska_prumer = _prumerna_vyska(faze), posuny = posuny}, "  "))
+	meta.store_string(JSON.stringify({vyska = h, vyska_prumer = _prumerna_vyska(faze), vysky = faze.map(func(z): return z.obdelnik.size.y), hlavy = faze.map(func(z): return _sirka_hlavy(z.obrazek, z.obdelnik)), posuny = posuny}, "  "))
 	meta.close()
 	print("Posun stojící nohy mezi fázemi (px): ", posuny, ", celý cyklus ", posuny.reduce(func(x, y): return x + y, 0.0))
 	print("Fází: %d, plátno %d × %d" % [faze.size(), w, h])
@@ -133,3 +133,20 @@ func _posuny_chodidel(slozka: String, pocet: int) -> Array:
 	var platne := posuny.filter(func(d): return d >= 0.0)
 	var prumer: float = platne.reduce(func(x, y): return x + y, 0.0) / maxi(platne.size(), 1)
 	return posuny.map(func(d): return snappedf(0.5 * (d if d >= 0.0 else prumer) + 0.5 * prumer, 0.1))
+
+
+## Šířka hlavy: nejširší řádek v horních 22 % postavy. Na rozdíl od výšky se nemění s pokrčením
+## nohou ani s předklonem, proto podle ní hra srovnává velikost postavy mezi animacemi.
+func _sirka_hlavy(img: Image, r: Rect2i) -> int:
+	var nejsirsi := 0
+	for y in range(r.position.y, r.position.y + int(r.size.y * 0.22)):
+		var l := -1
+		var p := -1
+		for x in range(r.position.x, r.end.x):
+			if img.get_pixel(x, y).a > 0.5:
+				if l < 0:
+					l = x
+				p = x
+		if l >= 0:
+			nejsirsi = maxi(nejsirsi, p - l)
+	return nejsirsi

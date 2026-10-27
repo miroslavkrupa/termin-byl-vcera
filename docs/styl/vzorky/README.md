@@ -32,3 +32,11 @@ Hodnocení kol: [kolo 1](hodnoceni-kolo-1.md). Zadání ke zkopírování: [kolo
 | ruda-list_v03.png | ChatGPT (ručně) | list Rudy s průhledným pozadím | ☑ pohledy zepředu, z boku, zezadu ve hře |
 | ruda-chuze-bok_v01.png | ChatGPT (ručně) | [zadání fází chůze](zadani-faze-chuze.md), stejná konverzace jako v03 | ☐ zkouška D40 |
 | ruda-stoji_v01.png | ChatGPT (ručně) | [zadání stání](zadani-faze-chuze.md), stejná konverzace jako fáze chůze | ☑ pohledy zepředu, z boku, zezadu ve hře (nahrazují v03) |
+| ruda-model_v01.png | ChatGPT (ručně) | [animace postav](../animace-postav.md), zadání 0 | ☑ model postavy |
+| ruda-chuze-bok_v02.png | ChatGPT (ručně) | zadání 1, 12 fází | nahrazeno v03 (předměty skákaly) |
+| ruda-chuze-bok_v03.png | ChatGPT (ručně) | zadání 1b, 12 fází, 1254 × 1254 | ☑ ve hře |
+| ruda-chuze-predu_v01.png | ChatGPT (ručně) | zadání 2 | ☑ ve hře |
+| ruda-chuze-zezadu_v01.png | ChatGPT (ručně) | zadání 3 | ☑ ve hře |
+| ruda-stani_v01.png | ChatGPT (ručně) | zadání 4 | ☑ ve hře |
+| ruda-mluveni_v01.png | ChatGPT (ručně) | zadání 5 | ☑ ve hře |
+| ruda-akce_v01.png | ChatGPT (ručně) | zadání 6 | ☑ ve hře |

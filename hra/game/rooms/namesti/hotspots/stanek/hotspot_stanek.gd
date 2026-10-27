@@ -40,6 +40,7 @@ func _on_item_used(item: PopochiuInventoryItem) -> void:
 		I.KavovePero:
 			await C.player.walk_to_clicked()
 			await C.player.face_clicked()
+			await C.player.animuj_akci("pouziti")
 			await _dohoda()
 		I.Propiska:
 			await C.player.say("ch1_stanek_propiska")

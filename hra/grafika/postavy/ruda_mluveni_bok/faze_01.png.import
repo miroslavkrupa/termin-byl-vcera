@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2j8wrw8gtush"
-path="res://.godot/imported/ruda_zepredu.png-75cf9f4bbe80ca9e85d722bf0c32d59d.ctex"
+uid="uid://dng0i3a2ti2al"
+path="res://.godot/imported/faze_01.png-7b6ba32b398ff221b99fe1ef0fb4767f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://grafika/postavy/ruda_zepredu.png"
-dest_files=["res://.godot/imported/ruda_zepredu.png-75cf9f4bbe80ca9e85d722bf0c32d59d.ctex"]
+source_file="res://grafika/postavy/ruda_mluveni_bok/faze_01.png"
+dest_files=["res://.godot/imported/faze_01.png-7b6ba32b398ff221b99fe1ef0fb4767f.ctex"]
 
 [params]
 

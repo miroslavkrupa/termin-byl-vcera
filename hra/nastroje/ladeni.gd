@@ -2,6 +2,7 @@
 # Bez parametrů nedělá nic. Spuštění se snímkem obrazovky:
 #   godot --path hra -- snimek=<soubor.png> [jazyk=cs|en] [cekej=3] [dojdi=x,y | klik=x,y | akce=…] [po=3]
 # serie=N [rozestup=0.12] uloží po akci N snímků za sebou (snimek_01.png …) pro kontrolu animace
+# animace=zvednuti|pouziti přehraje akci postavy
 # nastaveni=1 otevře okno nastavení, prepni=cs|en přepne jazyk za běhu (jako hráč v nastavení, ale volbu neukládá)
 # cekej = sekundy před akcí, po = sekundy po akci; souřadnice hry (1536 × 1024)
 # dojdi = hráčova postava dojde na místo (ověří navigaci a zmenšování)
@@ -45,10 +46,20 @@ func _ready() -> void:
 		TranslationServer.set_locale(p["prepni"])
 		get_node("/root/Jazyk").zmenen.emit(p["prepni"])
 		await get_tree().create_timer(0.5).timeout
+	if p.has("animace"):
+		# Přehraje animaci akce hráčovy postavy (zvednuti, pouziti) a hned bere snímky
+		get_node("/root/C").player.animuj_akci(p["animace"])
 	# Kroky se provedou v tomto pořadí: dojdi / klik, akce, volby, pouzij
 	if p.has("dojdi"):
-		var xy: PackedStringArray = p["dojdi"].split(",")
-		get_node("/root/C").player.walk_to(Vector2(float(xy[0]), float(xy[1])))
+		# Více cílů oddělených středníkem: postava je obejde postupně, snímky se berou při posledním
+		var cile: PackedStringArray = p["dojdi"].split(";")
+		for i in cile.size():
+			var xy: PackedStringArray = cile[i].split(",")
+			var cil := Vector2(float(xy[0]), float(xy[1]))
+			if i < cile.size() - 1:
+				await get_node("/root/C").player.walk_to(cil)
+			else:
+				get_node("/root/C").player.walk_to(cil)
 	elif p.has("klik"):
 		var xy: PackedStringArray = p["klik"].split(",")
 		_klepnout(Vector2(float(xy[0]), float(xy[1])))
@@ -76,8 +87,8 @@ func _ready() -> void:
 			var c: PackedStringArray = krok.split(":")
 			await _az_bude_klid()
 			await _pouzij(c[0], c[1])
-	if p.has("dojdi") or p.has("akce") or p.has("pouzij") or p.has("klik"):
-		if not p.has("dojdi") and not p.has("klik") and not p.has("hned"):
+	if p.has("dojdi") or p.has("akce") or p.has("pouzij") or p.has("klik") or p.has("animace"):
+		if not p.has("dojdi") and not p.has("klik") and not p.has("hned") and not p.has("animace"):
 			await _az_bude_klid()
 		await get_tree().create_timer(float(p.get("po", "3"))).timeout
 		_vypis("po akci")
@@ -86,7 +97,7 @@ func _ready() -> void:
 			await RenderingServer.frame_post_draw
 			get_viewport().get_texture().get_image().save_png(p["snimek"].get_basename() + "_%02d.png" % (i + 1))
 			var h = get_node("/root/C").player
-			print("[serie %02d] hráč %s měřítko %.3f" % [i + 1, h.position, h.scale.x])
+			print("[serie %02d] hráč %s měřítko %.3f stav %s %s fáze %s" % [i + 1, h.position, h.scale.x, h.get("_stav"), h.get("_pohled"), h.get("_faze")])
 			await get_tree().create_timer(float(p.get("rozestup", "0.12"))).timeout
 	# Počkat na vykreslení aktuálního stavu (jinak může snímek zachytit starší obraz)
 	await RenderingServer.frame_post_draw

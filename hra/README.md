@@ -29,7 +29,8 @@ godot --headless --path hra -- vytvor mistnost Archiv
 ```
 
 Spuštění hry se snímkem obrazovky (pro ověřování; `dojdi` pošle hráčovu postavu na místo,
-`akce` klepne na aktivní místo, `volby` vybírá volby dialogu, `pouzij` použije předmět,
+`akce` klepne na aktivní místo, `volby` vybírá volby dialogu, `pouzij` použije předmět, `animace` přehraje
+akci postavy, `serie` uloží řadu snímků (s výpisem stavu animace),
 `jazyk` přepne jazyk; kroky běží za sebou a každý počká, až hra dokončí předchozí):
 
 ```bash
@@ -66,6 +67,13 @@ viz `POPIS` v `game/characters/ruda/character_ruda.gd`):
 
 ```bash
 godot --headless --path hra --script res://nastroje/rozdel_casti.gd -- <list.png> <složka> [předpona]
+```
+
+Zpracování všech animací postavy z listů v `docs/styl/vzorky/` (rozřezání, zarovnání, uložení do
+`grafika/postavy/<postava>_<sada>/`):
+
+```bash
+sh hra/nastroje/zpracuj_animace.sh ruda
 ```
 
 Zarovnání kreslených fází animace (chodidla na jednu čáru, trup na jednu svislici):

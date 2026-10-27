@@ -332,6 +332,26 @@ Dvě levné metody nad stávajícím AI obrázkem, bez kreslení nových fází:
   ve fázích 3–6 přehodila); pořád trhané. Navrhl celou sadu najednou. Výsledek: model postavy
   a samostatné animace se společnými pravidly ([animace postav](styl/animace-postav.md), D40, D41);
   nástroje ověřeny i na mřížce 3 × 4 (12 fází).
+- **Všechny animace Rudy ve hře** (model, chůze do tří směrů, stání, mluvení, sebrání, použití;
+  [stav](styl/animace-postav.md)). Nový skript postavy přehrává sady fází, `zpracuj_animace.sh`
+  zpracuje všechny listy najednou. Opravena chyba: Popochiu volá `_play_walk` na každém zlomu cesty,
+  což chůzi vracelo na první fázi. Zbývá: skok hrnku a desek v chůzi bokem, mírně odlišné proporce
+  mezi listy.
+- **Autor:** chůze doleva přeskakovala směry; bokem působí jako krok pořád jednou nohou; stání
+  bokem je vyšší a má jiné vlasy než chůze; chůze dopředu a dozadu výborná, jen rychlá. Opravy:
+  - Popochiu v `_flip_left_right` při každém kroku cesty vrací otočení obrázku doprava; skript ho
+    teď obnovuje v každém snímku (chůze doleva byla střídavě otočená doprava a doleva),
+  - pohled při chůzi se mění s rezervou (hystereze), aby u zlomů cesty neblikal mezi bokem a předem,
+  - chůze dopředu a dozadu o 45 % pomalejší střídání fází,
+  - sady bokem se srovnávají podle výšky (chůze = stání),
+  - jedna noha, vlasy a skákající předměty jsou v obrázku: [zadání chůze bokem v03](styl/animace-postav.md).
+- **Chůze bokem v03** zapojená: předměty drží na místě, nohy se střídají, výška a hlava blízko
+  stání; ověřeno snímky chůze doprava, doleva i zastavení.
+- **Autor:** chůze bokem perfektní; dopředu a dozadu ještě o 40 % pomaleji; drobné rozdíly mezi
+  chůzí a stáním (vlasy, zezadu velký skok výšky). Úpravy: chůze dopředu a dozadu pomaleji
+  (krok × 2,4 proti bokem); stání a mluvení zezadu je teď fáze chůze od diváka místo modelu
+  (model má jiné proporce, poměr výška/hlava 3,5 proti 2,7); vlasy sjednotí překreslení stání,
+  mluvení a akcí podle chůze ([zadání](styl/animace-postav.md)).
 
 ## Rizika prototypu
 
