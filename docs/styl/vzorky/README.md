@@ -37,6 +37,9 @@ Hodnocení kol: [kolo 1](hodnoceni-kolo-1.md). Zadání ke zkopírování: [kolo
 | ruda-chuze-bok_v03.png | ChatGPT (ručně) | zadání 1b, 12 fází, 1254 × 1254 | ☑ ve hře |
 | ruda-chuze-predu_v01.png | ChatGPT (ručně) | zadání 2 | ☑ ve hře |
 | ruda-chuze-zezadu_v01.png | ChatGPT (ručně) | zadání 3 | ☑ ve hře |
-| ruda-stani_v01.png | ChatGPT (ručně) | zadání 4 | ☑ ve hře |
-| ruda-mluveni_v01.png | ChatGPT (ručně) | zadání 5 | ☑ ve hře |
-| ruda-akce_v01.png | ChatGPT (ručně) | zadání 6 | ☑ ve hře |
+| ruda-stani_v01.png | ChatGPT (ručně) | zadání 4 | ☐ nahrazeno v02 |
+| ruda-stani_v02.png | ChatGPT (ručně) | zadání 4 podle chůze | ☑ ve hře |
+| ruda-mluveni_v01.png | ChatGPT (ručně) | zadání 5 | ☐ nahrazeno v02 |
+| ruda-mluveni_v02.png | ChatGPT (ručně) | zadání 5 podle chůze | ☑ ve hře |
+| ruda-akce_v01.png | ChatGPT (ručně) | zadání 6 | ☐ nahrazeno v02 |
+| ruda-akce_v02.png | ChatGPT (ručně) | zadání 6 podle chůze | ☑ ve hře |

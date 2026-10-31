@@ -137,23 +137,22 @@ Celé zpracování jedním příkazem (z každého listu vezme nejnovější ver
 sh hra/nastroje/zpracuj_animace.sh ruda
 ```
 
-## Stav u Rudy (2026-10-26)
+## Stav u Rudy (2026-10-31)
 
 | Animace | List | Ve hře | Poznámka |
 |---|---|---|---|
-| model | `ruda-model_v01` | stání a mluvení zezadu | |
-| chůze bokem | `ruda-chuze-bok_v03` (12 fází) | ✅ | předměty drží na místě, nohy se střídají; proporce blízko stání (poměr výška/hlava 2,96 vs 3,09) |
-| chůze k divákovi | `ruda-chuze-predu_v01` | ✅ | |
-| chůze od diváka | `ruda-chuze-zezadu_v01` | ✅ | |
-| stání | `ruda-stani_v01` | ✅ bokem (usrknutí), zepředu (mrknutí) | |
-| mluvení | `ruda-mluveni_v01` | ✅ bokem i zepředu, náhodné fáze úst | |
-| sebrání a použití | `ruda-akce_v01` | ✅ použití u kašny, budky, stánku a kartotéky; sebrání připravené | |
+| model | `ruda-model_v01` | ne (jen záloha) | jiné proporce než animace (poměr výška/hlava 3,5) |
+| chůze bokem | `ruda-chuze-bok_v03` (12 fází) | ✅ | hlavní předloha pro vlasy a proporce |
+| chůze k divákovi | `ruda-chuze-predu_v01` | ✅ | hlavní předloha zepředu |
+| chůze od diváka | `ruda-chuze-zezadu_v01` | ✅ | fáze 2 slouží i jako stání a mluvení zezadu |
+| stání | `ruda-stani_v02` | ✅ bokem (usrknutí), zepředu (mrknutí) | překresleno podle chůze |
+| mluvení | `ruda-mluveni_v02` | ✅ bokem i zepředu, náhodné fáze úst | překresleno podle chůze |
+| sebrání a použití | `ruda-akce_v02` | ✅ použití u kašny, budky, stánku a kartotéky; sebrání připravené | překresleno podle chůze; v sebrání je nakreslený šroubek |
 
-**Proporce mezi listy nejsou stejné:** poměr výšky postavy a šířky hlavy se mezi listy liší
-(u chůze bokem v02 2,7, ve v03 už 2,96; stání 3,1, model 3,5). Hra proto každou sadu
-škáluje podle průměru výšky a šířky hlavy (`_meritko_sady`), takže při přechodu mezi animacemi
-se velikost mění nanejvýš o pár procent. Pro dokonalý soulad by bylo potřeba přegenerovat chůzi
-podle modelu.
+**Proporce mezi listy** (poměr výšky postavy a šířky hlavy) jsou po překreslení podle chůze
+skoro stejné: 2,8–3,0 u všech animací. Hra přesto každou sadu škáluje (`_meritko_sady`:
+bokem a akce podle výšky, zepředu a zezadu podle průměru výšky a hlavy, `POMER_HLAVY = 2,9`),
+aby drobné rozdíly mezi listy nebyly vidět.
 
 ## Jak to hra používá
 

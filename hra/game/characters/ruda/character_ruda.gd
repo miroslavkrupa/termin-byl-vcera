@@ -17,7 +17,7 @@ const NAZVY_SAD := ["model", "chuze_bok", "chuze_predu", "chuze_zezadu", "stani_
 ## Výška stojící postavy v souřadnicích postavy
 const VYSKA := 988.0
 ## Poměr výška postavy / šířka hlavy, ke kterému se srovnávají sady (viz _meritko_sady)
-const POMER_HLAVY := 3.15
+const POMER_HLAVY := 2.9
 ## Délky fází stání v sekundách (bokem: usrknutí kávy, zepředu: mrknutí)
 const STANI_BOK := [2.6, 0.35, 0.8, 0.35]
 const STANI_PREDU := [3.0, 0.25, 0.15, 0.25]

@@ -352,6 +352,9 @@ Dvě levné metody nad stávajícím AI obrázkem, bez kreslení nových fází:
   (krok × 2,4 proti bokem); stání a mluvení zezadu je teď fáze chůze od diváka místo modelu
   (model má jiné proporce, poměr výška/hlava 3,5 proti 2,7); vlasy sjednotí překreslení stání,
   mluvení a akcí podle chůze ([zadání](styl/animace-postav.md)).
+- **Stání, mluvení a akce v02** (2026-10-31) překreslené podle chůze: vlasy a velikost hlavy
+  sedí s chůzí ve všech pohledech, poměr výška/hlava 2,8–3,0 u všech sad. Ověřeno snímky ze hry:
+  chůze bokem a zastavení, chůze k divákovi a zastavení, mluvení, sebrání a použití.
 
 ## Rizika prototypu
 
