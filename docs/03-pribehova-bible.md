@@ -252,29 +252,30 @@ Konce kombinují **metodickou osu** (sladění světů) s **osobní osou** (Rud�
 - Radniční výtah vede vždy jen do půlky patra.
 - Rudův slovník manažerských frází, kterým nikdo nerozumí, včetně něj.
 
-## Jména v obou jazycích (pracovní)
+## Jména v obou jazycích
 
-Jména postav, míst i název hry mají vlastní verzi v každém jazyce. Anglické návrhy jsou pracovní.
+Jména postav, míst i název hry mají vlastní verzi v každém jazyce. Anglická jména schválena
+v F0/R6 (D47): vtip má fungovat i anglicky, nejen být doslova přeložený.
 
 | Čeština | Angličtina | Poznámka |
 |---|---|---|
 | Termín byl včera | Deadline Was Yesterday | název hry |
-| Nedostavěnice | ❓ (např. Unfinishedton, Phase Two) | město |
-| Ruda Gantt | ❓ Rudy Gantt | |
-| Bára Backlogová | ❓ Barbara Backlog | |
-| Předseda Věčný | ❓ Chairman Forever | |
-| Pan Změna | ❓ Mr. Change | |
-| Ing. Framework | ❓ Mr. Framework | |
-| Pepa „Dva dny“ | ❓ Joe „Two Days“ | |
-| Babička Pozemková | ❓ Granny Landsworth | |
-| Prof. Pembok | ❓ Prof. Pembok | |
-| Kočka Riziková | ❓ Risky the Cat | |
-| Hospoda U Odhadu | ❓ The Rough Estimate | hospoda |
+| Nedostavěnice | Scope Creek | město; narážka na *scope creep* (rozpínání rozsahu projektu) |
+| Ruda Gantt | Rudy Gantt | Ganttův diagram funguje v obou jazycích |
+| Bára Backlogová | Barb Backlog | kratší, aliterace, bez „á“ |
+| Předseda Věčný | Chairman Evermore | zní jako jméno, „věčnost“ zůstává |
+| Pan Změna | Mr. Change | *change* jsou i drobné, k jeho stánku sedí |
+| Ing. Framework | Dr. Framework | titul Ing. angličtina nezná, doktor zní jako expert |
+| Pepa „Dva dny“ | Two-Weeks Joe | anglický věčný odhad je „za dva týdny“ |
+| Babička Pozemková | Granny Plotkins | *plot* je pozemek i úklad |
+| Prof. Pembok | Prof. Pembok | narážka na PMBOK |
+| Kočka Riziková | Risky the Cat | |
+| Hospoda U Odhadu | The Rough Estimate | hospoda |
 
 ## Otevřené otázky
 
-- [ ] Jména v angličtině (tabulka výše)
-- [ ] Jak moc otevřeně je Předseda záporák od začátku?
+- [x] Jména v angličtině (tabulka výše, D47)
+- [x] Jak moc otevřeně je Předseda záporák od začátku? → zvrat ve 4. kapitole, v kapitole 1 jen náznaky (D44)
 - [ ] Přesné prahy stavových proměnných pro konce (vyladit při playtestech)
 - [ ] Hraní za Báru: jisté jsou kap. 1 (archiv), kap. 3 (řídicí systém a interiér) a kap. 5 (finální spojení). Další místa?
 - [ ] Jak se romantická linka promítne do konců?

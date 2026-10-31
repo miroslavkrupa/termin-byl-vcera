@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ip4o570udarq"]
 
-[ext_resource type="FontFile" uid="uid://bm6g2trsh30ai" path="res://game/gui/fonts/monkeyisland_1991.ttf" id="1_5ngxg"]
+[ext_resource type="FontFile" uid="uid://sup4u05nel5q" path="res://grafika/pisma/PatrickHand-Regular.ttf" id="1_5ngxg"]
 
 [node name="DialogLine" type="RichTextLabel"]
 anchors_preset = 15

@@ -1,5 +1,5 @@
 keys,cs,en,_mluvci,_emoce,_poznamka
-postava_ruda,Ruda Gantt,Rudy Gantt,,,jméno v angličtině je pracovní (D15)
+postava_ruda,Ruda Gantt,Rudy Gantt,,,anglické jméno schváleno (D47)
 ch1_hs_kasna,Kašna,Fountain,,,popisek aktivního místa
 ch1_hs_budka,Telefonní budka,Phone booth,,,popisek aktivního místa
 ch1_hs_dvere,Dveře radnice,Town hall door,,,popisek aktivního místa
@@ -11,7 +11,7 @@ ch1_budka_pouzit_1,Zavolám na linku pomoci.,I'll call the helpline.,Ruda,sebev�
 ch1_budka_pouzit_2,„Vaše žádost je pro nás důležitá. Jste v pořadí číslo… čtyři tisíce osm set dvanáct.“,"""Your call is important to us. You are caller number... four thousand eight hundred and twelve.""",Ruda,cituje automat,4812 = počet obyvatel (běžecký vtip z kap. 1)
 ch1_budka_pouzit_3,"Celé město visí na lince. Aspoň vím, kde všichni jsou.",The whole town is on hold. At least I know where everyone is.,Ruda,pobaveně,
 ch1_dvere_prohlednout,"Vchod do radnice. Lešení je tu tak dlouho, že je nejspíš nosné.",The town hall entrance. The scaffolding's been up so long it's probably load-bearing.,Ruda,suše,
-postava_pan_zmena,Pan Změna,Mr. Change,,,jméno v angličtině je pracovní (D15)
+postava_pan_zmena,Pan Změna,Mr. Change,,,anglické jméno schváleno (D47)
 ch1_hs_stanek,Stánek Pana Změny,Mr. Change's stall,,,popisek aktivního místa
 ch1_stanek_prohlednout,"Stánek, který prodává všechno. Jen nikdy dvakrát to samé.",A stall that sells everything. Just never the same thing twice.,Ruda,uznale,
 ch1_zmena_uvod_ruda,Dobrý den!,Good morning!,Ruda,sebevědomě,

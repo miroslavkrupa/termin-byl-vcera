@@ -64,16 +64,16 @@ Pro každou iteraci platí **definice hotového:**
 
 ## Rozhodnutí potřebná na začátku (F0)
 
-| # | Otázka | Doporučení |
-|---|---|---|
-| R1 | Poměr stran pozadí | širší pozadí (19,5:9), důležitý obsah v pásu 3:2 uprostřed |
-| R2 | Postava za předmětem | vyzkoušet na kašně: popředí jako samostatná vrstva vyříznutá z pozadí |
-| R3 | Prohlédnutí na dotyku | dlouhé podržení prstu = prohlédnout; na počítači dál pravé tlačítko |
-| R4 | Písmo | komiksové písmo s úplnou češtinou (licence OFL), barvy textu podle postav |
-| R5 | Předseda: záporák od začátku, nebo zvrat? | zvrat ve 4. kapitole; v kapitole 1 jen náznaky (závěrečný telefonát zamlžit) |
-| R6 | Anglická jména a název | potvrdit tabulku v příběhové bibli |
-| R7 | Kde vydat | itch.io (hra zdarma, web i stažení, HTTPS a komprese zajištěné) |
-| R8 | Hudba a zvuky | volně licencované (CC0/CC-BY), seznam autorů v titulcích |
+| # | Otázka | Doporučení | Rozhodnutí |
+|---|---|---|---|
+| R1 | Poměr stran pozadí | širší pozadí (19,5:9), důležitý obsah v pásu 3:2 uprostřed | ✅ vyzkoušeno na náměstí (D49) |
+| R2 | Postava za předmětem | vyzkoušet na kašně: popředí jako samostatná vrstva vyříznutá z pozadí | ✅ vyzkoušeno na kašně (D50) |
+| R3 | Prohlédnutí na dotyku | dlouhé podržení prstu = prohlédnout; na počítači dál pravé tlačítko | ✅ podržení prstu; v nastavení nabídka po ťuknutí (D43) |
+| R4 | Písmo | komiksové písmo s úplnou češtinou (licence OFL), barvy textu podle postav | ✅ Patrick Hand pro celé GUI (D48), [náhled](styl/vzorky/pisma-nahled_v01.png) |
+| R5 | Předseda: záporák od začátku, nebo zvrat? | zvrat ve 4. kapitole; v kapitole 1 jen náznaky (závěrečný telefonát zamlžit) | ✅ zvrat ve 4. kapitole (D44) |
+| R6 | Anglická jména a název | potvrdit tabulku v příběhové bibli | ✅ jména podle vtipu, město Scope Creek (D47) |
+| R7 | Kde vydat | itch.io (hra zdarma, web i stažení, HTTPS a komprese zajištěné) | ✅ itch.io + GitHub Pages pro testery (D45) |
+| R8 | Hudba a zvuky | volně licencované (CC0/CC-BY), seznam autorů v titulcích | ✅ CC0 / CC-BY (D46) |
 
 ## Grafika (F2)
 

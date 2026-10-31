@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bt7seqo37f0b4" path="res://addons/popochiu/engine/objects/gui/resources/images/h_slider_grabber_high_res.svg" id="3_emke0"]
 [ext_resource type="Texture2D" uid="uid://d1ywqbehmtuv" path="res://addons/popochiu/engine/objects/gui/resources/images/down_arrow.png" id="4_13x2e"]
 [ext_resource type="Texture2D" uid="uid://c73pqna3848hw" path="res://addons/popochiu/engine/objects/gui/resources/images/radio_button.png" id="5_3v5ri"]
-[ext_resource type="FontFile" uid="uid://chkjlc8ysd7ip" path="res://addons/popochiu/engine/objects/gui/fonts/open_sans_regular.ttf" id="6_d35rj"]
+[ext_resource type="FontFile" uid="uid://sup4u05nel5q" path="res://grafika/pisma/PatrickHand-Regular.ttf" id="6_d35rj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27bc1"]
 content_margin_left = 2.0
@@ -101,7 +101,7 @@ bg_color = Color(0, 0, 0, 0.705882)
 
 [resource]
 default_font = ExtResource("6_d35rj")
-default_font_size = 36
+default_font_size = 42
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_disabled_color = Color(0.482353, 0.482353, 0.482353, 1)
 Button/colors/font_focus_color = Color(0.305882, 0.305882, 0.862745, 1)

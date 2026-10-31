@@ -3,9 +3,11 @@
 [ext_resource type="Script" path="res://game/rooms/namesti/room_namesti.gd" id="1_xhamq"]
 [ext_resource type="PackedScene" path="res://game/rooms/namesti/props/background/prop_background.tscn" id="2_dvawb"]
 [ext_resource type="PackedScene" path="res://game/rooms/namesti/walkable_areas/dlazba/walkable_area_dlazba.tscn" id="2_m3dto"]
-[ext_resource type="Texture2D" path="res://grafika/mistnosti/namesti_den.png" id="3_pp1hi"]
+[ext_resource type="Texture2D" path="res://grafika/mistnosti/namesti_den_siroke.png" id="3_pp1hi"]
 [ext_resource type="PackedScene" path="res://game/rooms/namesti/regions/hloubka/region_hloubka.tscn" id="4_pp1hi"]
 [ext_resource type="PackedScene" path="res://game/rooms/namesti/hotspots/kasna/hotspot_kasna.tscn" id="5_eluva"]
+[ext_resource type="PackedScene" path="res://game/rooms/namesti/props/kasna_popredi/prop_kasna_popredi.tscn" id="5_hcycl"]
+[ext_resource type="Texture2D" path="res://grafika/mistnosti/namesti_den_kasna_popredi.png" id="6_cmmcn"]
 [ext_resource type="PackedScene" path="res://game/rooms/namesti/hotspots/budka/hotspot_budka.tscn" id="6_oahb7"]
 [ext_resource type="PackedScene" path="res://game/rooms/namesti/hotspots/dvere_radnice/hotspot_dvere_radnice.tscn" id="7_tc4kd"]
 [ext_resource type="PackedScene" path="res://game/rooms/namesti/hotspots/stanek/hotspot_stanek.tscn" id="8_gky0t"]
@@ -28,6 +30,12 @@ height = 1024
 position = Vector2(768, 512)
 texture = ExtResource("3_pp1hi")
 
+[node name="KasnaPopredi" parent="Props" unique_id=672780915 instance=ExtResource("5_hcycl")]
+position = Vector2(585, 668)
+obstacle = true
+obstacle_polygon = PackedVector2Array(304, 94, 289, 107, 246, 119, 179, 128, 94, 134, 0, 136, -94, 134, -179, 128, -246, 119, -289, 107, -304, 94, -289, 81, -246, 69, -179, 60, -94, 54, -0, 52, 94, 54, 179, 60, 246, 69, 289, 81)
+texture = ExtResource("6_cmmcn")
+
 [node name="Hotspots" type="Node2D" parent="." unique_id=1536900053]
 
 [node name="Kasna" parent="Hotspots" unique_id=245226830 instance=ExtResource("5_eluva")]
@@ -48,7 +56,7 @@ walk_to_point = Vector2(250, 805)
 
 [node name="Hloubka" parent="Regions" unique_id=1149518962 instance=ExtResource("4_pp1hi")]
 scaling = true
-scale_top = 0.17
+scale_top = 0.116
 scale_bottom = 0.46
 
 [node name="Markers" type="Node2D" parent="." unique_id=1198552640]

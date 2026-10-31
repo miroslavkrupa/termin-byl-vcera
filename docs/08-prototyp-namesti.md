@@ -359,6 +359,17 @@ Dvě levné metody nad stávajícím AI obrázkem, bez kreslení nových fází:
   nohavici tmavší. Úpravy: bokem až když jde víc do strany než do hloubky (poměr vodorovné
   a svislé složky nad 1,2, zpět pod 0,8; z klidu nad 1,0), vzdálená nohavice se při zpracování
   zesvětlí. Ověřeno snímky: šikmo nahoru (asi 45°) jde zezadu, výrazně do strany jde bokem.
+- **F0/R1 a R2** (2026-10-31): náměstí má zástupně rozšířené pozadí 19,5:9 (`namesti_*_siroke.png`,
+  zrcadlené a ztmavené okraje, ke stažení novým obrázkem z ChatGPT) a kašnu jako popředí. Ruda
+  ji obchází a může zajít za ni; ověřeno snímky ve 3:2, 19,5:9 a 4:3, ve dne i večer. Za kašnou
+  je Ruda skoro celý schovaný: u finální scény tam cestu nedávat, nebo kašnu snížit.
+- **Autor:** průchod za kašnou není ideální, Ruda za ní vyrostl a stál jakoby na kašně. Příčina:
+  oblast Hloubka začínala na y = 700, cesta za kašnou vede až k y = 686, a mimo oblast Popochiu
+  vrátí postavě výchozí velikost. Oprava: oblast od y = 640 (horní měřítko 0,116, aby se jinde
+  velikost nezměnila); ověřeno snímky, měřítko za kašnou plynule klesá na 0,166.
+- **Rozhodnutí autora:** průchod za kašnou zrušen (úzký a Ruda je za kašnou skoro celý schovaný).
+  Pochozí plocha má zase původní obrys; kašna zůstává jako popředí a překážka. Ověřeno: klepnutí
+  za kašnu dovede Rudu k její přední hraně, chůze podél kašny vede zepředu.
 
 ## Rizika prototypu
 

@@ -150,6 +150,28 @@ not realistic, no gothic architecture, no medieval castles,
 no text, no letters, no logos, no people
 ```
 
+### Formát pozadí a popředí (D49, D50)
+
+- **Pozadí je široké 19,5:9 (2218 × 1024 px).** Všechno důležité (aktivní místa, cesty, postavy)
+  leží v **pásu 3:2 uprostřed** (1536 × 1024, od x = 341). Okraje vlevo a vpravo jen dokreslují
+  scénu pro široké telefony a monitory; na obrazovce 3:2 nejsou vidět. Hra drží záběr uprostřed
+  (`hra/game/zaber.gd`), u obrazovky 4:3 zůstanou nahoře a dole černé pruhy.
+- **Rozšíření hotového obrázku 3:2** v ChatGPT (ve stejné konverzaci jako pozadí, nebo s nahraným
+  obrázkem):
+
+```
+Extend this background image to the left and to the right to a 19.5:9 aspect ratio (2218 × 1024 pixels). Keep the original image exactly unchanged in the center. Continue the same street, buildings, pavement and sky naturally into the new side areas, with the same style, colors, lighting, perspective and horizon line. Put nothing important in the new side areas: no doors, no characters, no text.
+```
+
+  Ulož jako `<scéna>-siroke_vNN.png`. Pokud ChatGPT střed přesto pozmění, vloží se doprostřed
+  původní obrázek 3:2, aby aktivní místa seděla (nástroj na to vznikne s prvním rozšířeným pozadím).
+- **Popředí** (předmět, za který může postava zajít, např. kašna) se z pozadí vyřízne nástrojem
+  `hra/nastroje/vyrez_popredi.gd` podle obrysu a vloží jako kulisa (prop) se `baseline` na hraně,
+  za kterou postava mizí, a s `obstacle_polygon` půdorysu, který postava obchází. Pochozí cesty
+  za popředím jen tam, kde předmět postavu nezakryje celou (nižší než asi polovina postavy).
+  Oblast se zmenšováním do hloubky musí pokrývat **celou** pochozí plochu: mimo ni Popochiu vrátí
+  postavě plnou velikost (při zkoušce Ruda za kašnou náhle vyrostl).
+
 ### Šablona zadání: referenční list postavy
 
 ```

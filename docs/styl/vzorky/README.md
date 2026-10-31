@@ -43,3 +43,5 @@ Hodnocení kol: [kolo 1](hodnoceni-kolo-1.md). Zadání ke zkopírování: [kolo
 | ruda-mluveni_v02.png | ChatGPT (ručně) | zadání 5 podle chůze | ☑ ve hře |
 | ruda-akce_v01.png | ChatGPT (ručně) | zadání 6 | ☐ nahrazeno v02 |
 | ruda-akce_v02.png | ChatGPT (ručně) | zadání 6 podle chůze | ☑ ve hře |
+| pisma-nahled_v01.png | snímky ze hry (`ladeni.gd pismo=`) | F0/R4 náhled písem: Open Sans, Monkey Island, Patrick Hand, Bangers, Kalam, Comic Neue | ☑ vybráno Patrick Hand (D48) |
+| pisma-patrick-ve-hre_v01.png | snímek ze hry | Patrick Hand na celé obrazovce | ☑ ve hře |

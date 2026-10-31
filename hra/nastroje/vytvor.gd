@@ -10,6 +10,8 @@
 #   dialog <Nazev> <id:klic> [<id:klic> …]           dialog s volbami (klic = ID textu volby v tabulce)
 #   postava_do <Mistnost> <Postava> <x,y>            umístí postavu do místnosti
 #   pochozi <Mistnost> <Nazev> "<x,y x,y …>"         pochozí plocha s obrysem (souřadnice místnosti)
+#   pochozi_obrys <Mistnost> <Nazev> "<x,y x,y …>"   nový obrys existující pochozí plochy (překážky
+#                                                    uvnitř, např. kašnu, vykrojí Popochiu z kulis s obstacle)
 #   aktivni <Mistnost> <Nazev> "<x,y x,y …>" <x,y>   aktivní místo s obrysem a bodem, kam postava dojde
 #   kulisa <Mistnost> <Nazev> <res://obrázek.png> [x,y]   neinteraktivní obrázek (název Background = pozadí)
 #   oblast <Mistnost> <Nazev> "<x,y x,y …>" [nahore dole]  oblast; s měřítky zmenšuje postavy do hloubky
@@ -40,6 +42,8 @@ func spust(a: PackedStringArray) -> bool:
 			vysledek = _postava_do(a[1], a[2], _bod(a[3]))
 		"pochozi":
 			vysledek = _pochozi(a[1], a[2], _body(a[3]))
+		"pochozi_obrys":
+			vysledek = _pochozi_obrys(a[1], a[2], _body(a[3]))
 		"aktivni":
 			vysledek = _aktivni(a[1], a[2], _body(a[3]), _bod(a[4]))
 		"oblast":
@@ -192,6 +196,27 @@ func _pochozi(mistnost: String, nazev: String, obrys: PackedVector2Array) -> int
 	if r != USPECH:
 		return r
 	return _pridat_do_mistnosti(room, f, obj)
+
+
+func _pochozi_obrys(mistnost: String, nazev: String, obrys: PackedVector2Array) -> int:
+	var cesta := "res://game/rooms/%s/walkable_areas/%s/walkable_area_%s.tscn" % [mistnost.to_snake_case(), nazev.to_snake_case(), nazev.to_snake_case()]
+	if not ResourceLoader.exists(cesta):
+		push_error("Pochozí plocha nenalezena: " + cesta)
+		return ResultCodes.FAILURE
+	var obj: PopochiuWalkableArea = load(cesta).instantiate()
+	var obrysy: Array[PackedVector2Array] = [obrys]
+	obj.interaction_polygon = obrysy
+	var navpoly := NavigationPolygon.new()
+	navpoly.agent_radius = 0.0
+	navpoly.add_outline(obrys)
+	NavigationServer2D.bake_from_source_geometry_data(navpoly, NavigationMeshSourceGeometryData2D.new())
+	obj.find_child("Perimeter").navigation_polygon = navpoly
+	var scena := PackedScene.new()
+	var r := scena.pack(obj)
+	if r == OK:
+		r = ResourceSaver.save(scena, cesta)
+	obj.free()
+	return USPECH if r == OK else ResultCodes.FAILURE
 
 
 func _aktivni(mistnost: String, nazev: String, obrys: PackedVector2Array, kam: Vector2) -> int:

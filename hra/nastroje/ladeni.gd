@@ -3,6 +3,7 @@
 #   godot --path hra -- snimek=<soubor.png> [jazyk=cs|en] [cekej=3] [dojdi=x,y | klik=x,y | akce=…] [po=3]
 # serie=N [rozestup=0.12] uloží po akci N snímků za sebou (snimek_01.png …) pro kontrolu animace
 # animace=zvednuti|pouziti přehraje akci postavy
+# pismo=<res://…ttf> [velikost=36] vymění písmo celého GUI (náhled písem), rekni=<text> nechá hráčovu postavu promluvit
 # nastaveni=1 otevře okno nastavení, prepni=cs|en přepne jazyk za běhu (jako hráč v nastavení, ale volbu neukládá)
 # cekej = sekundy před akcí, po = sekundy po akci; souřadnice hry (1536 × 1024)
 # dojdi = hráčova postava dojde na místo (ověří navigaci a zmenšování)
@@ -46,6 +47,12 @@ func _ready() -> void:
 		TranslationServer.set_locale(p["prepni"])
 		get_node("/root/Jazyk").zmenen.emit(p["prepni"])
 		await get_tree().create_timer(0.5).timeout
+	if p.has("pismo"):
+		var tema: Theme = load("res://game/gui/resources/gui_theme.tres")
+		tema.default_font = load(p["pismo"])
+		tema.default_font_size = int(p.get("velikost", str(tema.default_font_size)))
+	if p.has("rekni"):
+		get_node("/root/C").player.say(p["rekni"])
 	if p.has("animace"):
 		# Přehraje animaci akce hráčovy postavy (zvednuti, pouziti) a hned bere snímky
 		get_node("/root/C").player.animuj_akci(p["animace"])
@@ -87,8 +94,8 @@ func _ready() -> void:
 			var c: PackedStringArray = krok.split(":")
 			await _az_bude_klid()
 			await _pouzij(c[0], c[1])
-	if p.has("dojdi") or p.has("akce") or p.has("pouzij") or p.has("klik") or p.has("animace"):
-		if not p.has("dojdi") and not p.has("klik") and not p.has("hned") and not p.has("animace"):
+	if p.has("dojdi") or p.has("akce") or p.has("pouzij") or p.has("klik") or p.has("animace") or p.has("rekni"):
+		if not p.has("dojdi") and not p.has("klik") and not p.has("hned") and not p.has("animace") and not p.has("rekni"):
 			await _az_bude_klid()
 		await get_tree().create_timer(float(p.get("po", "3"))).timeout
 		_vypis("po akci")

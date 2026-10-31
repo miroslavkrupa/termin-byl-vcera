@@ -8,8 +8,11 @@ var state: Data = load("res://game/rooms/namesti/room_namesti.tres")
 
 # Den a večer (paleta A a C, stylová bible). Postavy jsou kreslené v denním světle a do večerní
 # scény je ladí barva světla (produkční zásady, Postavy ve scéně).
-const POZADI_DEN := preload("res://grafika/mistnosti/namesti_den.png")
-const POZADI_VECER := preload("res://grafika/mistnosti/namesti_vecer.png")
+const POZADI_DEN := preload("res://grafika/mistnosti/namesti_den_siroke.png")
+const POZADI_VECER := preload("res://grafika/mistnosti/namesti_vecer_siroke.png")
+## Kašna jako popředí (postava za ní se schová), vyříznutá z pozadí nástrojem vyrez_popredi.gd
+const KASNA_DEN := preload("res://grafika/mistnosti/namesti_den_kasna_popredi.png")
+const KASNA_VECER := preload("res://grafika/mistnosti/namesti_vecer_kasna_popredi.png")
 const SVETLO_DEN := Color(1, 1, 1)
 const SVETLO_VECER := Color(0.66, 0.5, 0.64)
 
@@ -78,6 +81,7 @@ func prepni_den_vecer() -> void:
 #region Private ####################################################################################
 func _nastav_svetlo() -> void:
 	get_prop("Background").texture = POZADI_VECER if state.vecer else POZADI_DEN
+	get_prop("KasnaPopredi").texture = KASNA_VECER if state.vecer else KASNA_DEN
 	var svetlo := SVETLO_VECER if state.vecer else SVETLO_DEN
 	# Oblast Hloubka pokrývá celou dlažbu, takže její barva tónuje každou postavu na náměstí
 	get_region("Hloubka").tint = svetlo
