@@ -57,6 +57,8 @@
 | D48 | 2026-10-31 | F0/R4: písmo **Patrick Hand** (OFL) pro celé GUI (repliky, popisky, nabídky, nastavení), velikost 42 | ručně psané a čitelné i na telefonu; Monkey Island z Popochiu nemá česká písmena | [náhled](styl/vzorky/pisma-nahled_v01.png) |
 | D49 | 2026-10-31 | F0/R1: pozadí **19,5:9 (2218 × 1024)**, důležitý obsah v pásu 3:2 uprostřed; kamera drží záběr uprostřed a širší obrazovka ukáže víc z okrajů | zkouška na náměstí se zástupně rozšířeným pozadím (zrcadlené okraje); u 4:3 černé pruhy nahoře a dole | [stylová bible](06-stylova-bible.md) |
 | D50 | 2026-10-31 | F0/R2: **popředí jako kulisa vyříznutá z pozadí** (`vyrez_popredi.gd`), s baseline a překážkou pro chůzi | zkouška na kašně: technika funguje; průchod za kašnou zrušen (Ruda tam byl skoro celý schovaný), cesty za popředím jen tam, kde postavu nezakryje celou | [stylová bible](06-stylova-bible.md) |
+| D51 | 2026-10-31 | Pozadí kapitoly 1 schválena (F2, krok 1 a 2): rozšířené náměstí (den, večer) a archiv, vestibul, starostova pracovna, kancelář Komise, babiččina chaloupka, vše 19,5:9 | střed rozšířených pozadí je překreslený, aktivní místa, pochozí plochy a kašna se ve hře nastaví znovu; posun budky ve večerní verzi (asi 20 px) se nechává | [hodnocení](styl/vzorky/hodnoceni-pozadi-kap1.md) |
+| D52 | 2026-10-31 | Listy vedlejších postav kapitoly 1 schváleny (Předseda, starosta, Pan Změna, Lumír, babička, vrátný, Ing. Framework, kocour) a ikony předmětů 1–17 | výšky proti Rudovi se nastaví ve hře měřítkem; Framework podobný Rudovi se nechává jako „zvrhlé dvojče“; kocourovo natržené ucho se v animacích (F3) hlídá ve všech pohledech | [hodnocení](styl/vzorky/hodnoceni-postavy-ikony-kap1.md) |
 
 ## Čeká na rozhodnutí
 

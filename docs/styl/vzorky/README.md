@@ -45,3 +45,20 @@ Hodnocení kol: [kolo 1](hodnoceni-kolo-1.md). Zadání ke zkopírování: [kolo
 | ruda-akce_v02.png | ChatGPT (ručně) | zadání 6 podle chůze | ☑ ve hře |
 | pisma-nahled_v01.png | snímky ze hry (`ladeni.gd pismo=`) | F0/R4 náhled písem: Open Sans, Monkey Island, Patrick Hand, Bangers, Kalam, Comic Neue | ☑ vybráno Patrick Hand (D48) |
 | pisma-patrick-ve-hre_v01.png | snímek ze hry | Patrick Hand na celé obrazovce | ☑ ve hře |
+| a-namesti-siroke_v01.png | ChatGPT (ručně) | [F2 krok 1](../../11-grafika-kapitoly-1.md), rozšíření a-namesti_v03 na 19,5:9 | ☑ pozadí kapitoly 1 (D51) ([hodnocení](hodnoceni-pozadi-kap1.md)) |
+| c-namesti-vecer-siroke_v01.png | ChatGPT (ručně) | F2 krok 1, večer stejně rozšířený jako den | ☑ pozadí kapitoly 1 (D51) |
+| a-archiv-siroke_v01.png | ChatGPT (ručně) | F2 krok 1, rozšíření a-archiv_v02 na 19,5:9 | ☑ pozadí kapitoly 1 (D51) |
+| a-vestibul_v01.png | ChatGPT (ručně) | F2 krok 2 | ☑ pozadí kapitoly 1 (D51) |
+| a-pracovna_v01.png | ChatGPT (ručně) | F2 krok 2 | ☑ pozadí kapitoly 1 (D51) |
+| a-komise_v01.png | ChatGPT (ručně) | F2 krok 2 | ☑ pozadí kapitoly 1 (D51) |
+| a-chaloupka_v01.png | ChatGPT (ručně) | F2 krok 2 | ☑ pozadí kapitoly 1 (D51) |
+| predseda-list_v01.png | ChatGPT (ručně) | [F2 krok 3](../../11-grafika-kapitoly-1.md), předloha ruda-stoji_v01 | ☑ reference kapitoly 1 (D52) ([hodnocení](hodnoceni-postavy-ikony-kap1.md)) |
+| starosta-list_v01.png | ChatGPT (ručně) | F2 krok 3 | ☑ reference kapitoly 1 (D52) |
+| zmena-list_v01.png | ChatGPT (ručně) | F2 krok 3 | ☑ reference kapitoly 1 (D52) |
+| lumir-list_v01.png | ChatGPT (ručně) | F2 krok 3 | ☑ reference kapitoly 1 (D52) |
+| babicka-list_v01.png | ChatGPT (ručně) | F2 krok 3 | ☑ reference kapitoly 1 (D52) |
+| framework-list_v01.png | ChatGPT (ručně) | F2 krok 3 | ☑ reference kapitoly 1 (D52) (podobný Rudovi) |
+| vratny-list_v01.png | ChatGPT (ručně) | F2 krok 3 | ☑ reference kapitoly 1 (D52) |
+| kocour-list_v01.png | ChatGPT (ručně) | F2 krok 3, tři pózy | ☑ reference kapitoly 1 (D52) (ucho natržené jen zepředu) |
+| ikony-1_v01.png | ChatGPT (ručně) | [F2 krok 4](../../11-grafika-kapitoly-1.md), ikony 1–9 | ☑ reference kapitoly 1 (D52) |
+| ikony-2_v01.png | ChatGPT (ručně) | F2 krok 4, ikony 10–17 | ☑ reference kapitoly 1 (D52) |

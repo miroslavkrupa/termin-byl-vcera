@@ -11,7 +11,8 @@
   drží lépe, při desítkách obrázků začni novou a nahraj do ní předlohy znovu.
 - **Předlohy nahraj na začátku konverzace:**
   - pozadí: `a-namesti_v03.png` a `a-archiv_v02.png` (exteriér a interiér);
-  - postavy a ikony: `ruda-list_v03.png` (předloha stylu i velikosti).
+  - postavy a ikony: `ruda-stoji_v01.png` (předloha stylu i velikosti: Ruda zepředu, z boku
+    a zezadu ve stylu animací; starší `ruda-list_v03` je jemnější a vyšší, než jak Ruda vypadá ve hře).
 - **Formát:** pozadí na šířku 3:2, postavy na šířku 3:2, ikony čtvercové.
 - **Kontrola každého obrázku:** [kontrolní seznam ve stylové bibli](06-stylova-bible.md#kontrolní-seznam-pro-každý-obrázek);
   u postav navíc průhledné pozadí.
@@ -25,8 +26,17 @@ Do nové konverzace nahraj **`a-namesti_v03.png`** a vlož:
 Extend this background image to the left and to the right to a 19.5:9 aspect ratio (2218 × 1024 pixels). Keep the original image exactly unchanged in the center. Continue the same street, buildings, pavement and sky naturally into the new side areas, with the same style, colors, lighting, perspective and horizon line. Put nothing important in the new side areas: no doors, no characters, no text.
 ```
 
-Totéž s **`c-namesti-vecer_v03.png`** (večer). Ulož jako `a-namesti-siroke_v01.png`
-a `c-namesti-vecer-siroke_v01.png`.
+Ulož jako `a-namesti-siroke_v01.png`.
+
+**Večer až potom, podle denního rozšíření:** okraje se musí shodovat, jinak by se při setmění
+domy po stranách proměnily. Ve stejné konverzaci nahraj **`c-namesti-vecer_v03.png`** a vlož:
+
+```
+This is the evening version of the same square. Extend it to the left and to the right exactly like the wide daytime image you just made: the same buildings, objects and shapes in the new side areas, in the same places, only in the evening colors and lighting of this image (dusk sky, glowing windows, orange light from the comet). Keep the original evening image exactly unchanged in the center. 19.5:9 aspect ratio (2218 × 1024 pixels), no text.
+```
+
+Ulož jako `c-namesti-vecer-siroke_v01.png`. Stejně se postupuje u každého pozadí s večerní verzí:
+nejdřív den, pak večer podle něj.
 
 - **Když vrátí široký obrázek** se zachovaným středem: postup platí a stejně se rozšíří
   i archiv a ostatní pozadí.
@@ -67,7 +77,7 @@ Večerní verze (paleta C) zatím jen u náměstí; další jen tam, kde to bude
 
 ## Krok 3: referenční listy postav (7 + kocour)
 
-Nová konverzace, nahraj **`ruda-list_v03.png`**. Každý list je model postavy podle [animací
+Nová konverzace, nahraj **`ruda-stoji_v01.png`**. Každý list je model postavy podle [animací
 postav](styl/animace-postav.md) (D41): zepředu, z boku, zezadu. Postavy jsou vedlejší, chodí
 málo, takže z animací budou potřebovat hlavně stání a mluvení (vyrobí se v F3).
 
@@ -95,7 +105,7 @@ Ruda a Bára mají listy hotové (D30); Bářiny animace přijdou s hratelným �
 
 ## Krok 4: ikony předmětů (2 listy)
 
-Nová konverzace (nebo konverzace s postavami), nahraj **`ruda-list_v03.png`**.
+Nová konverzace (nebo konverzace s postavami), nahraj **`ruda-stoji_v01.png`**.
 
 ```
 Draw a sheet of inventory item icons for the same point-and-click adventure game: <POČET> separate objects in an even grid of <MŘÍŽKA>, each object centered in its cell, large and easy to read at small size, slightly tilted three-quarter view, all at a similar size, objects never touching.
@@ -119,7 +129,7 @@ Archy; 10 karta poučení (most 1974), 11 katastrální mapa, 12 razítková pod
 
 | Krok | Soubory | Stav |
 |---|---|---|
-| 1 | `a-namesti-siroke`, `c-namesti-vecer-siroke` | ☐ |
-| 2 | `a-vestibul`, `a-pracovna`, `a-komise`, `a-chaloupka`, `a-archiv-siroke` | ☐ |
-| 3 | 7 listů postav + kocour | ☐ |
-| 4 | `ikony-1`, `ikony-2` | ☐ |
+| 1 | `a-namesti-siroke`, `c-namesti-vecer-siroke` | ☑ hotovo, [hodnocení](styl/vzorky/hodnoceni-pozadi-kap1.md) |
+| 2 | `a-vestibul`, `a-pracovna`, `a-komise`, `a-chaloupka`, `a-archiv-siroke` | ☑ hotovo, [hodnocení](styl/vzorky/hodnoceni-pozadi-kap1.md) |
+| 3 | 7 listů postav + kocour | ☑ hotovo, [hodnocení](styl/vzorky/hodnoceni-postavy-ikony-kap1.md) |
+| 4 | `ikony-1`, `ikony-2` | ☑ hotovo, [hodnocení](styl/vzorky/hodnoceni-postavy-ikony-kap1.md) |

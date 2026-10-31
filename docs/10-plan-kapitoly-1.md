@@ -90,6 +90,8 @@ Pro každou iteraci platí **definice hotového:**
 
 **Zadání pro ChatGPT a stav výroby:** [Grafika kapitoly 1](11-grafika-kapitoly-1.md).
 
+**Milník MC splněn (2026-10-31):** pozadí schválena (D51), listy postav a ikony 1–17 schváleny (D52).
+
 ## Rizika
 
 | Riziko | Dopad | Opatření |
