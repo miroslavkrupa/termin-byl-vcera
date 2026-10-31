@@ -355,6 +355,10 @@ Dvě levné metody nad stávajícím AI obrázkem, bez kreslení nových fází:
 - **Stání, mluvení a akce v02** (2026-10-31) překreslené podle chůze: vlasy a velikost hlavy
   sedí s chůzí ve všech pohledech, poměr výška/hlava 2,8–3,0 u všech sad. Ověřeno snímky ze hry:
   chůze bokem a zastavení, chůze k divákovi a zastavení, mluvení, sebrání a použití.
+- **Autor:** Ruda chodí bokem, i když jde skoro jen dopředu nebo dozadu; při chůzi bokem má jednu
+  nohavici tmavší. Úpravy: bokem až když jde víc do strany než do hloubky (poměr vodorovné
+  a svislé složky nad 1,2, zpět pod 0,8; z klidu nad 1,0), vzdálená nohavice se při zpracování
+  zesvětlí. Ověřeno snímky: šikmo nahoru (asi 45°) jde zezadu, výrazně do strany jde bokem.
 
 ## Rizika prototypu
 

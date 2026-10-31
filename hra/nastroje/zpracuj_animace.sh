@@ -26,12 +26,15 @@ zpracuj() {
 		cp "$DOC/$1/faze_$(printf %02d "$i").png" "$DOC/sada_$4/"
 		i=$((i + 1))
 	done
-	rm -rf "$CIL/${POSTAVA}_$4"
+	# Smazat jen obrázky a popis fází; soubory .import zůstanou, aby se neměnila UID v Godotu
+	rm -f "$CIL/${POSTAVA}_$4"/faze_*.png "$CIL/${POSTAVA}_$4"/faze.json
 	godot --headless --path "$KOREN/hra" --script res://nastroje/sestav_faze.gd -- "$DOC/sada_$4" "$CIL/${POSTAVA}_$4" 2>&1 | grep "^Fází" | sed "s/^/  $4: /"
 }
 
 zpracuj model 1 3 model
 zpracuj chuze-bok 1 12 chuze_bok
+# Chůze bokem v03 má vzdálenou nohavici tmavší (podle zadání), ve hře to ruší
+godot --headless --path "$KOREN/hra" --script res://nastroje/zesvetli_nohavice.gd -- "$CIL/${POSTAVA}_chuze_bok" > /dev/null 2>&1
 zpracuj chuze-predu 1 8 chuze_predu
 zpracuj chuze-zezadu 1 8 chuze_zezadu
 zpracuj stani 1 4 stani_bok

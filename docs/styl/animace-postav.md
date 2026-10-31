@@ -61,6 +61,10 @@ Redraw the side view walk cycle, 12 frames in 3 rows of 4, walking to the right,
 ```
 + pravidla
 
+Tmavší vzdálená noha (bod 2) ve hře rušila, proto ji zpracování zesvětlí
+(`hra/nastroje/zesvetli_nohavice.gd`). U dalších postav bod 2 vynech nebo napiš
+„the far leg only very slightly darker“.
+
 ### Sjednocení podle chůze (stání v2, mluvení v2, akce v2)
 
 Chůze bokem v03 a chůze k divákovi a od diváka jsou nejpovedenější, proto jsou **nová hlavní

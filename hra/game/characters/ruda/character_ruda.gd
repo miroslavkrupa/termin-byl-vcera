@@ -28,6 +28,12 @@ const FAZE_AKCE := 0.11
 const STANI_ZEZADU_FAZE := 1
 ## Chůze dopředu a dozadu: o kolik delší krok (a tedy pomalejší střídání fází) než bokem
 const ZPOMALENI_PREDU_ZEZADU := 2.4
+## Poměr vodorovné a svislé složky směru chůze: nad BOKEM_OD jde Ruda bokem, pod BOKEM_DO zase
+## dopředu nebo dozadu (mezi nimi drží předchozí pohled). Na obrazovce je pohyb do hloubky
+## zkrácený perspektivou, proto bokem až při chůzi, která je opravdu víc do strany než do hloubky.
+const BOKEM_OD := 1.2
+const BOKEM_DO := 0.8
+const BOKEM_Z_KLIDU := 1.0
 
 var _sady := {}                # název -> {snimky, meritko, vyska, posuny}
 var _stav := "stani"           # stani | chuze | mluveni | akce
@@ -112,10 +118,12 @@ func _play_walk(target_pos: Vector2) -> void:
 	# s rezervou (hystereze): bokem až při výrazně šikmé chůzi, zpět dopředu/dozadu až při skoro svislé
 	var pohled := _pohled if _stav == "chuze" else "bok"
 	var pomer := absf(_smer_chuze.x) / maxf(absf(_smer_chuze.y), 0.001)
-	if smer.length() > 4.0 or _stav != "chuze":
-		if pomer > 0.5:
+	if _stav != "chuze":
+		pohled = "bok" if pomer > BOKEM_Z_KLIDU else ("predu" if _smer_chuze.y > 0.0 else "zezadu")
+	elif smer.length() > 4.0:
+		if pomer > BOKEM_OD:
 			pohled = "bok"
-		elif pomer < 0.2 or _stav != "chuze":
+		elif pomer < BOKEM_DO:
 			pohled = "predu" if _smer_chuze.y > 0.0 else "zezadu"
 	var doleva := _doleva
 	if absf(smer.x) > 4.0 or _stav != "chuze":
