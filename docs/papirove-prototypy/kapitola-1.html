@@ -1,0 +1,120 @@
+<!doctype html><html lang='cs'><head><meta charset='utf-8'><title>Papírové zkoušky miniher, kapitola 1</title><style>
+@page{size:A4;margin:10mm}
+*{box-sizing:border-box}
+body{font-family:'Patrick Hand','Comic Neue',sans-serif;color:#2b1d14;margin:0}
+@font-face{font-family:'Patrick Hand';src:url('../../hra/grafika/pisma/PatrickHand-Regular.ttf')}
+h1{font-size:28pt;margin:0 0 4mm}
+h2{font-size:20pt;margin:6mm 0 2mm;border-bottom:1px solid #b9a27d}
+h3{font-size:15pt;margin:4mm 0 1mm}
+p,li,td{font-size:12.5pt;line-height:1.3}
+.strana{page-break-after:always}
+.karty{display:grid;grid-template-columns:repeat(3,63mm);grid-auto-rows:88mm;gap:0;justify-content:center}
+.karta{border:1px dashed #9c8a6a;padding:5mm;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.karta .druh{font-size:10pt;text-transform:uppercase;letter-spacing:.06em;color:#8a6a40}
+.karta .text{font-size:15pt;line-height:1.25;margin-top:3mm;flex:1;display:flex;align-items:center}
+.karta .zdroj{font-size:10pt;color:#7a6a55;margin-top:2mm}
+.karta.namitka{background:#fbeee2}
+.karta.replika{background:#eef3f6}
+.karta.utrzek{background:#fdf8e6;transform:rotate(0deg)}
+.karta.postava{background:#f1f5ea}
+.karta.stopa{background:#f6eef6}
+.karta .cislo{position:absolute;right:4mm;bottom:3mm;font-size:9pt;color:#9c8a6a}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #b9a27d;padding:2mm 3mm;vertical-align:top;text-align:left;font-size:12pt}
+th{background:#f3e7d3}
+.deska td{height:38mm}
+.mrizka{display:grid;grid-template-columns:14mm 1fr 1fr;grid-template-rows:1fr 1fr 14mm;height:250mm;gap:0}
+.mrizka .pole{border:2px solid #8a6a40;padding:4mm;font-size:16pt;color:#8a6a40}
+.osa{display:flex;align-items:center;justify-content:center;font-size:13pt;color:#5a4630}
+.osa.svisla{writing-mode:vertical-rl;transform:rotate(180deg)}
+.zeton{display:inline-block;width:22mm;height:22mm;border:1px dashed #9c8a6a;border-radius:50%;margin:2mm;text-align:center;line-height:22mm;font-size:13pt;background:#fde3c8}
+.mala{font-size:10.5pt;color:#6a5a45}
+</style></head><body><div class='strana'><h1>Papírové zkoušky miniher, kapitola 1</h1>
+<p>Tři minihry z kapitoly 1 na papíře, než se naprogramují (F1 v plánu kapitoly 1).
+Cíl: ověřit, že pravidla jdou pochopit bez vysvětlování, že hra baví i lidi, kteří o řízení projektů
+nic neví, a že „správná“ řešení jdou odvodit z příběhu, ne z učebnice.</p>
+<h2>Jak test vést</h2><ul>
+<li><b>3–5 testerů</b>, aspoň 2 bez zkušenosti s projekty. Každý hraje sám, 20–30 minut na všechny tři hry.</li>
+<li>Pořadí jako ve hře: <b>M03</b> (starosta), <b>M02</b> (mapa), <b>M01</b> (listina).</li>
+<li>Před hrou přečti testérovi jen příběhový úvod (rámeček u každé hry). Pravidla <b>nevysvětluj</b>,
+  dej mu je přečíst. Když se zasekne, napiš si kde a pak pomoz.</li>
+<li>Testér <b>přemýšlí nahlas</b>. Ty mlčíš a píšeš si, co říká, čemu se smál a kde váhal.</li>
+<li>Každou hru zkus s polovinou testerů ve variantě A, s polovinou ve variantě B.</li></ul>
+<h2>Co sledovat</h2><ul>
+<li>Pochopil pravidla z textu? Kde se ptal?</li>
+<li>Smál se? Které karty zabraly, které ne?</li>
+<li>U M03: zkoušel rychlé repliky? Uvědomil si, že něco slibuje?</li>
+<li>U M02: odvodil babičku ze stop, nebo hádal?</li>
+<li>U M01: chápe kolonky bez odborných slov? Lákal ho útržek „…a následné fáze“?</li>
+<li>Jak dlouho hra trvala (cíl: 5–10 minut)?</li></ul>
+<h2>Otázky po hře</h2><ol>
+<li>Co jsi v té hře vlastně dělal? (Vlastními slovy.)</li>
+<li>Co bylo nejvtipnější? Co bylo nudné?</li>
+<li>Bylo něco nespravedlivé nebo nejasné?</li>
+<li>Hrál bys to ve hře, nebo bys to přeskočil?</li>
+<li>(Jen M01, M02) Myslíš, že by ti to k něčemu bylo v práci nebo ve škole?</li></ol>
+<h2>Záznam</h2>
+<table><tr><th>Testér</th><th>Zkušenost s projekty</th><th>Hra / varianta</th><th>Čas</th><th>Výsledek</th><th>Poznámky</th></tr><tr><td style='height:12mm'></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td style='height:12mm'></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td style='height:12mm'></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td style='height:12mm'></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td style='height:12mm'></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td style='height:12mm'></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+<p class='mala'>Karty jsou česky; anglická verze se otestuje až ve hře. Vytiskni jednostranně, karty rozstříhej podle čárkovaných čar.</p></div><div class='strana'><h1>M03 Souboj argumenty se starostou</h1>
+<p><b>Hrají:</b> starosta (vede test) a Ruda (testér). Starosta má balíček námitek, Ruda drží repliky v ruce.</p>
+<h3>Příprava</h3><ul>
+<li>Námitky (N1–N6) zamíchat a položit lícem dolů.</li>
+<li><b>Varianta A (hráč, který dával pozor):</b> Ruda dostane všech 15 replik (K1–K15).</li>
+<li><b>Varianta B (hráč, který spěchal):</b> Ruda dostane všechny repliky kromě K10, K14, K6, K15 (dobré repliky z archivu, od Báry a od vrátného).</li></ul>
+<h3>Kolo</h3><ul>
+<li>Starosta otočí námitku a přečte ji s patřičným patosem.</li>
+<li>Ruda zahraje jednu repliku. Každou repliku lze použít jen jednou.</li>
+<li><b>Dobrá replika, která na námitku sedí</b> (podle klíče níže): bod pro Rudu.</li>
+<li><b>Rychlá replika, která na námitku sedí:</b> bod pro Rudu, ale k tomu žeton <b>Slib</b>.</li>
+<li><b>Cokoli jiného:</b> bod pro starostu. Starosta to okomentuje („To jste řekl hezky. A co tím myslíte?“).</li>
+<li>Kdo má první <b>3 body</b>, vyhrál.</li></ul>
+<h3>Konec</h3><ul>
+<li>Ruda vyhrál a má <b>3 žetony Slib</b>: přečti „Slíbil jste všechno“ (níže).</li>
+<li>Ruda prohrál: může se vrátit s lepšími replikami (ve variantě B mu přidej repliky, které neměl) a hrát znovu.</li></ul>
+<p><b>Slíbil jste všechno:</b> <i>„Výborně! Tak největší Archa na světě, do pátku, skoro zadarmo, a za všechno ručíte vy. Podepíšu to dvakrát!“</i> (Ve hře se to vrátí ve 4. kapitole.)</p>
+<h3>Žetony Slib (vystřihnout)</h3>
+<div><span class='zeton'>Slib</span><span class='zeton'>Slib</span><span class='zeton'>Slib</span><span class='zeton'>Slib</span><span class='zeton'>Slib</span><span class='zeton'>Slib</span></div>
+<h3>Klíč pro starostu (repliky, které sedí)</h3>
+<table><tr><th>Námitka</th><th>Dobrá</th><th>Rychlá (+ Slib)</th></tr><tr><td>N1 Lidi chtějí výsledky, ne papíry!</td><td>K11</td><td>K13</td></tr><tr><td>N2 Archa musí být největší v kraji!</td><td>K10</td><td>K4</td></tr><tr><td>N3 Minule to taky nevyšlo.</td><td>K14</td><td>K9</td></tr><tr><td>N4 Kdo za to ponese odpovědnost?</td><td>K1</td><td>K8</td></tr><tr><td>N5 Kolik to bude stát?</td><td>K6</td><td>K12</td></tr><tr><td>N6 Noviny chtějí přestřihnout pásku. Kdy?</td><td>K15</td><td>K5</td></tr></table>
+<p class='mala'>Fráze K2, K7, K3 nesedí nikdy. Sleduj, jestli je testér zkouší (jsou vtipné, ale prohrávají).</p></div><div class='strana karty'><div class='karta namitka'><div class='druh'>Námitka starosty</div><div class='text'>Lidi chtějí výsledky, ne papíry!</div><div class='cislo'>N1</div></div><div class='karta namitka'><div class='druh'>Námitka starosty</div><div class='text'>Archa musí být největší v kraji!</div><div class='cislo'>N2</div></div><div class='karta namitka'><div class='druh'>Námitka starosty</div><div class='text'>Minule to taky nevyšlo.</div><div class='cislo'>N3</div></div><div class='karta namitka'><div class='druh'>Námitka starosty</div><div class='text'>Kdo za to ponese odpovědnost?</div><div class='cislo'>N4</div></div><div class='karta namitka'><div class='druh'>Námitka starosty</div><div class='text'>Kolik to bude stát?</div><div class='cislo'>N5</div></div><div class='karta namitka'><div class='druh'>Námitka starosty</div><div class='text'>Noviny chtějí přestřihnout pásku. Kdy?</div><div class='cislo'>N6</div></div><div class='karta replika'><div class='druh'>Rudova replika</div><div class='text'>Vy za to proč, já za to jak.</div><div class='cislo'>K1</div></div><div class='karta replika'><div class='druh'>Rudova replika</div><div class='text'>Pojďme to ozávorkovat a vrátit se k tomu v příštím kvartálu.</div><div class='cislo'>K2</div></div><div class='karta replika'><div class='druh'>Rudova replika</div><div class='text'>Mám na to Ganttův diagram. I na snídani.</div><div class='cislo'>K3</div></div></div><div class='strana karty'><div class='karta replika'><div class='druh'>Rudova replika</div><div class='text'>Bude největší na světě.</div><div class='cislo'>K4</div></div><div class='karta replika'><div class='druh'>Rudova replika</div><div class='text'>Pásku můžete stříhat hned zítra.</div><div class='cislo'>K5</div></div><div class='karta replika'><div class='druh'>Rudova replika</div><div class='text'>Řeknu vám to, až budeme vědět, co přesně stavíme. Proto ten papír.</div><div class='cislo'>K6</div></div><div class='karta replika'><div class='druh'>Rudova replika</div><div class='text'>Synergie!</div><div class='cislo'>K7</div></div><div class='karta replika'><div class='druh'>Rudova replika</div><div class='text'>Já za všechno!</div><div class='cislo'>K8</div></div><div class='karta replika'><div class='druh'>Rudova replika</div><div class='text'>Minule jsem tu nebyl já.</div><div class='cislo'>K9</div></div><div class='karta replika'><div class='druh'>Rudova replika</div><div class='text'>Podle původního zadání má odvézt všechny obyvatele. Velikost z toho vyplyne.</div><div class='cislo'>K10</div></div><div class='karta replika'><div class='druh'>Rudova replika</div><div class='text'>Proto na jeden papír napíšeme, jaký výsledek chtějí.</div><div class='cislo'>K11</div></div><div class='karta replika'><div class='druh'>Rudova replika</div><div class='text'>Skoro nic. Vlastně nám ještě zbude.</div><div class='cislo'>K12</div></div></div><div class='strana karty'><div class='karta replika'><div class='druh'>Rudova replika</div><div class='text'>Výsledky budou do pátku.</div><div class='cislo'>K13</div></div><div class='karta replika'><div class='druh'>Rudova replika</div><div class='text'>Minule se nikdo nezeptal rybářů. My se zeptáme.</div><div class='cislo'>K14</div></div><div class='karta replika'><div class='druh'>Rudova replika</div><div class='text'>Pásku přestřihnete 30. den při startu. Do té doby vám každý týden ukážu, co je hotové.</div><div class='cislo'>K15</div></div><div class='karta' style='border-color:transparent'></div><div class='karta' style='border-color:transparent'></div><div class='karta' style='border-color:transparent'></div><div class='karta' style='border-color:transparent'></div><div class='karta' style='border-color:transparent'></div><div class='karta' style='border-color:transparent'></div></div><div class='strana'><h1>M02 Kdo tu vlastně velí</h1>
+<p><b>Příběh:</b> před Komisí si Ruda (na Pembokovu radu) nakreslí, kdo o Arše rozhoduje a koho to zajímá.</p>
+<h3>Pravidla</h3><ul>
+<li>Testér dostane karty postav (P1–P8) a <b>stopy</b>, které ve hře „posbíral“.</li>
+<li><b>Varianta A:</b> všechny stopy (S1–S4). <b>Varianta B:</b> jen S4 (spěchal a babičku přehlédl).</li>
+<li>Postavy rozmístí do čtyř polí mapy. Může přemýšlet nahlas a měnit názor.</li></ul>
+<h3>Vyhodnocení (vede test)</h3>
+<table><tr><th>Postava</th><th>Pole</th></tr>
+<tr><td>Starosta</td><td>Hodně může / zajímá ho to středně: <b>udržet spokojeného</b> (nebo získat)</td></tr>
+<tr><td>Předseda</td><td><b>Získat na svou stranu</b></td></tr>
+<tr><td>Paní z chaloupky (babička Pozemková)</td><td><b>Udržet spokojeného</b>: jen se stopou S1 nebo S2 to lze poznat</td></tr>
+<tr><td>Pan Změna</td><td><b>Pravidelně informovat</b></td></tr>
+<tr><td>Bára</td><td><b>Pravidelně informovat</b> (zatím; ve hře její vliv poroste)</td></tr>
+<tr><td>Vrátný, archivář</td><td><b>Pravidelně informovat</b></td></tr>
+<tr><td>Ing. Framework</td><td><b>Nezapomenout</b> (málo může, Archa ho nezajímá)</td></tr></table>
+<p>Hlavně sleduj: <b>umístil babičku vysoko, aniž by měl stopu?</b> (Pak hádá podle „herní logiky“, ne podle hry.)
+<b>Umístil ji nízko i se stopou?</b> (Pak stopa není dost jasná.)</p></div>
+<div class='strana'><div class='mrizka'>
+<div class='osa svisla'>Kolik toho může zařídit nebo zatrhnout ↑</div>
+<div class='pole'>Udržet spokojeného</div><div class='pole'>Získat na svou stranu</div>
+<div class='osa svisla'></div>
+<div class='pole'>Nezapomenout</div><div class='pole'>Pravidelně informovat</div>
+<div></div><div class='osa' style='grid-column:2/4'>Jak moc ho Archa zajímá →</div>
+</div></div><div class='strana karty'><div class='karta postava'><div class='druh'>Postava</div><div class='text'>Starosta Bohumil</div><div class='zdroj'>Podepisuje všechno, co se dá vyfotit pro noviny.</div><div class='cislo'>P1</div></div><div class='karta postava'><div class='druh'>Postava</div><div class='text'>Předseda Věčný</div><div class='zdroj'>Bez jeho razítka se ve městě nehne ani papír.</div><div class='cislo'>P2</div></div><div class='karta postava'><div class='druh'>Postava</div><div class='text'>Paní z chaloupky pod rampou</div><div class='zdroj'>Peče buchty a zalévá rajčata. Nikdo si jí nevšímá.</div><div class='cislo'>P3</div></div><div class='karta postava'><div class='druh'>Postava</div><div class='text'>Pan Změna</div><div class='zdroj'>Mluví do všeho. Každý den chce něco jiného.</div><div class='cislo'>P4</div></div><div class='karta postava'><div class='druh'>Postava</div><div class='text'>Bára</div><div class='zdroj'>Ví o Arše nejvíc. Nikdo se jí neptá.</div><div class='cislo'>P5</div></div><div class='karta postava'><div class='druh'>Postava</div><div class='text'>Vrátný</div><div class='zdroj'>Archa ho má odvézt. Ví, kdo kde sedí.</div><div class='cislo'>P6</div></div><div class='karta postava'><div class='druh'>Postava</div><div class='text'>Archivář Lumír</div><div class='zdroj'>Archa ho má odvézt. Katalogizuje zkrachovalé projekty.</div><div class='cislo'>P7</div></div><div class='karta postava'><div class='druh'>Postava</div><div class='text'>Ing. Framework</div><div class='zdroj'>Prodává krabice s metodikami. Zítra bude prodávat jinde.</div><div class='cislo'>P8</div></div><div class='karta stopa'><div class='druh'>Stopa</div><div class='text'>Katastrální mapa: pozemek pod rampou patří paní Pozemkové.</div><div class='zdroj'>archiv</div><div class='cislo'>S1</div></div></div><div class='strana karty'><div class='karta stopa'><div class='druh'>Stopa</div><div class='text'>Kocour z chaloupky se tváří, jako by mu patřila půlka města.</div><div class='zdroj'>rozhovor s kocourem</div><div class='cislo'>S2</div></div><div class='karta stopa'><div class='druh'>Stopa</div><div class='text'>Bára: „Když mě necháš domluvit: bez kajut pro všechny to nemá smysl.“</div><div class='zdroj'>jen když ji Ruda nechal domluvit</div><div class='cislo'>S3</div></div><div class='karta stopa'><div class='druh'>Stopa</div><div class='text'>Vrátný: „Starosta podepíše cokoli, co bude v novinách.“</div><div class='zdroj'>rozhovor s vrátným</div><div class='cislo'>S4</div></div><div class='karta' style='border-color:transparent'></div><div class='karta' style='border-color:transparent'></div><div class='karta' style='border-color:transparent'></div><div class='karta' style='border-color:transparent'></div><div class='karta' style='border-color:transparent'></div><div class='karta' style='border-color:transparent'></div></div><div class='strana'><h1>M01 Charter z trosek</h1>
+<p><b>Příběh:</b> původní listina Archy se rozpadla na útržky a každý do ní podstrčil něco svého. Ruda ji
+musí slepit tak, aby ji Komise orazítkovala a aby z ní bylo jasné, co se staví.</p>
+<h3>Pravidla</h3><ul>
+<li>Testér dostane všech 16 útržků (U1–U16) zamíchaných.</li>
+<li>Do každé kolonky listiny dá <b>nejvýš jeden</b> útržek. Kolonku může nechat prázdnou.</li>
+<li>Útržky, které nepoužije, odloží. Útržek „…a následné fáze“ lze přilepit kamkoli navíc.</li>
+<li>Žádný časový limit; testér má přemýšlet nahlas.</li></ul>
+<h3>Vyhodnocení (vede test)</h3>
+<table><tr><th>Kolonka</th><th>Správně</th><th>Body</th></tr>
+<tr><td>Co chceme dokázat</td><td>U3</td><td>1</td></tr>
+<tr><td>Do kdy</td><td>U9</td><td>1</td></tr>
+<tr><td>Poznáme, že se to povedlo, když…</td><td>U7</td><td>1</td></tr>
+<tr><td>Co dělat nebudeme</td><td>U5</td><td>bez bodu, jen zaznamenat</td></tr>
+<tr><td>Kdo to podepisuje a rozhoduje</td><td>U13</td><td>bez bodu, jen zaznamenat</td></tr>
+<tr><td>navíc</td><td>U10 nepoužít</td><td>použitý U10 = Ruda přijal „následné fáze“ (R1.4)</td></tr></table>
+<p>Kvalita charteru = 0–3 body. Ve hře podle ní Komise reaguje a ve 4. kapitole se z ní berou argumenty.</p></div>
+<div class='strana'><h1>Listina Archy</h1><p class='mala'>Herní deska pro M01: útržky se pokládají do kolonek.</p>
+<table class='deska'><tr><th style='width:55mm'>Co chceme dokázat</th><td></td></tr><tr><th style='width:55mm'>Do kdy</th><td></td></tr><tr><th style='width:55mm'>Poznáme, že se to povedlo, když…</th><td></td></tr><tr><th style='width:55mm'>Co dělat nebudeme</th><td></td></tr><tr><th style='width:55mm'>Kdo to podepisuje a rozhoduje</th><td></td></tr><tr><th>Navíc</th><td style='height:25mm'></td></tr></table></div><div class='strana karty'><div class='karta utrzek'><div class='druh'>Útržek listiny</div><div class='text'>Nic. Všechno je v rozsahu.</div><div class='zdroj'>Ruda</div><div class='cislo'>U1</div></div><div class='karta utrzek'><div class='druh'>Útržek listiny</div><div class='text'>Co nejdřív, ideálně včera.</div><div class='zdroj'>Ruda</div><div class='cislo'>U2</div></div><div class='karta utrzek'><div class='druh'>Útržek listiny</div><div class='text'>Odvézt všechny obyvatele do bezpečí před dopadem komety.</div><div class='zdroj'>původní zadání (archiv)</div><div class='cislo'>U3</div></div><div class='karta utrzek'><div class='druh'>Útržek listiny</div><div class='text'>Aby to bylo hezký.</div><div class='zdroj'>Pan Změna</div><div class='cislo'>U4</div></div><div class='karta utrzek'><div class='druh'>Útržek listiny</div><div class='text'>Bazén, vyhlídková terasa, fontána.</div><div class='zdroj'>Bára</div><div class='cislo'>U5</div></div><div class='karta utrzek'><div class='druh'>Útržek listiny</div><div class='text'>Až to bude.</div><div class='zdroj'>Předseda</div><div class='cislo'>U6</div></div><div class='karta utrzek'><div class='druh'>Útržek listiny</div><div class='text'>Archa unese 4 812 lidí a opravdu vzlétne.</div><div class='zdroj'>Bára</div><div class='cislo'>U7</div></div><div class='karta utrzek'><div class='druh'>Útržek listiny</div><div class='text'>Postavit největší Archu v kraji.</div><div class='zdroj'>starosta</div><div class='cislo'>U8</div></div><div class='karta utrzek'><div class='druh'>Útržek listiny</div><div class='text'>Start nejpozději 30. den.</div><div class='zdroj'>starosta</div><div class='cislo'>U9</div></div></div><div class='strana karty'><div class='karta utrzek'><div class='druh'>Útržek listiny</div><div class='text'>…a následné fáze.</div><div class='zdroj'>Předseda</div><div class='cislo'>U10</div></div><div class='karta utrzek'><div class='druh'>Útržek listiny</div><div class='text'>Rozhodneme za pochodu.</div><div class='zdroj'>Ing. Framework</div><div class='cislo'>U11</div></div><div class='karta utrzek'><div class='druh'>Útržek listiny</div><div class='text'>Všichni budou spokojení.</div><div class='zdroj'>Pan Změna</div><div class='cislo'>U12</div></div><div class='karta utrzek'><div class='druh'>Útržek listiny</div><div class='text'>Starosta Bohumil. Podepsal.</div><div class='zdroj'>podpis sponzora</div><div class='cislo'>U13</div></div><div class='karta utrzek'><div class='druh'>Útržek listiny</div><div class='text'>Prezentace se bude panu starostovi líbit.</div><div class='zdroj'>starosta</div><div class='cislo'>U14</div></div><div class='karta utrzek'><div class='druh'>Útržek listiny</div><div class='text'>Komise pro schvalování komisí, pokud schválí.</div><div class='zdroj'>Předseda</div><div class='cislo'>U15</div></div><div class='karta utrzek'><div class='druh'>Útržek listiny</div><div class='text'>Ten, kdo bude zrovna na poradě.</div><div class='zdroj'>Pan Změna</div><div class='cislo'>U16</div></div><div class='karta' style='border-color:transparent'></div><div class='karta' style='border-color:transparent'></div></div></body></html>

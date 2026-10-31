@@ -43,6 +43,9 @@ F1 a F2 mohou běžet souběžně. Iterace F3 se mohou s F2 překrývat: grafika
 
 Při 5–8 hodinách týdně to vychází na **3–5 měsíců**.
 
+**Materiály k F1:** [tiskový balíček](papirove-prototypy/kapitola-1.pdf) (průvodce testem, karty
+a herní desky pro M03, M02 a M01; zdroj `papirove-prototypy/vytvor.py`).
+
 ## Iterace výroby (F3)
 
 Každá iterace končí hratelnou verzí na webu, autor ji projde na počítači i telefonu.
@@ -83,7 +86,9 @@ Pro každou iteraci platí **definice hotového:**
 | Večerní verze | 1–2 | jen kde to příběh potřebuje |
 | Referenční listy postav | 7 nových (Předseda, starosta, Pan Změna, Lumír, babička, vrátný, Ing. Framework) + kocour | Ruda a Bára hotové (D30) |
 | Ikony předmětů | cca 15 | ve stylu hry místo zástupných |
-| Části Rudy a Báry pro animaci | 2 sady | jen pokud se v F0 rozhodne pro kostru (jinak loutka, D36) |
+| Animace postav | Ruda hotový, ostatní v F3 | kreslené fáze podle [animací postav](styl/animace-postav.md) (D40–D42) |
+
+**Zadání pro ChatGPT a stav výroby:** [Grafika kapitoly 1](11-grafika-kapitoly-1.md).
 
 ## Rizika
 

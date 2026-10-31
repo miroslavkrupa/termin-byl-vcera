@@ -93,7 +93,7 @@ a interiér potřebují zkoušení s lidmi. Kde se části potkávají, musí se
 - Nechce, aby Archa vzlétla, ale nikdy to neřekne nahlas. Sabotuje procesem: formuláři,
   schůzemi, změnovými požadavky a „ještě jednou analýzou“.
 - Vrchol: odhalení, že kometu Deadline zná léta a projekt držel ve „fázi 2“ úmyslně.
-- ❓ Nerozhodnuto: jasný záporák od začátku, nebo zvrat ve 4. kapitole. Doladit podle podrobností příběhu.
+- **Zvrat ve 4. kapitole** (D44): v kapitole 1 jen náznaky, vypadá jako dobrácký byrokrat.
 
 ### Ing. Framework (vedlejší záporák)
 
